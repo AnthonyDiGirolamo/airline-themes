@@ -927,13 +927,20 @@
   ;;  )
 )
 
-
 (defun shorten-directory (dir max-length)
   "Show up to `max-length' characters of a directory name `dir'."
   (let ((path (reverse (split-string (abbreviate-file-name dir) "/")))
         (output ""))
+    ;; Remove any empty dirnames
     (when (and path (equal "" (car path)))
       (setq path (cdr path)))
+
+    ;; Shorten trailing path names to one character
+    (setq remaining_paths (mapcar
+                           (function (lambda (x) (substring x 0 1)))
+                           (cdr path)))
+    (setq path (cons (car path) remaining_paths))
+
     (while (and path (< (length output) (- max-length 4)))
       (setq output (concat (car path) "/" output))
       (setq path (cdr path)))
