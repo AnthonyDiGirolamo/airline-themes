@@ -546,6 +546,126 @@
   (powerline-airline-set-modeline)
 )
 
+(defun airline-theme-kalisi ()
+  ""
+  (interactive)
+  ;; let s:N1 = [ "#005f00" , "#afd700","22","148"]
+  ;; let s:N2 = [ "#afd700" , "#005f00","148","22"]
+  ;; let s:N3 =   "#b5b5b5"   "#222222"
+
+  ;; let s:I1 = [ "#ffffff" , "#e80000","231","160"]
+  ;; let s:I2 = [ "#ff0000" , "#5f0000","196","52"]
+  ;; let s:I3 =   "#b5b5b5"   "#222222"
+
+  ;; let s:V1 = [ "#0087ff" , "#ffffff","33","231"]
+  ;; let s:V2 = [ "#005faf" , "#5fafff","25","75"]
+  ;; let s:V3 = [ "#87d7ff" , "#005faf","117","25"]
+
+  ;; let s:R1 = [ "#d75fff" , "#ffffff","171","231"]
+  ;; let s:R2 = [ "#5f005f" , "#d75fff","53","171"]
+  ;; let s:R3 = [ "#ff87ff" , "#8700af","213","91"]
+
+  ;; hi StatusLine       guifg=#b5b5b5 guibg=#222222 gui=none term=NONE cterm=NONE
+  ;; hi StatusLineNC     guifg=#857b6f guibg=#303032 gui=none
+
+  ;; " Tabline Plugin
+  ;; let g:airline#themes#kalisi#palette.tabline = {
+  ;; \ 'airline_tab':    ['#bcbcbc', '#005f00','250','22'],
+  ;; \ 'airline_tabsel': ['#404042', '#A6DB29','238','148'],
+  ;; \ 'airline_tabtype':['#afd700', '#204d20','148','22'],
+  ;; \ 'airline_tabfill': s:StatusLine,
+  ;; \ 'airline_tabhid': ['#c5c5c5', '#404042','251','238'],
+  ;; \ 'airline_tabmod': ['#d7ff00', '#afd700','190','148'],
+  ;; \ 'airline_tabmod_unsel':  ['#d7ff00', '#005f00','190','22']
+  ;; let g:airline#themes#kalisi#palette.inactive_modified = {
+  ;; \ 'airline_c':  ['#d7ff00', s:IA[1],'190',s:IA[3]],
+  ;; let g:airline#themes#kalisi#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+  ;; \ s:StatusLine,
+  ;; \ ['#afd700', '#005f00','148','22'],
+  ;; \ [ '#005f00' , '#afd700' , '22','148']
+
+  (let ((normal-outer-foreground  "#005f00") (normal-outer-background  "#afd700")
+        (normal-inner-foreground  "#afd700") (normal-inner-background  "#005f00")
+        (normal-center-foreground "#b5b5b5") (normal-center-background "#222222")
+
+        (insert-outer-foreground  "#ffffff") (insert-outer-background  "#e80000")
+        (insert-inner-foreground  "#ff0000") (insert-inner-background  "#5f0000")
+        (insert-center-foreground "#b5b5b5") (insert-center-background "#222222")
+
+        (visual-outer-foreground  "#0087ff") (visual-outer-background  "#ffffff")
+        (visual-inner-foreground  "#005faf") (visual-inner-background  "#5fafff")
+        (visual-center-foreground "#87d7ff") (visual-center-background "#005faf")
+
+        (inactive1-foreground "#857b6f") (inactive1-background "#303032")
+        (inactive2-foreground "#857b6f") (inactive2-background "#303032"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+
+(defun airline-theme-kolor ()
+  ""
+  (interactive)
+  ;; let s:N1 = [ "#e2e2e2" , "#4f3598" , 254 , 56  ]
+  ;; let s:N2 = [ "#ff5fd7" , "#242322" , 206 , 234 ]
+  ;; let s:N3 = [ "#e2e2e2" , "#4a4a4a" , 254 , 238 ]
+
+  ;; let s:I1 = [ "#242322" , "#7eaefd" , 234 , 111 ]
+  ;; let s:I2 = [ "#75d7d8" , "#242322" , 80  , 234 ]
+  ;; let s:I3 = [ "#e2e2e2" , "#4a4a4a" , 254 , 238 ]
+
+  ;; let s:V1 = [ "#242322" , "#e6987a" , 234 , 180 ]
+  ;; let s:V2 = [ "#dbc570" , "#242322" , 186 , 234 ]
+  ;; let s:V3 = [ "#e2e2e2" , "#4a4a4a" , 254 , 238 ]
+
+  ;; let s:IA1 = [ "#b2b2b2" , "#4a4a4a" , 247 , 238 , "" ]
+  ;; let s:IA2 = [ "#b2b2b2" , "#4a4a4a" , 247 , 238 ]
+  ;; let s:IA3 = [ "#b2b2b2" , "#4a4a4a" , 247 , 238 , "" ]
+
+  ;; let g:airline#themes#kolor#palette.replace.airline_a = [ s:I2[0]   , '#005154' , s:I2[2] , 23      , ''     ]
+  ;; let g:airline#themes#kolor#palette.normal_modified = {
+  ;;       \ 'airline_c': [ '#e2e2e2' , '#4f3598' , 254     , 56      , ''     ] ,
+  ;; let g:airline#themes#kolor#palette.insert_modified = {
+  ;;       \ 'airline_c': [ '#242322' , '#7eaefd' , 234     , 111     , ''     ] ,
+  ;; let g:airline#themes#kolor#palette.visual_modified = {
+  ;;       \ 'airline_c': [ '#242322' , '#e6987a' , 234     , 180      , ''     ] ,
+  ;; let g:airline#themes#kolor#palette.replace_modified = {
+  ;;       \ 'airline_c': [ '#e2e2e2' , '#005154' , 254 , 23  , '' ] ,
+  ;; let g:airline#themes#kolor#palette.inactive_modified = {
+  ;;       \ 'airline_c': [ '#875faf' , '' , 97 , '' , '' ] ,
+  ;; let g:airline#themes#kolor#palette.accents = {
+  ;;       \ 'red': [ '#d96e8a' , '' , 168 , ''  ]
+  ;; let g:airline#themes#kolor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+  ;;       \ [ '#e2e2e2' , '#4a4a4a' , 254 , 238 , ''     ],
+  ;;       \ [ '#e2e2e2' , '#242322' , 254 , 234 , ''     ],
+  ;;       \ [ '#e2e2e2' , '#4f3598' , 254 , 56  , 'bold' ])
+
+  (let ((normal-outer-foreground  "#e2e2e2") (normal-outer-background  "#4f3598")
+        (normal-inner-foreground  "#ff5fd7") (normal-inner-background  "#242322")
+        (normal-center-foreground "#e2e2e2") (normal-center-background "#4a4a4a")
+
+        (insert-outer-foreground  "#242322") (insert-outer-background  "#7eaefd")
+        (insert-inner-foreground  "#75d7d8") (insert-inner-background  "#242322")
+        (insert-center-foreground "#e2e2e2") (insert-center-background "#4a4a4a")
+
+        (visual-outer-foreground  "#242322") (visual-outer-background  "#e6987a")
+        (visual-inner-foreground  "#dbc570") (visual-inner-background  "#242322")
+        (visual-center-foreground "#e2e2e2") (visual-center-background "#4a4a4a")
+
+        (inactive1-foreground "#b2b2b2") (inactive1-background "#4a4a4a")
+        (inactive2-foreground "#b2b2b2") (inactive2-background "#4a4a4a"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
 ;; (defun airline-theme- ()
 ;;   ""
 ;;   (interactive)
