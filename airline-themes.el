@@ -16,15 +16,31 @@
 (require 'evil)
 (require 'powerline)
 
-(defface airline-normal-outer  '((t (:foreground "#141413" :background "#aeee00" :weight normal))) "Airline Normal Outer Face"  :group 'powerline)
-(defface airline-normal-inner  '((t (:foreground "#f4cf86" :background "#45413b" :weight normal))) "Airline Normal Inner Face"  :group 'powerline)
-(defface airline-normal-center '((t (:foreground "#8cffba" :background "#242321" :weight normal))) "Airline Normal Center Face" :group 'powerline)
-(defface airline-insert-outer  '((t (:foreground "#141413" :background "#0a9dff" :weight normal))) "Airline Insert Outer Face"  :group 'powerline)
-(defface airline-insert-inner  '((t (:foreground "#f4cf86" :background "#005faf" :weight normal))) "Airline Insert Inner Face"  :group 'powerline)
-(defface airline-insert-center '((t (:foreground "#0a9dff" :background "#242321" :weight normal))) "Airline Insert Center Face" :group 'powerline)
-(defface airline-visual-outer  '((t (:foreground "#141413" :background "#ffa724" :weight normal))) "Airline Visual Outer Face"  :group 'powerline)
-(defface airline-visual-inner  '((t (:foreground "#000000" :background "#fade3e" :weight normal))) "Airline Visual Inner Face"  :group 'powerline)
-(defface airline-visual-center '((t (:foreground "#000000" :background "#b88853" :weight normal))) "Airline Visual Center Face" :group 'powerline)
+(defface airline-normal-outer  '((t (:foreground "#141413" :background "#aeee00" :weight normal))) "Airline Normal Outer Face"  :group 'powerline-airline)
+(defface airline-normal-inner  '((t (:foreground "#f4cf86" :background "#45413b" :weight normal))) "Airline Normal Inner Face"  :group 'powerline-airline)
+(defface airline-normal-center '((t (:foreground "#8cffba" :background "#242321" :weight normal))) "Airline Normal Center Face" :group 'powerline-airline)
+(defface airline-insert-outer  '((t (:foreground "#141413" :background "#0a9dff" :weight normal))) "Airline Insert Outer Face"  :group 'powerline-airline)
+(defface airline-insert-inner  '((t (:foreground "#f4cf86" :background "#005faf" :weight normal))) "Airline Insert Inner Face"  :group 'powerline-airline)
+(defface airline-insert-center '((t (:foreground "#0a9dff" :background "#242321" :weight normal))) "Airline Insert Center Face" :group 'powerline-airline)
+(defface airline-visual-outer  '((t (:foreground "#141413" :background "#ffa724" :weight normal))) "Airline Visual Outer Face"  :group 'powerline-airline)
+(defface airline-visual-inner  '((t (:foreground "#000000" :background "#fade3e" :weight normal))) "Airline Visual Inner Face"  :group 'powerline-airline)
+(defface airline-visual-center '((t (:foreground "#000000" :background "#b88853" :weight normal))) "Airline Visual Center Face" :group 'powerline-airline)
+
+(defcustom airline-helm-colors t
+  "Set helm colors to match the airline theme.
+
+Valid Values: Enabled, Disabled"
+  :group 'powerline-airline
+  :type '(choice (const :tag "Enabled" t)
+                 (const :tag "Disabled" nil)))
+
+(defcustom airline-cursor-colors t
+  "Set the cursor color based on the current evil state.
+
+Valid Values: Enabled, Disabled"
+  :group 'powerline-airline
+  :type '(choice (const :tag "Enabled" t)
+                 (const :tag "Disabled" nil)))
 
 (defun airline-theme-badwolf ()
   ""
@@ -866,29 +882,38 @@
 (defun powerline-airline-set-cursor-colors ()
   "Set Cursor Colors - only seems to work in the gui"
   (interactive)
-  (setq evil-normal-state-cursor normal-outer-background)
-  (setq evil-insert-state-cursor insert-outer-background)
-  (setq evil-visual-state-cursor visual-outer-background))
+  (when airline-cursor-colors
+    (progn
+     (setq evil-normal-state-cursor normal-outer-background)
+     (setq evil-insert-state-cursor insert-outer-background)
+     (setq evil-visual-state-cursor visual-outer-background))))
 
 ;;;###autoload
 (defun powerline-airline-set-cursor-colors-center ()
   "Set Cursor Colors - only seems to work in the gui"
   (interactive)
-  (setq evil-normal-state-cursor normal-center-background)
-  (setq evil-insert-state-cursor insert-center-background)
-  (setq evil-visual-state-cursor visual-center-background))
+  (when airline-cursor-colors
+    (progn
+     (setq evil-normal-state-cursor normal-center-background)
+     (setq evil-insert-state-cursor insert-center-background)
+     (setq evil-visual-state-cursor visual-center-background))))
 
 ;;;###autoload
 (defun powerline-airline-set-helm-faces ()
   "Set the airline helm colors"
   (interactive)
   (custom-set-faces
-   `(helm-header           ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background  :bold t))))
-   `(helm-selection        ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background  :bold t))))
-   `(helm-source-header    ((t ( :foreground ,insert-center-foreground :background ,insert-center-background :bold t))))
-   `(helm-candidate-number ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background  :bold t))))
-   `(helm-selection-line   ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))
    `(which-func            ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))
+  )
+
+  (when airline-helm-colors
+    (custom-set-faces
+     `(helm-header           ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background  :bold t))))
+     `(helm-selection        ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background  :bold t))))
+     `(helm-source-header    ((t ( :foreground ,insert-center-foreground :background ,insert-center-background :bold t))))
+     `(helm-candidate-number ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background  :bold t))))
+     `(helm-selection-line   ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))
+    )
   )
   ;; These get ignored at boot when the gui is running
   ;; (copy-face 'airline-insert-inner  'helm-header)
