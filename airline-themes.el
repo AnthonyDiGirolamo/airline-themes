@@ -247,6 +247,330 @@
   (powerline-airline-set-modeline)
 )
 
+(defun airline-theme-molokai ()
+  ""
+  (interactive)
+  ;; let s:N1 = [ "#080808" , "#e6db74" , 232 , 144 ] " mode
+  ;; let s:N2 = [ "#f8f8f0" , "#232526" , 253 , 16  ] " info
+  ;; let s:N3 = [ "#f8f8f0" , "#465457" , 253 , 67  ] " statusline
+
+  ;; let s:I1 = [ "#080808" , "#66d9ef" , 232 , 81 ]
+  ;; let s:I2 = [ "#f8f8f0" , "#232526" , 253 , 16 ]
+  ;; let s:I3 = [ "#f8f8f0" , "#465457" , 253 , 67 ]
+
+  ;; let s:V1 = [ "#080808" , "#fd971f" , 232 , 208 ]
+  ;; let s:V2 = [ "#f8f8f0" , "#232526" , 253 , 16  ]
+  ;; let s:V3 = [ "#f8f8f0" , "#465457" , 253 , 67  ]
+
+  ;; let g:airline#themes#molokai#palette.normal_modified = {
+  ;;       \ 'airline_c': [ '#080808' , '#e6db74' , 232 , 144 , '' ] ,
+  ;; let g:airline#themes#molokai#palette.insert_modified = {
+  ;;       \ 'airline_c': [ '#080808' , '#66d9ef' , 232 , 81 , '' ] ,
+  ;; let g:airline#themes#molokai#palette.visual_modified = {
+  ;;       \ 'airline_c': [ '#080808' , '#fd971f' , 232 , 208 , '' ] ,
+  ;; let g:airline#themes#molokai#palette.accents = {
+  ;;       \ 'red': [ '#66d9ef' , '' , 81 , '' , '' ],
+
+  ;; " Replace mode
+  ;; let g:airline#themes#molokai#palette.replace = copy(g:airline#themes#molokai#palette.insert)
+  ;; let g:airline#themes#molokai#palette.replace.airline_a = [ s:I1[0]   , '#ef5939' , s:I1[2] , 166     , ''     ]
+  ;; let g:airline#themes#molokai#palette.replace_modified = {
+  ;;       \ 'airline_c': [ '#080808' , '#ef5939' , 232 , 166 , '' ] ,
+  ;; " Inactive
+  ;; let s:IA = [ '#1b1d1e' , '#465457' , 233 , 67 , '' ]
+  ;; let g:airline#themes#molokai#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
+  ;; let g:airline#themes#molokai#palette.inactive_modified = {
+  ;;       \ 'airline_c': [ '#f8f8f0' , ''        , 253 , ''  , '' ] ,
+  ;; " CtrlP
+  ;; let g:airline#themes#molokai#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+  ;;       \ [ '#f8f8f0' , '#465457' , 253 , 67  , ''     ] ,
+  ;;       \ [ '#f8f8f0' , '#232526' , 253 , 16  , ''     ] ,
+  ;;       \ [ '#080808' , '#e6db74' , 232 , 144 , 'bold' ] )
+
+  (let ((normal-outer-foreground  "#080808") (normal-outer-background  "#e6db74")
+        (normal-inner-foreground  "#f8f8f0") (normal-inner-background  "#232526")
+        (normal-center-foreground "#f8f8f0") (normal-center-background "#465457")
+
+        (insert-outer-foreground  "#080808") (insert-outer-background  "#66d9ef")
+        (insert-inner-foreground  "#f8f8f0") (insert-inner-background  "#232526")
+        (insert-center-foreground "#f8f8f0") (insert-center-background "#465457")
+
+        (visual-outer-foreground  "#080808") (visual-outer-background  "#fd971f")
+        (visual-inner-foreground  "#f8f8f0") (visual-inner-background  "#232526")
+        (visual-center-foreground "#f8f8f0") (visual-center-background "#465457")
+
+        (inactive1-foreground "#1b1d1e") (inactive1-background "#465457")
+        (inactive2-foreground "#1b1d1e") (inactive2-background "#465457"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+(defun airline-theme-papercolor ()
+  ""
+  ;; let s:N1 = [ "#585858" , "#e4e4e4" , 240 , 254 ] " Mode
+  ;; let s:N2 = [ "#e4e4e4" , "#0087af" , 254 , 31  ] " Info
+  ;; let s:N3 = [ "#eeeeee" , "#005f87" , 255 , 24  ] " StatusLine
+
+  ;; let s:I1 = [ "#585858" , "#e4e4e4" , 240 , 254 ] " Mode
+  ;; let s:I2 = [ "#e4e4e4" , "#0087af" , 254 , 31  ] " Info
+  ;; let s:I3 = [ "#eeeeee" , "#005f87" , 255 , 24  ] " StatusLine
+
+  ;; let s:V1 = [ "#005f87",  "#e4e4e4", 24,  254 ]
+  ;; let s:V2 = [ "",         "#0087af", "",  31  ]
+  ;; let s:V3 = [ "#e4e4e4",  "#005f87", 254, 24  ]
+
+  ;; let g:airline#themes#papercolor#palette.normal_modified = {
+  ;;       \ 'airline_c': [ '#eeeeee' , '#005f87' , 255 , 24 , '' ] ,
+  ;; let g:airline#themes#papercolor#palette.insert_modified = {
+  ;;       \ 'airline_c': [ '#eeeeee' , '#005f87' , 255 , 24 , '' ] ,
+  ;; let g:airline#themes#papercolor#palette.visual_modified = {
+  ;;       \ 'airline_c': [ '#e4e4e4', '#005f87', 254, 24  ] ,
+  ;; let g:airline#themes#papercolor#palette.accents = {
+  ;;       \ 'red': [ '#66d9ef' , '' , 81 , '' , '' ],
+
+  ;; " Replace Mode:
+  ;; let g:airline#themes#papercolor#palette.replace = copy(g:airline#themes#papercolor#palette.insert)
+  ;; let g:airline#themes#papercolor#palette.replace.airline_a = [ '#d7005f'   , '#e4e4e4' , 161 , 254, ''     ]
+  ;; let g:airline#themes#papercolor#palette.replace_modified = {
+  ;;       \ 'airline_c': [ '#eeeeee' , '#005f87' , 255 , 24 , '' ] ,
+  ;; " Inactive:
+  ;; let s:IA = [ '#585858' , '#e4e4e4' , 240 , 254 , '' ]
+  ;; let g:airline#themes#papercolor#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
+  ;; let g:airline#themes#papercolor#palette.inactive_modified = {
+  ;;       \ 'airline_c': [ '#585858' , '#e4e4e4' , 240 , 254 , '' ] ,
+  ;; " CtrlP:
+  ;; let g:airline#themes#papercolor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+  ;;       \ [ '#e4e4e4' , '#005f87' , 254 , 24  , ''     ] ,
+  ;;       \ [ '#e4e4e4' , '#0087af' , 254 , 31  , ''     ] ,
+  ;;       \ [ '#585858' , '#e4e4e4' , 240 , 254 , 'bold' ] )
+
+  (interactive)
+  (let ((normal-outer-foreground  "#585858") (normal-outer-background  "#e4e4e4")
+        (normal-inner-foreground  "#e4e4e4") (normal-inner-background  "#0087af")
+        (normal-center-foreground "#eeeeee") (normal-center-background "#005f87")
+
+        (insert-outer-foreground  "#585858") (insert-outer-background  "#e4e4e4")
+        (insert-inner-foreground  "#e4e4e4") (insert-inner-background  "#0087af")
+        (insert-center-foreground "#eeeeee") (insert-center-background "#005f87")
+
+        (visual-outer-foreground  "#005f87") (visual-outer-background  "#e4e4e4")
+        (visual-inner-foreground  "#005f87") (visual-inner-background  "#0087af")
+        (visual-center-foreground "#e4e4e4") (visual-center-background "#005f87")
+
+        (inactive1-foreground "#585858") (inactive1-background "#e4e4e4")
+        (inactive2-foreground "#585858") (inactive2-background "#e4e4e4"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors-center)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+
+(defun airline-theme-behelit ()
+  ""
+  (interactive)
+  ;; let s:N1 = [ "#121212", "#5f87ff", 233, 69  ]
+  ;; let s:N2 = [ "#5f87ff", "#262626", 69 , 235 ]
+  ;; let s:N3 = [ "#5f87ff", "#1c1c1c", 69 , 234, "bold" ]
+
+  ;; let s:I1 = [ "#121212", "#00ff87", 233, 48  ]
+  ;; let s:I2 = [ "#5f87ff", "#262626", 69 , 235 ]
+  ;; let s:I3 = [ "#5f87ff", "#1c1c1c", 69 , 234, "bold" ]
+
+  ;; let s:V1 = [ "#121212", "#5fff5f", 233, 83 ]
+  ;; let s:V2 = [ "#5f87ff", "#262626", 69 , 235 ]
+  ;; let s:V3 = [ "#5f87ff", "#1c1c1c", 69 , 234, "bold" ]
+
+  ;; let g:airline#themes#behelit#palette.normal_modified = {
+  ;;       \ 'airline_c': [ '#d7005f', '#1c1c1c', 161, 234, 'bold' ],
+  ;; let g:airline#themes#behelit#palette.insert_paste = {
+  ;;       \ 'airline_a': [ "#121212", "#5f5faf", 233, 61, '' ],
+  ;;       \ }
+
+  ;; " Replace mode
+  ;; let g:airline#themes#behelit#palette.replace = copy(g:airline#themes#behelit#palette.insert)
+  ;; let g:airline#themes#behelit#palette.replace.airline_a = [ s:I1[0], '#d70057', s:I1[2], 161, '' ]
+  ;; let g:airline#themes#behelit#palette.replace_modified = g:airline#themes#behelit#palette.insert_modified
+
+  ;; " Inactive window
+  ;; let s:IA1 = [ "#4e4e4e", "#1c1c1c", 239, 234, "" ]
+  ;; let s:IA2 = [ "#4e4e4e", "#262626", 239, 235, "" ]
+  ;; let s:IA3 = [ "#4e4e4e", "#1c1c1c", 239, 234, "bold" ]
+  ;; let g:airline#themes#behelit#palette.inactive_modified = {
+  ;;       \ 'airline_c': [ '#5f5f87', '#1c1c1c', 60, 234, 'bold' ],
+  ;; let g:airline#themes#behelit#palette.accents = {
+  ;;       \ 'red': [ '#d7005f', '', 161, '' ]
+  ;; " Warnings
+  ;; let s:WI = [ '#121212', '#d7005f', 233, 161 ]
+  (let ((normal-outer-foreground  "#121212") (normal-outer-background  "#5f87ff")
+        (normal-inner-foreground  "#5f87ff") (normal-inner-background  "#262626")
+        (normal-center-foreground "#5f87ff") (normal-center-background "#1c1c1c")
+
+        (insert-outer-foreground  "#121212") (insert-outer-background  "#00ff87")
+        (insert-inner-foreground  "#5f87ff") (insert-inner-background  "#262626")
+        (insert-center-foreground "#5f87ff") (insert-center-background "#1c1c1c")
+
+        (visual-outer-foreground  "#121212") (visual-outer-background  "#5fff5f")
+        (visual-inner-foreground  "#5f87ff") (visual-inner-background  "#262626")
+        (visual-center-foreground "#5f87ff") (visual-center-background "#1c1c1c")
+
+        (inactive1-foreground "#4e4e4e") (inactive1-background "#1c1c1c")
+        (inactive2-foreground "#4e4e4e") (inactive2-background "#262626"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+(defun airline-theme-durant ()
+  ""
+  (interactive)
+  ;; let s:N1 = [ "#005f00" , "#afd700" , 22  , 148 ]
+  ;; let s:N2 = [ "#93a1a1" , "#586e75" , 245 , 240 ]
+  ;; let s:N3 = [ "#93a1a1" , "#073642" , 240 , 233 ]
+
+  ;; let s:I1 = [ "#ffffff" , "#00875f" , 255 , 29  ]
+  ;; let s:I2 = [ "#9e9e9e" , "#303030" , 247 , 236 ]
+  ;; let s:I3 = [ "#87d7ff" , "#005f87" , 117 , 24  ]
+
+  ;; let s:V1 = [ "#1a1a18" , "#ffffff" , 232 , 255 ]
+  ;; let s:V2 = [ "#ffffff" , "#44403a" , 255, 238 ]
+  ;; let s:V3 = [ "#90a680" , "#2e2d2a" , 64, 235 ]
+
+  ;; let s:IA1 = [ "#4e4e4e" , "#1c1c1c" , 239 , 234 , "" ]
+  ;; let s:IA2 = [ "#4e4e4e" , "#262626" , 239 , 235 , "" ]
+  ;; let s:IA3 = [ "#4e4e4e" , "#303030" , 239 , 236 , "" ]
+
+  ;; let g:airline#themes#durant#palette.insert_paste = {
+  ;;       \ 'airline_a': [ s:I1[0]   , '#d78700' , s:I1[2] , 172     , ''     ] ,
+  ;; let g:airline#themes#durant#palette.replace = copy(g:airline#themes#durant#palette.insert)
+  ;; let g:airline#themes#durant#palette.replace.airline_a = [ s:I2[0]   , '#af0000' , s:I2[2] , 124     , ''     ]
+
+  ;; let g:airline#themes#durant#normal_modified = {
+  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
+  ;; let g:airline#themes#durant#palette.visual_modified = {
+  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
+  ;; let g:airline#themes#durant#palette.insert_modified = {
+  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
+  ;; let g:airline#themes#durant#palette.inactive_modified = {
+  ;;       \ 'airline_c': [ '#875faf' , '' , 97 , '' , '' ] ,
+
+  ;; let g:airline#themes#durant#palette.accents = {
+  ;;       \ 'red': [ '#ff0000' , '' , 160 , ''  ]
+
+  ;;   let g:airline#themes#durant#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+  ;;         \ [ '#d7d7ff' , '#5f00af' , 189 , 55  , ''     ],
+  ;;         \ [ '#ffffff' , '#875fd7' , 231 , 98  , ''     ],
+  ;;         \ [ '#5f00af' , '#ffffff' , 55  , 231 , 'bold' ])
+
+  (let ((normal-outer-foreground  "#005f00") (normal-outer-background  "#afd700")
+        (normal-inner-foreground  "#93a1a1") (normal-inner-background  "#586e75")
+        (normal-center-foreground "#93a1a1") (normal-center-background "#073642")
+
+        (insert-outer-foreground  "#ffffff") (insert-outer-background  "#00875f")
+        (insert-inner-foreground  "#9e9e9e") (insert-inner-background  "#303030")
+        (insert-center-foreground "#87d7ff") (insert-center-background "#005f87")
+
+        (visual-outer-foreground  "#1a1a18") (visual-outer-background  "#ffffff")
+        (visual-inner-foreground  "#ffffff") (visual-inner-background  "#44403a")
+        (visual-center-foreground "#90a680") (visual-center-background "#2e2d2a")
+
+        (inactive1-foreground "#4e4e4e") (inactive1-background "#1c1c1c")
+        (inactive2-foreground "#4e4e4e") (inactive2-background "#262626"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+(defun airline-theme-hybridline ()
+  ""
+  (interactive)
+  ;; let s:N1 = [ "#282a2e" , "#c5c8c6" , "black" , 15      ]
+  ;; let s:N2 = [ "#c5c8c6" , "#373b41" , 15      , 8       ]
+  ;; let s:N3 = [ "#ffffff" , "#282a2e" , 255     , "black" ]
+
+  ;; let s:I1 = [ "#005f5f" , "#8abeb7" , 23  , 14 ]
+  ;; let s:I2 = [ "#c5c8c6" , "#0087af" , 15  , 31 ]
+  ;; let s:I3 = [ "#ffffff" , "#005f87" , 255 , 24 ]
+
+  ;; let s:V1 = [ "#000000",  "#de935f", 16, 3]
+  ;; let s:V2 = [ "#c5c8c6" , "#373b41" , 15      , 8       ]
+  ;; let s:V3 = [ "#ffffff" , "#282a2e" , 255     , "black" ]
+
+  ;; let g:airline#themes#hybridline#palette.normal.airline_a = ['#005f00', '#b5bd68', 22, 10, '']
+
+  ;; let g:airline#themes#hybridline#palette.replace = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
+  ;; let g:airline#themes#hybridline#palette.replace.airline_a = ['#000000', '#CC6666', 16, 9]
+
+  ;; let g:airline#themes#hybridline#palette.visual = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
+  ;; let g:airline#themes#hybridline#palette.visual.airline_a = ['#000000', '#de935f', 16, 3]
+
+  ;; let s:IA1 = [ "#4e4e4e" , "#1c1c1c" , 239 , 234 , "" ]
+  ;; let s:IA2 = [ "#4e4e4e" , "#262626" , 239 , 235 , "" ]
+  ;; let s:IA3 = [ "#4e4e4e" , "#303030" , 239 , 236 , "" ]
+
+  ;; let g:airline#themes#hybridline#palette.insert_paste = {
+  ;;             \ 'airline_a': ['#000000', '#ac4142', 16 , 1, ''] ,
+  ;; let g:airline#themes#hybridline#palette.accents = {
+  ;;       \ 'red': [ '#ff0000' , '' , 160 , ''  ]
+  (let ((normal-outer-foreground  "#282a2e") (normal-outer-background  "#c5c8c6")
+        (normal-inner-foreground  "#c5c8c6") (normal-inner-background  "#373b41")
+        (normal-center-foreground "#ffffff") (normal-center-background "#282a2e")
+
+        (insert-outer-foreground  "#005f5f") (insert-outer-background  "#8abeb7")
+        (insert-inner-foreground  "#c5c8c6") (insert-inner-background  "#0087af")
+        (insert-center-foreground "#ffffff") (insert-center-background "#005f87")
+
+        (visual-outer-foreground  "#000000") (visual-outer-background  "#de935f")
+        (visual-inner-foreground  "#c5c8c6") (visual-inner-background  "#373b41")
+        (visual-center-foreground "#ffffff") (visual-center-background "#282a2e")
+
+        (inactive1-foreground "#4e4e4e") (inactive1-background "#1c1c1c")
+        (inactive2-foreground "#4e4e4e") (inactive2-background "#262626"))
+                                                               "#303030"
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+;; (defun airline-theme- ()
+;;   ""
+;;   (interactive)
+;;   (let ((normal-outer-foreground  ) (normal-outer-background  )
+;;         (normal-inner-foreground  ) (normal-inner-background  )
+;;         (normal-center-foreground ) (normal-center-background )
+
+;;         (insert-outer-foreground  ) (insert-outer-background  )
+;;         (insert-inner-foreground  ) (insert-inner-background  )
+;;         (insert-center-foreground ) (insert-center-background )
+
+;;         (visual-outer-foreground  ) (visual-outer-background  )
+;;         (visual-inner-foreground  ) (visual-inner-background  )
+;;         (visual-center-foreground ) (visual-center-background )
+
+;;         (inactive1-foreground ) (inactive1-background )
+;;         (inactive2-foreground ) (inactive2-background ))
+
+;;     (powerline-airline-set-face-colors)
+;;     (powerline-airline-set-cursor-colors)
+;;     (powerline-airline-set-helm-faces)
+;;   )
+;;   (powerline-airline-set-modeline)
+;; )
+
 ;;;###autoload
 (defun powerline-airline-set-modeline ()
   "Set the airline mode-line-format"
@@ -315,7 +639,7 @@
                                      (funcall separator-left inner-face center-face)
 
                                      ;; Directory
-                                     (powerline-raw (shorten-directory default-directory 20)
+                                     (powerline-raw (shorten-directory default-directory 50)
                                                     center-face 'l)
 
                                      ;; Buffer ID
@@ -425,6 +749,14 @@
   (setq evil-normal-state-cursor normal-outer-background)
   (setq evil-insert-state-cursor insert-outer-background)
   (setq evil-visual-state-cursor visual-outer-background))
+
+;;;###autoload
+(defun powerline-airline-set-cursor-colors-center ()
+  "Set Cursor Colors - only seems to work in the gui"
+  (interactive)
+  (setq evil-normal-state-cursor normal-center-background)
+  (setq evil-insert-state-cursor insert-center-background)
+  (setq evil-visual-state-cursor visual-center-background))
 
 ;;;###autoload
 (defun powerline-airline-set-helm-faces ()
