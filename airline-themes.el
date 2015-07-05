@@ -888,6 +888,7 @@
    `(helm-source-header    ((t ( :foreground ,insert-center-foreground :background ,insert-center-background :bold t))))
    `(helm-candidate-number ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background  :bold t))))
    `(helm-selection-line   ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))
+   `(which-func            ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))
   )
   ;; These get ignored at boot when the gui is running
   ;; (copy-face 'airline-insert-inner  'helm-header)
