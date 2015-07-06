@@ -905,7 +905,7 @@ Valid Values: Enabled, Disabled"
   (powerline-airline-set-modeline)
 )
 
-(defun airline-theme-base16-shell ()
+(defun airline-theme-base16-dark-shell ()
   "Designed for use with base16-shell
 
 url: https://github.com/chriskempson/base16-shell"
@@ -935,7 +935,7 @@ url: https://github.com/chriskempson/base16-shell"
   (powerline-airline-set-modeline)
 )
 
-(defun airline-theme-base16-gui ()
+(defun airline-theme-base16-dark-gui ()
   "Designed for use with the base16 emacs color schemes in the gui
 
 url: https://github.com/mkaito/base16-emacs"
@@ -943,8 +943,6 @@ url: https://github.com/mkaito/base16-emacs"
   (let ((normal-outer-foreground  (face-background 'highlight))          (normal-outer-background  (face-foreground 'link))
         (normal-inner-foreground  (face-foreground 'font-lock-doc-face)) (normal-inner-background  (face-background 'fringe))
         (normal-center-foreground (face-foreground 'font-lock-doc-face)) (normal-center-background (face-background 'highlight))
-
-
 
         (insert-outer-foreground  (face-background 'highlight))          (insert-outer-background  (face-foreground 'success))
         (insert-inner-foreground  (face-foreground 'success))            (insert-inner-background  (face-background 'default))
@@ -967,7 +965,38 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
-(defun airline-theme-solarized-dark-gui ()
+(defun airline-theme-base16-light-gui ()
+  "Designed for use with the base16 emacs color schemes in the gui
+
+url: https://github.com/mkaito/base16-emacs"
+  (interactive)
+  (let ((normal-outer-foreground  (face-background 'default)) (normal-outer-background  (face-foreground 'link))
+        (normal-inner-foreground  (face-background 'fringe))  (normal-inner-background  (face-foreground 'rainbow-delimiters-depth-9-face))
+        (normal-center-foreground (face-background 'fringe))  (normal-center-background (face-foreground 'mode-line-emphasis))
+        (ansi-color-names-vector)
+
+        (insert-outer-foreground  (face-background 'highlight)) (insert-outer-background  (face-foreground 'success))
+        (insert-inner-foreground  (face-foreground 'success))   (insert-inner-background  (face-background 'default))
+        (insert-center-foreground (face-background 'fringe))    (insert-center-background (face-foreground 'mode-line-emphasis))
+
+        (visual-outer-foreground  (face-background 'highlight)) (visual-outer-background  (face-foreground 'warning))
+        (visual-inner-foreground  (face-foreground 'warning))   (visual-inner-background  (face-background 'default))
+        (visual-center-foreground (face-background 'fringe))    (visual-center-background (face-foreground 'mode-line-emphasis))
+
+        (replace-outer-foreground (face-background 'highlight)) (replace-outer-background (face-foreground 'error))
+        (emacs-outer-foreground   (face-background 'highlight)) (emacs-outer-background   (face-foreground 'link-visited))
+
+        (inactive1-foreground (face-foreground 'font-lock-doc-face)) (inactive1-background (face-foreground 'mode-line-emphasis))
+        (inactive2-foreground (face-foreground 'font-lock-doc-face)) (inactive2-background (face-foreground 'mode-line-emphasis)))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+(defun airline-theme-solarized-gui ()
   ""
   (interactive)
   (let ((normal-outer-foreground  (face-background 'highlight)) (normal-outer-background  (face-foreground 'font-lock-function-name-face))
