@@ -905,6 +905,68 @@ Valid Values: Enabled, Disabled"
   (powerline-airline-set-modeline)
 )
 
+(defun airline-theme-base16-shell ()
+  "Designed for use with base16-shell
+
+url: https://github.com/chriskempson/base16-shell"
+  (interactive)
+  (let ((normal-outer-foreground  "color-18") (normal-outer-background  "blue")
+        (normal-inner-foreground  "color-20") (normal-inner-background  "color-19")
+        (normal-center-foreground "color-20") (normal-center-background "color-18")
+
+        (insert-outer-foreground  "color-18") (insert-outer-background  "green")
+        (insert-inner-foreground  "green")    (insert-inner-background  "black")
+        (insert-center-foreground "color-20") (insert-center-background "color-18")
+
+        (visual-outer-foreground  "color-18") (visual-outer-background  "color-16")
+        (visual-inner-foreground  "color-16") (visual-inner-background  "black")
+        (visual-center-foreground "color-20") (visual-center-background "color-18")
+
+        (replace-outer-foreground "color-18") (replace-outer-background "red")
+        (emacs-outer-foreground   "color-18") (emacs-outer-background   "magenta")
+
+        (inactive1-foreground "color-19") (inactive1-background "color-18")
+        (inactive2-foreground "color-19") (inactive2-background "color-18"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+(defun airline-theme-base16-gui ()
+  "Designed for use with the base16 emacs color schemes in the gui
+
+url: https://github.com/mkaito/base16-emacs"
+  (interactive)
+  (let ((normal-outer-foreground  (face-background 'highlight))          (normal-outer-background  (face-foreground 'link))
+        (normal-inner-foreground  (face-foreground 'font-lock-doc-face)) (normal-inner-background  (face-background 'fringe))
+        (normal-center-foreground (face-foreground 'font-lock-doc-face)) (normal-center-background (face-background 'highlight))
+
+
+
+        (insert-outer-foreground  (face-background 'highlight))          (insert-outer-background  (face-foreground 'success))
+        (insert-inner-foreground  (face-foreground 'success))            (insert-inner-background  (face-background 'default))
+        (insert-center-foreground (face-foreground 'font-lock-doc-face)) (insert-center-background (face-background 'highlight))
+
+        (visual-outer-foreground  (face-background 'highlight))          (visual-outer-background  (face-foreground 'warning))
+        (visual-inner-foreground  (face-foreground 'warning))            (visual-inner-background  (face-background 'default))
+        (visual-center-foreground (face-foreground 'font-lock-doc-face)) (visual-center-background (face-background 'highlight))
+
+        (replace-outer-foreground (face-background 'highlight)) (replace-outer-background (face-foreground 'error))
+        (emacs-outer-foreground   (face-background 'highlight)) (emacs-outer-background   (face-foreground 'link-visited))
+
+        (inactive1-foreground (face-foreground 'font-lock-doc-face)) (inactive1-background (face-foreground 'highlight))
+        (inactive2-foreground (face-foreground 'font-lock-doc-face)) (inactive2-background (face-foreground 'highlight)))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
 ;; (defun airline-theme- ()
 ;;   ""
 ;;   (interactive)
@@ -919,6 +981,9 @@ Valid Values: Enabled, Disabled"
 ;;         (visual-outer-foreground  ) (visual-outer-background  )
 ;;         (visual-inner-foreground  ) (visual-inner-background  )
 ;;         (visual-center-foreground ) (visual-center-background )
+
+;;         (replace-outer-foreground ) (replace-outer-background )
+;;         (emacs-outer-foreground   ) (emacs-outer-background   )
 
 ;;         (inactive1-foreground ) (inactive1-background )
 ;;         (inactive2-foreground ) (inactive2-background ))
@@ -1115,9 +1180,11 @@ Valid Values: Enabled, Disabled"
   (interactive)
   (when airline-cursor-colors
     (progn
-     (setq evil-normal-state-cursor normal-outer-background)
-     (setq evil-insert-state-cursor insert-outer-background)
-     (setq evil-visual-state-cursor visual-outer-background))))
+     (setq evil-emacs-state-cursor   emacs-outer-background)
+     (setq evil-normal-state-cursor  normal-outer-background)
+     (setq evil-insert-state-cursor  insert-outer-background)
+     (setq evil-replace-state-cursor replace-outer-background)
+     (setq evil-visual-state-cursor  visual-outer-background))))
 
 ;;;###autoload
 (defun powerline-airline-set-cursor-colors-center ()
@@ -1125,9 +1192,11 @@ Valid Values: Enabled, Disabled"
   (interactive)
   (when airline-cursor-colors
     (progn
-     (setq evil-normal-state-cursor normal-center-background)
-     (setq evil-insert-state-cursor insert-center-background)
-     (setq evil-visual-state-cursor visual-center-background))))
+     (setq evil-emacs-state-cursor   emacs-outer-background)
+     (setq evil-normal-state-cursor  normal-center-background)
+     (setq evil-insert-state-cursor  insert-center-background)
+     (setq evil-replace-state-cursor replace-outer-foreground)
+     (setq evil-visual-state-cursor  visual-center-background))))
 
 ;;;###autoload
 (defun powerline-airline-set-helm-faces ()
