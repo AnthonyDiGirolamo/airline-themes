@@ -1,4 +1,4 @@
-;;; airline-theme.el -- Port of the vim-airline themes https://github.com/bling/vim-airline
+;;; airline-themes.el --- vim-airline themes for emacs powerline
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes.el
@@ -53,6 +53,7 @@ Valid Values: Full, Shortened, Disabled"
                  (const :tag "Shortened" airline-directory-shortened)
                  (const :tag "Disabled" nil)))
 
+;;;###autoload
 (defun airline-theme-badwolf ()
   ""
   (interactive)
@@ -115,7 +116,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
-
+;;;###autoload
 (defun airline-theme-light ()
   ""
   (interactive)
@@ -176,6 +177,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-dark ()
   ""
   (interactive)
@@ -243,6 +245,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-powerlineish ()
   ""
   (interactive)
@@ -288,6 +291,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-wombat ()
   ""
   (interactive)
@@ -344,6 +348,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-molokai ()
   ""
   (interactive)
@@ -409,6 +414,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-papercolor ()
   ""
   ;; let s:N1 = [ "#585858" , "#e4e4e4" , 240 , 254 ] " Mode
@@ -474,7 +480,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
-
+;;;###autoload
 (defun airline-theme-behelit ()
   ""
   (interactive)
@@ -536,6 +542,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-durant ()
   ""
   (interactive)
@@ -602,6 +609,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-hybridline ()
   ""
   (interactive)
@@ -658,6 +666,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-kalisi ()
   ""
   (interactive)
@@ -721,7 +730,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
-
+;;;###autoload
 (defun airline-theme-kolor ()
   ""
   (interactive)
@@ -784,6 +793,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-understated ()
   ""
   (interactive)
@@ -845,6 +855,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-ubaryd ()
   ""
   (interactive)
@@ -914,6 +925,7 @@ Valid Values: Full, Shortened, Disabled"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-base16-dark-shell ()
   "Designed for use with base16-shell
 
@@ -944,6 +956,7 @@ url: https://github.com/chriskempson/base16-shell"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-base16-dark-gui ()
   "Designed for use with the base16 emacs color schemes in the gui
 
@@ -974,6 +987,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-base16-light-gui ()
   "Designed for use with the base16 emacs color schemes in the gui
 
@@ -1005,6 +1019,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-solarized-alternate-gui ()
   ""
   (interactive)
@@ -1033,6 +1048,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-solarized-gui ()
   ""
   (interactive)
@@ -1061,6 +1077,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-sol ()
   ""
   (interactive)
@@ -1139,6 +1156,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-simple ()
   ""
   (interactive)
@@ -1199,6 +1217,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-silver ()
   ""
   (interactive)
@@ -1273,6 +1292,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
+;;;###autoload
 (defun airline-theme-serene ()
   ""
   (interactive)
@@ -1323,7 +1343,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
-
+;;;###autoload
 (defun airline-theme-raven ()
   ""
   (interactive)
@@ -1399,7 +1419,7 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
-
+;;;###autoload
 (defun airline-theme-luna ()
   ""
   (interactive)
@@ -1504,7 +1524,6 @@ url: https://github.com/mkaito/base16-emacs"
 ;;   (powerline-airline-set-modeline)
 ;; )
 
-;;;###autoload
 (defun powerline-airline-set-modeline ()
   "Set the airline mode-line-format"
   (interactive)
@@ -1658,7 +1677,6 @@ url: https://github.com/mkaito/base16-emacs"
                              (powerline-render rhs))))))
   (powerline-reset))
 
-;;;###autoload
 (defun powerline-airline-set-face-colors ()
   "Set appropriate face attributes"
   (interactive)
@@ -1688,7 +1706,6 @@ url: https://github.com/mkaito/base16-emacs"
 )
 
 
-;;;###autoload
 (defun powerline-airline-set-cursor-colors ()
   "Set Cursor Colors - only seems to work in the gui"
   (interactive)
@@ -1711,7 +1728,6 @@ url: https://github.com/mkaito/base16-emacs"
      (setq evil-replace-state-cursor replace-outer-foreground)
      (setq evil-visual-state-cursor  visual-outer-foreground))))
 
-;;;###autoload
 (defun powerline-airline-set-cursor-colors-center ()
   "Set Cursor Colors - only seems to work in the gui"
   (interactive)
@@ -1723,7 +1739,6 @@ url: https://github.com/mkaito/base16-emacs"
      (setq evil-replace-state-cursor replace-outer-foreground)
      (setq evil-visual-state-cursor  visual-center-background))))
 
-;;;###autoload
 (defun powerline-airline-set-helm-faces ()
   "Set the airline helm colors"
   (interactive)
