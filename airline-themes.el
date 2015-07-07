@@ -8,7 +8,7 @@
 
 ;;; Commentary:
 ;;
-;; vim-airline themes for emacs powerline
+;; vim-airline themes https://github.com/bling/vim-airline for emacs powerline https://github.com/milkypostman/powerline
 ;;
 
 ;;; Code:
@@ -1267,6 +1267,7 @@ url: https://github.com/mkaito/base16-emacs"
 
   (copy-face 'airline-normal-center 'mode-line)
   (copy-face 'airline-normal-outer  'mode-line-buffer-id)
+  (copy-face 'airline-normal-outer  'minibuffer-prompt)
 )
 
 
