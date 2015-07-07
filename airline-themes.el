@@ -1189,8 +1189,8 @@ url: https://github.com/mkaito/base16-emacs"
         (replace-outer-foreground "#080808") (replace-outer-background "#af0000")
         (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
 
-        (inactive1-foreground "#4e4e4e") (inactive1-background "#1c1c1c"))
-        (inactive2-foreground "#4e4e4e") (inactive2-background "#080808")
+        (inactive1-foreground "#4e4e4e") (inactive1-background "#1c1c1c")
+        (inactive2-foreground "#4e4e4e") (inactive2-background "#080808"))
 
     (powerline-airline-set-face-colors)
     (powerline-airline-set-cursor-colors)
@@ -1265,6 +1265,56 @@ url: https://github.com/mkaito/base16-emacs"
 
         (inactive1-foreground "#a1a1a1") (inactive1-background "#dddddd")
         (inactive2-foreground "#a1a1a1") (inactive2-background "#dddddd"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors-foreground)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+(defun airline-theme-serene ()
+  ""
+  (interactive)
+  ;; let s:N1 = [ "#00dfff" , "#080808" , 45  , s:termbg ]
+  ;; let s:N2 = [ "#ff5f00" , "#080808" , 202 , s:termbg ]
+  ;; let s:N3 = [ "#767676" , "#080808" , 7   , s:termbg ]
+
+  ;; let s:I1 = [ "#5fff00" , "#080808" , 82  , s:termbg ]
+  ;; let s:I2 = [ "#ff5f00" , "#080808" , 202 , s:termbg ]
+  ;; let s:I3 = [ "#767676" , "#080808" , 7   , s:termbg ]
+
+  ;; let s:V1 = [ "#dfdf00" , "#080808" , 184 , s:termbg ]
+  ;; let s:V2 = [ "#ff5f00" , "#080808" , 202 , s:termbg ]
+  ;; let s:V3 = [ "#767676" , "#080808" , 7   , s:termbg ]
+
+  ;; let s:IA  = [ "#4e4e4e" , "#080808"  , 239 , s:termbg  , "" ]
+  ;; let s:IA2 = [ "#4e4e4e" , "#303030" , 239 , s:termsep , "" ]
+
+  ;; let g:airline#themes#serene#palette.normal_modified = {
+  ;; \ 'airline_c': [ '#df0000' , '#080808', 160     , s:termbg    , ''     ] ,
+  ;; let g:airline#themes#serene#palette.insert_paste = {
+  ;; \ 'airline_a': [ s:I1[0]   , '#d78700' , s:I1[2] , 172     , ''     ] ,
+  ;; let g:airline#themes#serene#palette.replace = {
+  ;; \ 'airline_a': [ s:I1[0]   , '#af0000' , s:I1[2] , 124     , ''     ] ,
+
+  (let ((normal-outer-foreground  "#00dfff") (normal-outer-background  "#080808")
+        (normal-inner-foreground  "#ff5f00") (normal-inner-background  "#080808")
+        (normal-center-foreground "#767676") (normal-center-background "#080808")
+
+        (insert-outer-foreground  "#5fff00") (insert-outer-background  "#080808")
+        (insert-inner-foreground  "#ff5f00") (insert-inner-background  "#080808")
+        (insert-center-foreground "#767676") (insert-center-background "#080808")
+
+        (visual-outer-foreground  "#dfdf00") (visual-outer-background  "#080808")
+        (visual-inner-foreground  "#ff5f00") (visual-inner-background  "#080808")
+        (visual-center-foreground "#767676") (visual-center-background "#080808")
+
+        (replace-outer-foreground "#5fff00") (replace-outer-background "#af0000")
+        (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+
+        (inactive1-foreground "#4e4e4e") (inactive1-background "#080808")
+        (inactive2-foreground "#4e4e4e") (inactive2-background "#303030"))
 
     (powerline-airline-set-face-colors)
     (powerline-airline-set-cursor-colors-foreground)
