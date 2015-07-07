@@ -1323,6 +1323,159 @@ url: https://github.com/mkaito/base16-emacs"
   (powerline-airline-set-modeline)
 )
 
+
+(defun airline-theme-raven ()
+  ""
+  (interactive)
+  ;; let s:N1 = [ "#c8c8c8" , "#2e2e2e" , 188 , 235 ]
+  ;; let s:N2 = [ "#c8c8c8" , "#2e2e2e" , 188 , 235 ]
+  ;; let s:N3 = [ "#c8c8c8" , "#2e2e2e" , 188 , 235 ]
+
+  ;; let s:I1 = [ "#11c279" , "#2e2e2e" , 36 , 235 ]
+  ;; let s:I2 = [ "#11c279" , "#2e2e2e" , 36 , 235 ]
+  ;; let s:I3 = [ "#11c279" , "#2e2e2e" , 36 , 235 ]
+
+  ;; let s:V1 = [ "#6565ff" , "#2e2e2e" , 63 , 235 ]
+  ;; let s:V2 = [ "#6565ff" , "#2e2e2e" , 63 , 235 ]
+  ;; let s:V3 = [ "#6565ff" , "#2e2e2e" , 63 , 235 ]
+
+  ;; let s:IA = [ "#5e5e5e" , "#222222" , 59 , 235 , "" ]
+
+  ;; let g:airline#themes#raven#palette.replace.airline_a = [ '#e60000' , s:I1[1] , 160 , s:I1[3] , '' ]
+  ;; let g:airline#themes#raven#palette.replace.airline_z = [ '#e60000' , s:I1[1] , 160 , s:I1[3] , '' ]
+
+  ;; let g:airline#themes#raven#palette.accents = {
+  ;;       \ 'red': [ '#ff2121' , '' , 196 , '' , '' ],
+
+  ;; let g:airline#themes#raven#palette.normal_modified = {
+  ;;       \ 'airline_c': [ '#e25000' , '#2e2e2e' , 166 , 235 , '' ] ,
+  ;; let g:airline#themes#raven#palette.insert_modified = {
+  ;;       \ 'airline_c': [ '#e25000' , '#2e2e2e' , 166 , 235 , '' ] ,
+  ;; let g:airline#themes#raven#palette.visual_modified = {
+  ;;       \ 'airline_c': [ '#e25000' , '#2e2e2e' , 166 , 235 , '' ] ,
+  ;; let g:airline#themes#raven#palette.inactive_modified = {
+  ;;       \ 'airline_c': [ '#e25000' , '' , 166 , '' , '' ] ,
+
+  ;; let g:airline#themes#raven#palette.insert_paste = {
+  ;;       \ 'airline_a': [ s:I1[0]   , '#2e2e2e' , s:I1[2] , 235 , '' ] ,
+
+  ;; let g:airline#themes#raven#palette.tabline = {
+  ;;       \ 'airline_tab':      ['#c8c8c8' , '#2e2e2e' , 188 , 235 , '' ],
+  ;;       \ 'airline_tabsel':   ['#2e2e2e' , '#a4c639' , 235 , 149 , '' ],
+  ;;       \ 'airline_tabtype':  ['#c8c8c8' , '#2e2e2e' , 188 , 235 , '' ],
+  ;;       \ 'airline_tabfill':  ['#c8c8c8' , '#2e2e2e' , 188 , 235 , '' ],
+  ;;       \ 'airline_tabmod':   ['#2e2e2e' , '#a4c639' , 235 , 149 , '' ],
+
+  ;; let s:WI = [ '#ff0000', '#2e2e2e', 196, 235 ]
+  ;; let g:airline#themes#raven#palette.normal.airline_warning = [
+  ;;      \ s:WI[0], s:WI[1], s:WI[2], s:WI[3]
+
+  ;; let g:airline#themes#raven#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+  ;;       \ [ '#c8c8c8' , '#2e2e2e' , 188 , 235 , ''     ] ,
+  ;;       \ [ '#c8c8c8' , '#2e2e2e' , 188 , 235 , ''     ] ,
+  ;;       \ [ '#2e2e2e' , '#a4c639' , 235 , 149 , ''     ] )
+  (let ((normal-outer-foreground  "#c8c8c8") (normal-outer-background  "#2e2e2e")
+        (normal-inner-foreground  "#c8c8c8") (normal-inner-background  "#2e2e2e")
+        (normal-center-foreground "#c8c8c8") (normal-center-background "#2e2e2e")
+
+        (insert-outer-foreground  "#11c279") (insert-outer-background  "#2e2e2e")
+        (insert-inner-foreground  "#11c279") (insert-inner-background  "#2e2e2e")
+        (insert-center-foreground "#11c279") (insert-center-background "#2e2e2e")
+
+        (visual-outer-foreground  "#6565ff") (visual-outer-background  "#2e2e2e")
+        (visual-inner-foreground  "#6565ff") (visual-inner-background  "#2e2e2e")
+        (visual-center-foreground "#6565ff") (visual-center-background "#2e2e2e")
+
+        (replace-outer-foreground "#e60000") (replace-outer-background "#2e2e2e")
+        (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+
+        (inactive1-foreground "#5e5e5e") (inactive1-background "#222222")
+        (inactive2-foreground "#5e5e5e") (inactive2-background "#222222"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors-foreground)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
+
+(defun airline-theme-luna ()
+  ""
+  (interactive)
+  ;; " vim-airline companion theme of Luna
+  ;; " (https://github.com/Pychimp/vim-luna)
+
+  ;; let s:N1 = [ "#ffffff" , "#005252" , 231  , 36 ]
+  ;; let s:N2 = [ "#ffffff" , "#003f3f" , 231 , 29 ]
+  ;; let s:N3 = [ "#ffffff" , "#002b2b" , 231  , 23 ]
+
+  ;; let s:I1 = [ "#ffffff" , "#789f00" , 231 , 106 ]
+  ;; let s:I2 = [ "#ffffff" , "#003f3f" , 231 , 29  ]
+  ;; let s:I3 = [ "#ffffff" , "#002b2b" , 231 , 23  ]
+
+  ;; let s:V1 = [ "#ffff9a" , "#ff8036" , 222 , 208 ]
+  ;; let s:V2 = [ "#ffffff" , "#003f3f" , 231 , 29 ]
+  ;; let s:V3 = [ "#ffffff" , "#002b2b" , 231  , 23  ]
+
+  ;; let s:IA = [ "#4e4e4e" , "#002b2b" , 59 , 23 , "" ]
+
+  ;; let g:airline#themes#luna#palette.replace.airline_a = [ s:I2[0]   , '#920000' , s:I2[2] , 88     , ''     ]
+
+  ;; let g:airline#themes#luna#palette.accents = {
+  ;;       \ 'red': [ '#ffffff' , '' , 231 , '' , '' ],
+
+  ;; let g:airline#themes#luna#palette.normal_modified = {
+  ;;       \ 'airline_c': [ '#ffffff' , '#450000' , 231     , 52      , ''     ] ,
+  ;; let g:airline#themes#luna#palette.insert_modified = {
+  ;;       \ 'airline_c': [ '#ffffff' , '#005e5e' , 255     , 52      , ''     ] ,
+  ;; let g:airline#themes#luna#palette.insert_paste = {
+  ;;       \ 'airline_a': [ s:I1[0]   , '#789f00' , s:I1[2] , 106     , ''     ] ,
+  ;; let g:airline#themes#luna#palette.visual_modified = {
+  ;;       \ 'airline_c': [ '#ffffff' , '#450000' , 231     , 52      , ''     ] ,
+  ;; let g:airline#themes#luna#palette.inactive_modified = {
+  ;;       \ 'airline_c': [ '#e20000' , ''        , 166      , ''      , ''     ] ,
+
+  ;; let g:airline#themes#luna#palette.tabline = {
+  ;;       \ 'airline_tab':  ['#2aa198', '#003f3f',  231, 29, ''],
+  ;;       \ 'airline_tabsel':  ['#ffffff', '#2e8b57',  231, 36, ''],
+  ;;       \ 'airline_tabtype':  ['#ffffff', '#005252',  231, 36, ''],
+  ;;       \ 'airline_tabfill':  ['#ffffff', '#002b2b',  231, 23, ''],
+  ;;       \ 'airline_tabmod':  ['#ffffff', '#780000',  231, 88, ''],
+
+  ;; let s:WI = [ '#ffffff', '#5f0000', 231, 88 ]
+  ;; let g:airline#themes#luna#palette.normal.airline_warning = [
+  ;;      \ s:WI[0], s:WI[1], s:WI[2], s:WI[3]
+
+  ;; let g:airline#themes#luna#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+  ;;       \ [ '#ffffff' , '#002b2b' , 231 , 23 , ''     ] ,
+  ;;       \ [ '#ffffff' , '#005252' , 231 , 36 , ''     ] ,
+  ;;       \ [ '#ffffff' , '#973d45' , 231 , 95 , ''     ] )
+  (let ((normal-outer-foreground  "#ffffff") (normal-outer-background  "#005252")
+        (normal-inner-foreground  "#ffffff") (normal-inner-background  "#003f3f")
+        (normal-center-foreground "#ffffff") (normal-center-background "#002b2b")
+
+        (insert-outer-foreground  "#ffffff") (insert-outer-background  "#789f00")
+        (insert-inner-foreground  "#ffffff") (insert-inner-background  "#003f3f")
+        (insert-center-foreground "#ffffff") (insert-center-background "#002b2b")
+
+        (visual-outer-foreground  "#ffff9a") (visual-outer-background  "#ff8036")
+        (visual-inner-foreground  "#ffffff") (visual-inner-background  "#003f3f")
+        (visual-center-foreground "#ffffff") (visual-center-background "#002b2b")
+
+        (replace-outer-foreground "#ffffff") (replace-outer-background "#920000")
+        (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+
+        (inactive1-foreground "#4e4e4e") (inactive1-background "#002b2b")
+        (inactive2-foreground "#4e4e4e") (inactive2-background "#002b2b"))
+
+    (powerline-airline-set-face-colors)
+    (powerline-airline-set-cursor-colors)
+    (powerline-airline-set-helm-faces)
+  )
+  (powerline-airline-set-modeline)
+)
+
 ;; (defun airline-theme- ()
 ;;   ""
 ;;   (interactive)
