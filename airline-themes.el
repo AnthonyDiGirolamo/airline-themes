@@ -13,7 +13,6 @@
 
 ;;; Code:
 
-(require 'evil)
 (require 'powerline)
 
 (defface airline-normal-outer  '((t (:foreground "#141413" :background "#aeee00" :weight normal))) "Airline Normal Outer Face"  :group 'airline-themes)
@@ -33,6 +32,7 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
+;;;###autoload
 (defcustom airline-helm-colors t
   "Set helm colors to match the airline theme.
 
@@ -41,6 +41,7 @@ Valid Values: Enabled, Disabled"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
+;;;###autoload
 (defcustom airline-cursor-colors t
   "Set the cursor color based on the current evil state.
 
@@ -49,6 +50,7 @@ Valid Values: Enabled, Disabled"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
+;;;###autoload
 (defcustom airline-display-directory 'airline-directory-shortened
   "Display the currend directory along with the filename.
 
@@ -58,6 +60,7 @@ Valid Values: Full, Shortened, Disabled"
                  (const :tag "Shortened" airline-directory-shortened)
                  (const :tag "Disabled" nil)))
 
+;;;###autoload
 (defun airline-themes-set-modeline ()
   "Set the airline mode-line-format"
   (interactive)
@@ -221,6 +224,7 @@ Valid Values: Full, Shortened, Disabled"
                              (powerline-render rhs))))))
   (powerline-reset))
 
+;;;###autoload
 (defun airline-themes-set-deftheme (theme-name)
   "Set appropriate face attributes"
 
@@ -255,39 +259,7 @@ Valid Values: Full, Shortened, Disabled"
   )
 )
 
-; (defun airline-themes-set-cursor-colors ()
-;   "Set Cursor Colors - only seems to work in the gui"
-;   (interactive)
-;   (when airline-cursor-colors
-;     (progn
-;      (setq evil-emacs-state-cursor   emacs-outer-background)
-;      (setq evil-normal-state-cursor  normal-outer-background)
-;      (setq evil-insert-state-cursor  insert-outer-background)
-;      (setq evil-replace-state-cursor replace-outer-background)
-;      (setq evil-visual-state-cursor  visual-outer-background))))
-
-; (defun airline-themes-set-cursor-colors-foreground ()
-;   "Set Cursor Colors - only seems to work in the gui"
-;   (interactive)
-;   (when airline-cursor-colors
-;     (progn
-;      (setq evil-emacs-state-cursor   emacs-outer-background)
-;      (setq evil-normal-state-cursor  normal-outer-foreground)
-;      (setq evil-insert-state-cursor  insert-outer-foreground)
-;      (setq evil-replace-state-cursor replace-outer-foreground)
-;      (setq evil-visual-state-cursor  visual-outer-foreground))))
-
-; (defun airline-themes-set-cursor-colors-center ()
-;   "Set Cursor Colors - only seems to work in the gui"
-;   (interactive)
-;   (when airline-cursor-colors
-;     (progn
-;      (setq evil-emacs-state-cursor   emacs-outer-background)
-;      (setq evil-normal-state-cursor  normal-center-background)
-;      (setq evil-insert-state-cursor  insert-center-background)
-;      (setq evil-replace-state-cursor replace-outer-foreground)
-;      (setq evil-visual-state-cursor  visual-center-background))))
-
+;;;###autoload
 (defun shorten-directory (dir max-length)
   "Show up to `max-length' characters of a directory name `dir'."
   (let ((path (reverse (split-string (abbreviate-file-name dir) "/")))
