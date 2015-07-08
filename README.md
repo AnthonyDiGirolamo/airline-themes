@@ -7,7 +7,8 @@ This is a port of the themes in vim-airline (https://github.com/bling/vim-airlin
 ## Features
 
 - Separate colors for each major evil mode (normal, insert, visual, replace, emacs)
-- Sets [Helm](https://github.com/emacs-helm/helm) colors
+- Can set [Helm](https://github.com/emacs-helm/helm) colors
+- Can set the current cursor color based on the current airline theme
 - Works nicely in the gui or terminal
 
 ## Helm Colors
@@ -23,17 +24,17 @@ Install via melpa or clone this repo into your load-path then in your `init.el`:
 
 ## Custom Options
 
-- `airline-helm-colors` Set helm colors to match the airline theme.
-  - Valid Values: Enabled, Disabled
-  - Default: Enabled
+- `airline-helm-colors` Set helm colors to match the airline theme.<br/>
+  Valid Values: Enabled, Disabled<br/>
+  Default: Enabled
 
-- `airline-cursor-colors` Set the cursor color based on the current evil state.
-  - Valid Values: Enabled, Disabled
-Default: Enabled
+- `airline-cursor-colors` Set the cursor color based on the current evil state.<br/>
+  Valid Values: Enabled, Disabled<br/>
+  Default: Enabled
 
-`airline-display-directory` Display the currend directory along with the filename.
-  - Valid Values: Full, Shortened, Disabled
-  - Default: Shortened
+- `airline-display-directory` Display the currend directory along with the filename.<br/>
+  Valid Values: Full, Shortened, Disabled<br/>
+  Default: Shortened
 
 ## Available Themes
 
@@ -62,4 +63,3 @@ Default: Enabled
     (airline-theme-serene)
     (airline-theme-raven)
     (airline-theme-luna)
-
