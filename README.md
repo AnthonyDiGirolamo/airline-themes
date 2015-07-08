@@ -17,12 +17,12 @@ This is a port of the themes in [vim-airline](https://github.com/bling/vim-airli
 
 ## Installation
 
-These themes require the `evil` and `powerline` packages. You can install via
-melpa or clone this repo into your load-path then add the following to your
-`init.el`:
+These themes require the `powerline` package. They make the most sense using the
+`evil` package but it isn't required.  You can install via melpa or clone this
+repo into your load-path then add the following to your `init.el`:
 
     (require 'airline-themes)
-    (airline-themes-simple)
+    (load-theme 'airline-light)
 
 ## Custom Options
 
@@ -37,31 +37,3 @@ melpa or clone this repo into your load-path then add the following to your
 - `airline-display-directory` Display the currend directory along with the filename.<br/>
   Valid Values: Full, Shortened, Disabled<br/>
   Default: Shortened
-
-## Current Themes
-
-    (airline-theme-badwolf)
-    (airline-theme-light)
-    (airline-theme-dark)
-    (airline-theme-powerlineish)
-    (airline-theme-wombat)
-    (airline-theme-molokai)
-    (airline-theme-papercolor)
-    (airline-theme-behelit)
-    (airline-theme-durant)
-    (airline-theme-hybridline)
-    (airline-theme-kalisi)
-    (airline-theme-kolor)
-    (airline-theme-understated)
-    (airline-theme-ubaryd)
-    (airline-theme-base16-dark-shell)
-    (airline-theme-base16-dark-gui)
-    (airline-theme-base16-light-gui)
-    (airline-theme-solarized-alternate-gui)
-    (airline-theme-solarized-gui)
-    (airline-theme-sol)
-    (airline-theme-simple)
-    (airline-theme-silver)
-    (airline-theme-serene)
-    (airline-theme-raven)
-    (airline-theme-luna)
