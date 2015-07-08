@@ -1699,9 +1699,9 @@ url: https://github.com/mkaito/base16-emacs"
   (set-face-attribute 'powerline-inactive2   nil :foreground inactive2-foreground     :background inactive2-background)
 
   ;; (copy-face 'airline-normal-center 'mode-line)
-  (set-face-attribute 'mode-line           nil :foreground normal-center-foreground :background normal-center-background :box nil)
-  (set-face-attribute 'mode-line-inactive  nil :foreground inactive1-foreground     :background inactive1-background     :box nil)
-  (set-face-attribute 'mode-line-buffer-id nil :foreground normal-outer-foreground  :background normal-outer-background  :box nil)
+  (set-face-attribute 'mode-line           nil :foreground normal-center-foreground :background normal-center-background :box nil :underline nil :overline nil)
+  (set-face-attribute 'mode-line-inactive  nil :foreground inactive1-foreground     :background inactive1-background     :box nil :underline nil :overline nil)
+  (set-face-attribute 'mode-line-buffer-id nil :foreground normal-outer-foreground  :background normal-outer-background  :box nil :underline nil :overline nil)
   (set-face-attribute 'minibuffer-prompt   nil :foreground normal-outer-foreground  :background normal-outer-background  :box nil)
 )
 
