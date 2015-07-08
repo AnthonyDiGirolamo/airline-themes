@@ -1,6 +1,6 @@
 # airline-themes
 
-This is a port of the themes in vim-airline (https://github.com/bling/vim-airline) to emacs powerline (https://github.com/milkypostman/powerline).
+This is a port of the themes in [vim-airline](https://github.com/bling/vim-airline) to emacs [powerline](https://github.com/milkypostman/powerline).
 
 [![airline-demo.gif](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-demo.gif)](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-demo.gif)
 
@@ -37,7 +37,7 @@ melpa or clone this repo into your load-path then in your `init.el`:
   Valid Values: Full, Shortened, Disabled<br/>
   Default: Shortened
 
-## Available Themes
+## Current Themes
 
     (airline-theme-badwolf)
     (airline-theme-light)
