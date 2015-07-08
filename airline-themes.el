@@ -4,7 +4,7 @@
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes.el
 ;; Version: 1.0
 ;; Keywords: evil, mode-line, powerline, airline, themes
-;; Package-Requires: ((evil "1.0.8") (powerline "2.3"))
+;; Package-Requires: ((powerline "2.3"))
 
 ;;; Commentary:
 ;;
