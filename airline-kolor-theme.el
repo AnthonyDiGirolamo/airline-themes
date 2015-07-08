@@ -1,0 +1,38 @@
+
+;;; Code:
+
+(deftheme airline-kolor
+  "source: https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/kolor.vim")
+
+(let ((normal-outer-foreground  "#e2e2e2") (normal-outer-background  "#4f3598")
+      (normal-inner-foreground  "#ff5fd7") (normal-inner-background  "#242322")
+      (normal-center-foreground "#e2e2e2") (normal-center-background "#4a4a4a")
+
+      (insert-outer-foreground  "#242322") (insert-outer-background  "#7eaefd")
+      (insert-inner-foreground  "#75d7d8") (insert-inner-background  "#242322")
+      (insert-center-foreground "#e2e2e2") (insert-center-background "#4a4a4a")
+
+      (visual-outer-foreground  "#242322") (visual-outer-background  "#e6987a")
+      (visual-inner-foreground  "#dbc570") (visual-inner-background  "#242322")
+      (visual-center-foreground "#e2e2e2") (visual-center-background "#4a4a4a")
+
+      (replace-outer-foreground "#75d7d8") (replace-outer-background "#005154")
+      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+
+      (inactive1-foreground "#b2b2b2") (inactive1-background "#4a4a4a")
+      (inactive2-foreground "#b2b2b2") (inactive2-background "#4a4a4a"))
+  (when airline-cursor-colors
+    (progn
+     (setq evil-emacs-state-cursor   emacs-outer-background)
+     (setq evil-normal-state-cursor  normal-outer-background)
+     (setq evil-insert-state-cursor  insert-outer-background)
+     (setq evil-replace-state-cursor replace-outer-background)
+     (setq evil-visual-state-cursor  visual-outer-background)))
+
+  (airline-themes-set-deftheme 'airline-kolor)
+)
+
+(airline-themes-set-modeline)
+
+(provide-theme 'airline-kolor)
+;;; airline-kolor-theme.el ends here
