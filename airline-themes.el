@@ -59,68 +59,6 @@ Valid Values: Full, Shortened, Disabled"
                  (const :tag "Disabled" nil)))
 
 ;; ;;;###autoload
-;; (defun airline-theme-badwolf ()
-;;   ""
-;;   (interactive)
-;;   ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/badwolf.vim
-
-;;   (let ((normal-outer-foreground  "#141413") (normal-outer-background  "#aeee00")
-;;         (normal-inner-foreground  "#f4cf86") (normal-inner-background  "#45413b")
-;;         (normal-center-foreground "#8cffba") (normal-center-background "#242321")
-
-;;         (insert-outer-foreground  "#141413") (insert-outer-background  "#0a9dff")
-;;         (insert-inner-foreground  "#f4cf86") (insert-inner-background  "#005faf")
-;;         (insert-center-foreground "#0a9dff") (insert-center-background "#242321")
-
-;;         (visual-outer-foreground  "#141413") (visual-outer-background  "#ffa724")
-;;         (visual-inner-foreground  "#000000") (visual-inner-background  "#fade3e")
-;;         (visual-center-foreground "#000000") (visual-center-background "#b88853")
-
-;;         (replace-outer-foreground "#141413") (replace-outer-background "#ff9eb8")
-;;         (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
-
-;;         (inactive1-foreground "#45413b") (inactive1-background "#141413")
-;;         (inactive2-foreground "#45413b") (inactive2-background "#242321"))
-
-;;     (airline-themes-set-face-colors)
-;;     (airline-themes-set-cursor-colors)
-;;     (airline-themes-set-helm-faces)
-;;   )
-;;   (airline-themes-set-modeline)
-;; )
-
-;; ;;;###autoload
-;; (defun airline-theme-light ()
-;;   ""
-;;   (interactive)
-;;   ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/light.vim
-
-;;   (let ((normal-outer-foreground  "#ffffff") (normal-outer-background  "#005fff")
-;;         (normal-inner-foreground  "#000087") (normal-inner-background  "#00dfff")
-;;         (normal-center-foreground "#005f5f") (normal-center-background "#afffff")
-
-;;         (insert-outer-foreground  "#ffffff") (insert-outer-background  "#00875f")
-;;         (insert-inner-foreground  "#005f00") (insert-inner-background  "#00df87")
-;;         (insert-center-foreground "#005f5f") (insert-center-background "#afff87")
-
-;;         (visual-outer-foreground  "#ffffff") (visual-outer-background  "#ff5f00")
-;;         (visual-inner-foreground  "#5f0000") (visual-inner-background  "#ffaf00")
-;;         (visual-center-foreground "#df5f00") (visual-center-background "#ffff87")
-
-;;         (replace-outer-foreground "#005f00") (replace-outer-background "#ff0000")
-;;         (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
-
-;;         (inactive1-foreground "#8a8a8a") (inactive1-background "#d0d0d0")
-;;         (inactive2-foreground "#a8a8a8") (inactive2-background "#ffffff"))
-
-;;     (airline-themes-set-face-colors)
-;;     (airline-themes-set-cursor-colors)
-;;     (airline-themes-set-helm-faces)
-;;   )
-;;   (airline-themes-set-modeline)
-;; )
-
-;; ;;;###autoload
 ;; (defun airline-theme-dark ()
 ;;   ""
 ;;   (interactive)
@@ -991,14 +929,6 @@ Valid Values: Full, Shortened, Disabled"
                              (powerline-render rhs))))))
   (powerline-reset))
 
-;;;###autoload
-(defun airline-theme-light ()
-  (interactive)
-  (load-theme 'airline-light)
-  ;; (airline-themes-set-cursor-colors)
-  (airline-themes-set-modeline)
-)
-
 (defun airline-themes-set-deftheme (theme-name)
   "Set appropriate face attributes"
 
@@ -1013,63 +943,58 @@ Valid Values: Full, Shortened, Disabled"
      `(helm-candidate-number ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background  :bold t))))
      `(helm-selection-line   ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t)))))
 
-   `(airline-normal-outer  ((t ( :foreground normal-outer-foreground  :background normal-outer-background))))
-   `(airline-normal-inner  ((t ( :foreground normal-inner-foreground  :background normal-inner-background))))
-   `(airline-normal-center ((t ( :foreground normal-center-foreground :background normal-center-background))))
-   `(airline-insert-outer  ((t ( :foreground insert-outer-foreground  :background insert-outer-background))))
-   `(airline-insert-inner  ((t ( :foreground insert-inner-foreground  :background insert-inner-background))))
-   `(airline-insert-center ((t ( :foreground insert-center-foreground :background insert-center-background))))
-   `(airline-visual-outer  ((t ( :foreground visual-outer-foreground  :background visual-outer-background))))
-   `(airline-visual-inner  ((t ( :foreground visual-inner-foreground  :background visual-inner-background))))
-   `(airline-visual-center ((t ( :foreground visual-center-foreground :background visual-center-background))))
-   `(airline-replace-outer ((t ( :foreground replace-outer-foreground :background replace-outer-background))))
-   `(airline-emacs-outer   ((t ( :foreground emacs-outer-foreground   :background emacs-outer-background))))
-   `(powerline-inactive1   ((t ( :foreground inactive1-foreground     :background inactive1-background))))
-   `(powerline-inactive2   ((t ( :foreground inactive2-foreground     :background inactive2-background))))
-   `(mode-line             ((t ( :foreground normal-center-foreground :background normal-center-background :box nil :underline nil :overline nil))))
-   `(mode-line-inactive    ((t ( :foreground inactive1-foreground     :background inactive1-background     :box nil :underline nil :overline nil))))
-   `(mode-line-buffer-id   ((t ( :foreground normal-outer-foreground  :background normal-outer-background  :box nil :underline nil :overline nil))))
-   `(minibuffer-prompt     ((t ( :foreground normal-outer-foreground  :background normal-outer-background  :box nil))))
+   `(airline-normal-outer  ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background))))
+   `(airline-normal-inner  ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background))))
+   `(airline-normal-center ((t ( :foreground ,normal-center-foreground :background ,normal-center-background))))
+   `(airline-insert-outer  ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background))))
+   `(airline-insert-inner  ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background))))
+   `(airline-insert-center ((t ( :foreground ,insert-center-foreground :background ,insert-center-background))))
+   `(airline-visual-outer  ((t ( :foreground ,visual-outer-foreground  :background ,visual-outer-background))))
+   `(airline-visual-inner  ((t ( :foreground ,visual-inner-foreground  :background ,visual-inner-background))))
+   `(airline-visual-center ((t ( :foreground ,visual-center-foreground :background ,visual-center-background))))
+   `(airline-replace-outer ((t ( :foreground ,replace-outer-foreground :background ,replace-outer-background))))
+   `(airline-emacs-outer   ((t ( :foreground ,emacs-outer-foreground   :background ,emacs-outer-background))))
+   `(powerline-inactive1   ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background))))
+   `(powerline-inactive2   ((t ( :foreground ,inactive2-foreground     :background ,inactive2-background))))
+   `(mode-line             ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :box nil :underline nil :overline nil))))
+   `(mode-line-inactive    ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background     :box nil :underline nil :overline nil))))
+   `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil :underline nil :overline nil))))
+   `(minibuffer-prompt     ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil))))
   )
 )
 
-(defun airline-themes-set-cursor-colors ()
-  "Set Cursor Colors - only seems to work in the gui"
-  (interactive)
-  (when airline-cursor-colors
-    (progn
-     (setq evil-emacs-state-cursor   emacs-outer-background)
-     (setq evil-normal-state-cursor  normal-outer-background)
-     (setq evil-insert-state-cursor  insert-outer-background)
-     (setq evil-replace-state-cursor replace-outer-background)
-     (setq evil-visual-state-cursor  visual-outer-background))))
+; (defun airline-themes-set-cursor-colors ()
+;   "Set Cursor Colors - only seems to work in the gui"
+;   (interactive)
+;   (when airline-cursor-colors
+;     (progn
+;      (setq evil-emacs-state-cursor   emacs-outer-background)
+;      (setq evil-normal-state-cursor  normal-outer-background)
+;      (setq evil-insert-state-cursor  insert-outer-background)
+;      (setq evil-replace-state-cursor replace-outer-background)
+;      (setq evil-visual-state-cursor  visual-outer-background))))
 
-(defun airline-themes-set-cursor-colors-foreground ()
-  "Set Cursor Colors - only seems to work in the gui"
-  (interactive)
-  (when airline-cursor-colors
-    (progn
-     (setq evil-emacs-state-cursor   emacs-outer-background)
-     (setq evil-normal-state-cursor  normal-outer-foreground)
-     (setq evil-insert-state-cursor  insert-outer-foreground)
-     (setq evil-replace-state-cursor replace-outer-foreground)
-     (setq evil-visual-state-cursor  visual-outer-foreground))))
+; (defun airline-themes-set-cursor-colors-foreground ()
+;   "Set Cursor Colors - only seems to work in the gui"
+;   (interactive)
+;   (when airline-cursor-colors
+;     (progn
+;      (setq evil-emacs-state-cursor   emacs-outer-background)
+;      (setq evil-normal-state-cursor  normal-outer-foreground)
+;      (setq evil-insert-state-cursor  insert-outer-foreground)
+;      (setq evil-replace-state-cursor replace-outer-foreground)
+;      (setq evil-visual-state-cursor  visual-outer-foreground))))
 
-(defun airline-themes-set-cursor-colors-center ()
-  "Set Cursor Colors - only seems to work in the gui"
-  (interactive)
-  (when airline-cursor-colors
-    (progn
-     (setq evil-emacs-state-cursor   emacs-outer-background)
-     (setq evil-normal-state-cursor  normal-center-background)
-     (setq evil-insert-state-cursor  insert-center-background)
-     (setq evil-replace-state-cursor replace-outer-foreground)
-     (setq evil-visual-state-cursor  visual-center-background))))
-
-(defun airline-themes-set-helm-faces ()
-  "Set the airline helm colors"
-  (interactive)
-)
+; (defun airline-themes-set-cursor-colors-center ()
+;   "Set Cursor Colors - only seems to work in the gui"
+;   (interactive)
+;   (when airline-cursor-colors
+;     (progn
+;      (setq evil-emacs-state-cursor   emacs-outer-background)
+;      (setq evil-normal-state-cursor  normal-center-background)
+;      (setq evil-insert-state-cursor  insert-center-background)
+;      (setq evil-replace-state-cursor replace-outer-foreground)
+;      (setq evil-visual-state-cursor  visual-center-background))))
 
 (defun shorten-directory (dir max-length)
   "Show up to `max-length' characters of a directory name `dir'."
