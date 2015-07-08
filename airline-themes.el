@@ -1,4 +1,4 @@
-;; airline-themes.el --- vim-airline themes for emacs powerline
+;;; airline-themes.el --- vim-airline themes for emacs powerline
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes.el
