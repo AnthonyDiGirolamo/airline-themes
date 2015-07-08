@@ -57,39 +57,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-badwolf ()
   ""
   (interactive)
-  ;; Badwolf
-  ;; let s:N1 = [ "#141413" , "#aeee00" , 232 , 154 ] " blackestgravel & lime
-  ;; let s:N2 = [ "#f4cf86" , "#45413b" , 222 , 238 ] " dirtyblonde    & deepgravel
-  ;; let s:N3 = [ "#8cffba" , "#242321" , 121 , 235 ] " saltwatertaffy & darkgravel
-  ;; let s:N4 = [ "#666462" , 241 ]                   " mediumgravel
-
-  ;; let s:I1 = [ "#141413" , "#0a9dff" , 232 , 39  ] " blackestgravel & tardis
-  ;; let s:I2 = [ "#f4cf86" , "#005fff" , 222 , 27  ] " dirtyblonde    & facebook
-  ;; let s:I3 = [ "#0a9dff" , "#242321" , 39  , 235 ] " tardis         & darkgravel
-
-  ;; let s:V1 = [ "#141413" , "#ffa724" , 232 , 214 ] " blackestgravel & orange
-  ;; let s:V2 = [ "#000000" , "#fade3e" , 16  , 221 ] " coal           & dalespale
-  ;; let s:V3 = [ "#000000" , "#b88853" , 16  , 137 ] " coal           & toffee
-  ;; let s:V4 = [ "#c7915b" , 173 ]                   " coffee
-
-  ;; let s:PA = [ '#f4cf86' , 222 ]                   " dirtyblonde
-  ;; let s:RE = [ '#ff9eb8' , 211 ]                   " dress
-  ;; let s:IA = [ s:N3[1] , s:N2[1] , s:N3[3] , s:N2[3] , '' ]
-
-  ;; let g:airline#themes#badwolf#palette.accents = {
-  ;;       \ 'red': [ '#ff2c4b' , '' , 196 , '' , '' ]
-
-  ;; let g:airline#themes#badwolf#palette.normal_modified = {
-  ;;       \ 'airline_b': [ s:N2[0]   , s:N4[0]   , s:N2[2]   , s:N4[1]   , ''     ] ,
-  ;;       \ 'airline_c': [ s:V1[1]   , s:N2[1]   , s:V1[3]   , s:N2[3]   , ''     ] }
-  ;; let g:airline#themes#badwolf#palette.insert_modified = {
-  ;;       \ 'airline_c': [ s:V1[1]   , s:N2[1]   , s:V1[3]   , s:N2[3]   , ''     ] }
-  ;; let g:airline#themes#badwolf#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:I1[0]   , s:PA[0]   , s:I1[2]   , s:PA[1]   , ''     ] }
-  ;; let g:airline#themes#badwolf#palette.visual_modified = {
-  ;;       \ 'airline_c': [ s:V3[0]   , s:V4[0]   , s:V3[2]   , s:V4[1]   , ''     ] }
-  ;; let g:airline#themes#badwolf#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ s:V1[1]   , ''        , s:V1[3]   , ''        , ''     ] }
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/badwolf.vim
 
   (let ((normal-outer-foreground  "#141413") (normal-outer-background  "#aeee00")
         (normal-inner-foreground  "#f4cf86") (normal-inner-background  "#45413b")
@@ -120,37 +88,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-light ()
   ""
   (interactive)
-  ;; Light
-
-  ;; let s:N1 = [ "#ffffff" , "#005fff" , 255 , 27  ]
-  ;; let s:N2 = [ "#000087" , "#00dfff" , 18  , 45  ]
-  ;; let s:N3 = [ "#005fff" , "#afffff" , 27  , 159 ]
-
-  ;; let s:I1 = [ "#ffffff" , "#00875f" , 255 , 29  ]
-  ;; let s:I2 = [ "#005f00" , "#00df87" , 22  , 42  ]
-  ;; let s:I3 = [ "#005f5f" , "#afff87" , 23  , 156 ]
-
-  ;; let s:V1 = [ "#ffffff" , "#ff5f00" , 255 , 202 ]
-  ;; let s:V2 = [ "#5f0000" , "#ffaf00" , 52  , 214 ]
-  ;; let s:V3 = [ "#df5f00" , "#ffff87" , 166 , 228 ]
-
-  ;; let s:IA1 = [ "#666666" , "#b2b2b2" , 242 , 249 , "" ]
-  ;; let s:IA2 = [ "#8a8a8a" , "#d0d0d0" , 245 , 252 , "" ]
-  ;; let s:IA3 = [ "#a8a8a8" , "#ffffff" , 248 , 255 , "" ]
-
-  ;; let g:airline#themes#light#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:I1[0]   , '#d78700' , s:I1[2] , 172     , ''     ] ,
-
-  ;; let g:airline#themes#light#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#df0000' , '#ffdfdf' , 160     , 224     , ''     ] ,
-  ;; let g:airline#themes#light#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#df0000' , '#ffdfdf' , 160     , 224     , ''     ] ,
-  ;; let g:airline#themes#light#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#df0000' , '#ffdfdf' , 160     , 224     , ''     ] ,
-  ;; let g:airline#themes#light#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#df0000' , ''        , 160     , ''      , ''     ] ,
-
-  ;; let g:airline#themes#light#palette.replace.airline_a = [ s:I2[0]   , '#ff0000' , s:I1[2] , 196     , ''     ]
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/light.vim
 
   (let ((normal-outer-foreground  "#ffffff") (normal-outer-background  "#005fff")
         (normal-inner-foreground  "#000087") (normal-inner-background  "#00dfff")
@@ -181,44 +119,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-dark ()
   ""
   (interactive)
-  ;; Dark
-  ;; let s:N1  = [ "#00005f" , "#dfff00" , 17  , 190 ]
-  ;; let s:N2  = [ "#ffffff" , "#444444" , 255 , 238 ]
-  ;; let s:N3  = [ "#9cffd3" , "#202020" , 85  , 234 ]
-
-  ;; let s:I1  = [ "#00005f" , "#00dfff" , 17  , 45  ]
-  ;; let s:I2  = [ "#ffffff" , "#005fff" , 255 , 27  ]
-  ;; let s:I3  = [ "#ffffff" , "#000080" , 15  , 17  ]
-
-  ;; let s:V1  = [ "#000000" , "#ffaf00" , 232 , 214 ]
-  ;; let s:V2  = [ "#000000" , "#ff5f00" , 232 , 202 ]
-  ;; let s:V3  = [ "#ffffff" , "#5f0000" , 15  , 52  ]
-
-  ;; let s:IA1 = [ "#4e4e4e" , "#1c1c1c" , 239 , 234 , "" ]
-  ;; let s:IA2 = [ "#4e4e4e" , "#262626" , 239 , 235 , "" ]
-  ;; let s:IA3 = [ "#4e4e4e" , "#303030" , 239 , 236 , "" ]
-
-  ;; let g:airline#themes#dark#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;       \ [ '#d7d7ff' , '#5f00af' , 189 , 55  , ''     ],
-  ;;       \ [ '#ffffff' , '#875fd7' , 231 , 98  , ''     ],
-  ;;       \ [ '#5f00af' , '#ffffff' , 55  , 231 , 'bold' ])
-
-  ;; let g:airline#themes#dark#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:I1[0]   , '#d78700' , s:I1[2] , 172     , ''     ] ,
-
-  ;; let g:airline#themes#dark#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-  ;; let g:airline#themes#dark#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-  ;; let g:airline#themes#dark#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-  ;; let g:airline#themes#dark#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#875faf' , '' , 97 , '' , '' ] ,
-
-  ;; let g:airline#themes#dark#palette.replace.airline_a = [ s:I2[0]   , '#af0000' , s:I2[2] , 124     , ''     ]
-
-  ;; let g:airline#themes#dark#palette.accents = {
-  ;;       \ 'red': [ '#ff0000' , '' , 160 , ''  ]
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/dark.vim
 
   (let ((normal-outer-foreground  "#00005f") (normal-outer-background  "#dfff00")
         (normal-inner-foreground  "#ffffff") (normal-inner-background  "#444444")
@@ -249,22 +150,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-powerlineish ()
   ""
   (interactive)
-  ;; powerlineish
-  ;; let s:N1 = [ "#005f00" , "#afd700" , 22  , 148 ] " darkestgreen   & brightgreen
-  ;; let s:N2 = [ "#9e9e9e" , "#303030" , 247 , 236 ] " gray8          & gray2
-  ;; let s:N3 = [ "#ffffff" , "#121212" , 231 , 233 ] " white          & gray4
-
-  ;; let s:I1 = [ "#005f5f" , "#ffffff" , 23  , 231 ] " darkestcyan    & white
-  ;; let s:I2 = [ "#5fafd7" , "#0087af" , 74  , 31  ] " darkcyan       & darkblue
-  ;; let s:I3 = [ "#87d7ff" , "#005f87" , 117 , 24  ] " mediumcyan     & darkestblue
-
-  ;; let s:V1 = [ "#080808" , "#ffaf00" , 232 , 214 ] " gray3          & brightestorange
-  ;; let s:N2 = [ "#9e9e9e" , "#303030" , 247 , 236 ] " gray8          & gray2
-  ;; let s:N3 = [ "#ffffff" , "#121212" , 231 , 233 ] " white          & gray4
-
-  ;; let s:RE = [ "#ffffff" , "#d70000" , 231 , 160 ] " white          & brightred
-  ;; let s:N2 = [ "#9e9e9e" , "#303030" , 247 , 236 ] " gray8          & gray2
-  ;; let s:N3 = [ "#ffffff" , "#121212" , 231 , 233 ] " white          & gray4
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/powerlineish.vim
 
   (let ((normal-outer-foreground  "#005f00") (normal-outer-background  "#afd700")
         (normal-inner-foreground  "#9e9e9e") (normal-inner-background  "#303030")
@@ -295,33 +181,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-wombat ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#141413" , "#CAE682" , 232 , 192 ] " mode
-  ;; let s:N2 = [ "#CAE682" , "#32322F" , 192 , 236 ] " info
-  ;; let s:N3 = [ "#CAE682" , "#242424" , 192 , 234 ] " statusline
-
-  ;; let s:I1 = [ "#141413" , "#FDE76E" , 232 , 227 ]
-  ;; let s:I2 = [ "#FDE76E" , "#32322F" , 227 , 236 ]
-  ;; let s:I3 = [ "#FDE76E" , "#242424" , 227 , 234 ]
-
-  ;; let s:V1 = [ "#141413" , "#B5D3F3" , 232 , 153 ]
-  ;; let s:V2 = [ "#B5D3F3" , "#32322F" , 153 , 236 ]
-  ;; let s:V3 = [ "#B5D3F3" , "#242424" , 153 , 234 ]
-
-  ;; Modified modes
-  ;; let s:N4 = [ "#86CD74" , 113 ]
-  ;; let s:I4 = [ "#FADE3E" , 221 ]
-  ;; let s:V4 = [ "#7CB0E6" , 111 ]
-  ;; " Replace mode
-  ;; let s:R1 = [ "#141413" , "#E5786D" , 232 , 173 ]
-  ;; let s:R2 = [ "#E5786D" , "#32322F" , 173 , 236 ]
-  ;; let s:R3 = [ "#E5786D" , "#242424" , 173 , 234 ]
-  ;; let s:R4 = [ "#E55345" , 203 ]
-  ;; " Paste mode
-  ;; let s:PA = [ "#94E42C" , 47 ]
-  ;; " Info modified
-  ;; let s:IM = [ "#40403C" , 238 ]
-  ;; " Inactive mode
-  ;; let s:IA = [ "#767676" , s:N3[1] , 243 , s:N3[3] , "" ]
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/wombat.vim
 
   (let ((normal-outer-foreground  "#141413") (normal-outer-background  "#CAE682")
         (normal-inner-foreground  "#CAE682") (normal-inner-background  "#32322F")
@@ -352,42 +212,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-molokai ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#080808" , "#e6db74" , 232 , 144 ] " mode
-  ;; let s:N2 = [ "#f8f8f0" , "#232526" , 253 , 16  ] " info
-  ;; let s:N3 = [ "#f8f8f0" , "#465457" , 253 , 67  ] " statusline
-
-  ;; let s:I1 = [ "#080808" , "#66d9ef" , 232 , 81 ]
-  ;; let s:I2 = [ "#f8f8f0" , "#232526" , 253 , 16 ]
-  ;; let s:I3 = [ "#f8f8f0" , "#465457" , 253 , 67 ]
-
-  ;; let s:V1 = [ "#080808" , "#fd971f" , 232 , 208 ]
-  ;; let s:V2 = [ "#f8f8f0" , "#232526" , 253 , 16  ]
-  ;; let s:V3 = [ "#f8f8f0" , "#465457" , 253 , 67  ]
-
-  ;; let g:airline#themes#molokai#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#080808' , '#e6db74' , 232 , 144 , '' ] ,
-  ;; let g:airline#themes#molokai#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#080808' , '#66d9ef' , 232 , 81 , '' ] ,
-  ;; let g:airline#themes#molokai#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#080808' , '#fd971f' , 232 , 208 , '' ] ,
-  ;; let g:airline#themes#molokai#palette.accents = {
-  ;;       \ 'red': [ '#66d9ef' , '' , 81 , '' , '' ],
-
-  ;; " Replace mode
-  ;; let g:airline#themes#molokai#palette.replace = copy(g:airline#themes#molokai#palette.insert)
-  ;; let g:airline#themes#molokai#palette.replace.airline_a = [ s:I1[0]   , '#ef5939' , s:I1[2] , 166     , ''     ]
-  ;; let g:airline#themes#molokai#palette.replace_modified = {
-  ;;       \ 'airline_c': [ '#080808' , '#ef5939' , 232 , 166 , '' ] ,
-  ;; " Inactive
-  ;; let s:IA = [ '#1b1d1e' , '#465457' , 233 , 67 , '' ]
-  ;; let g:airline#themes#molokai#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
-  ;; let g:airline#themes#molokai#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#f8f8f0' , ''        , 253 , ''  , '' ] ,
-  ;; " CtrlP
-  ;; let g:airline#themes#molokai#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;       \ [ '#f8f8f0' , '#465457' , 253 , 67  , ''     ] ,
-  ;;       \ [ '#f8f8f0' , '#232526' , 253 , 16  , ''     ] ,
-  ;;       \ [ '#080808' , '#e6db74' , 232 , 144 , 'bold' ] )
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/molokai.vim
 
   (let ((normal-outer-foreground  "#080808") (normal-outer-background  "#e6db74")
         (normal-inner-foreground  "#f8f8f0") (normal-inner-background  "#232526")
@@ -417,42 +242,7 @@ Valid Values: Full, Shortened, Disabled"
 ;;;###autoload
 (defun airline-theme-papercolor ()
   ""
-  ;; let s:N1 = [ "#585858" , "#e4e4e4" , 240 , 254 ] " Mode
-  ;; let s:N2 = [ "#e4e4e4" , "#0087af" , 254 , 31  ] " Info
-  ;; let s:N3 = [ "#eeeeee" , "#005f87" , 255 , 24  ] " StatusLine
-
-  ;; let s:I1 = [ "#585858" , "#e4e4e4" , 240 , 254 ] " Mode
-  ;; let s:I2 = [ "#e4e4e4" , "#0087af" , 254 , 31  ] " Info
-  ;; let s:I3 = [ "#eeeeee" , "#005f87" , 255 , 24  ] " StatusLine
-
-  ;; let s:V1 = [ "#005f87",  "#e4e4e4", 24,  254 ]
-  ;; let s:V2 = [ "",         "#0087af", "",  31  ]
-  ;; let s:V3 = [ "#e4e4e4",  "#005f87", 254, 24  ]
-
-  ;; let g:airline#themes#papercolor#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#eeeeee' , '#005f87' , 255 , 24 , '' ] ,
-  ;; let g:airline#themes#papercolor#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#eeeeee' , '#005f87' , 255 , 24 , '' ] ,
-  ;; let g:airline#themes#papercolor#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#e4e4e4', '#005f87', 254, 24  ] ,
-  ;; let g:airline#themes#papercolor#palette.accents = {
-  ;;       \ 'red': [ '#66d9ef' , '' , 81 , '' , '' ],
-
-  ;; " Replace Mode:
-  ;; let g:airline#themes#papercolor#palette.replace = copy(g:airline#themes#papercolor#palette.insert)
-  ;; let g:airline#themes#papercolor#palette.replace.airline_a = [ '#d7005f'   , '#e4e4e4' , 161 , 254, ''     ]
-  ;; let g:airline#themes#papercolor#palette.replace_modified = {
-  ;;       \ 'airline_c': [ '#eeeeee' , '#005f87' , 255 , 24 , '' ] ,
-  ;; " Inactive:
-  ;; let s:IA = [ '#585858' , '#e4e4e4' , 240 , 254 , '' ]
-  ;; let g:airline#themes#papercolor#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
-  ;; let g:airline#themes#papercolor#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#585858' , '#e4e4e4' , 240 , 254 , '' ] ,
-  ;; " CtrlP:
-  ;; let g:airline#themes#papercolor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;       \ [ '#e4e4e4' , '#005f87' , 254 , 24  , ''     ] ,
-  ;;       \ [ '#e4e4e4' , '#0087af' , 254 , 31  , ''     ] ,
-  ;;       \ [ '#585858' , '#e4e4e4' , 240 , 254 , 'bold' ] )
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/papercolor.vim
 
   (interactive)
   (let ((normal-outer-foreground  "#585858") (normal-outer-background  "#e4e4e4")
@@ -484,39 +274,8 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-behelit ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#121212", "#5f87ff", 233, 69  ]
-  ;; let s:N2 = [ "#5f87ff", "#262626", 69 , 235 ]
-  ;; let s:N3 = [ "#5f87ff", "#1c1c1c", 69 , 234, "bold" ]
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/behelit.vim
 
-  ;; let s:I1 = [ "#121212", "#00ff87", 233, 48  ]
-  ;; let s:I2 = [ "#5f87ff", "#262626", 69 , 235 ]
-  ;; let s:I3 = [ "#5f87ff", "#1c1c1c", 69 , 234, "bold" ]
-
-  ;; let s:V1 = [ "#121212", "#5fff5f", 233, 83 ]
-  ;; let s:V2 = [ "#5f87ff", "#262626", 69 , 235 ]
-  ;; let s:V3 = [ "#5f87ff", "#1c1c1c", 69 , 234, "bold" ]
-
-  ;; let g:airline#themes#behelit#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#d7005f', '#1c1c1c', 161, 234, 'bold' ],
-  ;; let g:airline#themes#behelit#palette.insert_paste = {
-  ;;       \ 'airline_a': [ "#121212", "#5f5faf", 233, 61, '' ],
-  ;;       \ }
-
-  ;; " Replace mode
-  ;; let g:airline#themes#behelit#palette.replace = copy(g:airline#themes#behelit#palette.insert)
-  ;; let g:airline#themes#behelit#palette.replace.airline_a = [ s:I1[0], '#d70057', s:I1[2], 161, '' ]
-  ;; let g:airline#themes#behelit#palette.replace_modified = g:airline#themes#behelit#palette.insert_modified
-
-  ;; " Inactive window
-  ;; let s:IA1 = [ "#4e4e4e", "#1c1c1c", 239, 234, "" ]
-  ;; let s:IA2 = [ "#4e4e4e", "#262626", 239, 235, "" ]
-  ;; let s:IA3 = [ "#4e4e4e", "#1c1c1c", 239, 234, "bold" ]
-  ;; let g:airline#themes#behelit#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#5f5f87', '#1c1c1c', 60, 234, 'bold' ],
-  ;; let g:airline#themes#behelit#palette.accents = {
-  ;;       \ 'red': [ '#d7005f', '', 161, '' ]
-  ;; " Warnings
-  ;; let s:WI = [ '#121212', '#d7005f', 233, 161 ]
   (let ((normal-outer-foreground  "#121212") (normal-outer-background  "#5f87ff")
         (normal-inner-foreground  "#5f87ff") (normal-inner-background  "#262626")
         (normal-center-foreground "#5f87ff") (normal-center-background "#1c1c1c")
@@ -546,43 +305,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-durant ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#005f00" , "#afd700" , 22  , 148 ]
-  ;; let s:N2 = [ "#93a1a1" , "#586e75" , 245 , 240 ]
-  ;; let s:N3 = [ "#93a1a1" , "#073642" , 240 , 233 ]
-
-  ;; let s:I1 = [ "#ffffff" , "#00875f" , 255 , 29  ]
-  ;; let s:I2 = [ "#9e9e9e" , "#303030" , 247 , 236 ]
-  ;; let s:I3 = [ "#87d7ff" , "#005f87" , 117 , 24  ]
-
-  ;; let s:V1 = [ "#1a1a18" , "#ffffff" , 232 , 255 ]
-  ;; let s:V2 = [ "#ffffff" , "#44403a" , 255, 238 ]
-  ;; let s:V3 = [ "#90a680" , "#2e2d2a" , 64, 235 ]
-
-  ;; let s:IA1 = [ "#4e4e4e" , "#1c1c1c" , 239 , 234 , "" ]
-  ;; let s:IA2 = [ "#4e4e4e" , "#262626" , 239 , 235 , "" ]
-  ;; let s:IA3 = [ "#4e4e4e" , "#303030" , 239 , 236 , "" ]
-
-  ;; let g:airline#themes#durant#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:I1[0]   , '#d78700' , s:I1[2] , 172     , ''     ] ,
-  ;; let g:airline#themes#durant#palette.replace = copy(g:airline#themes#durant#palette.insert)
-  ;; let g:airline#themes#durant#palette.replace.airline_a = [ s:I2[0]   , '#af0000' , s:I2[2] , 124     , ''     ]
-
-  ;; let g:airline#themes#durant#normal_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-  ;; let g:airline#themes#durant#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-  ;; let g:airline#themes#durant#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-  ;; let g:airline#themes#durant#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#875faf' , '' , 97 , '' , '' ] ,
-
-  ;; let g:airline#themes#durant#palette.accents = {
-  ;;       \ 'red': [ '#ff0000' , '' , 160 , ''  ]
-
-  ;;   let g:airline#themes#durant#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;         \ [ '#d7d7ff' , '#5f00af' , 189 , 55  , ''     ],
-  ;;         \ [ '#ffffff' , '#875fd7' , 231 , 98  , ''     ],
-  ;;         \ [ '#5f00af' , '#ffffff' , 55  , 231 , 'bold' ])
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/durant.vim
 
   (let ((normal-outer-foreground  "#005f00") (normal-outer-background  "#afd700")
         (normal-inner-foreground  "#93a1a1") (normal-inner-background  "#586e75")
@@ -613,34 +336,8 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-hybridline ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#282a2e" , "#c5c8c6" , "black" , 15      ]
-  ;; let s:N2 = [ "#c5c8c6" , "#373b41" , 15      , 8       ]
-  ;; let s:N3 = [ "#ffffff" , "#282a2e" , 255     , "black" ]
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/hybridline.vim
 
-  ;; let s:I1 = [ "#005f5f" , "#8abeb7" , 23  , 14 ]
-  ;; let s:I2 = [ "#c5c8c6" , "#0087af" , 15  , 31 ]
-  ;; let s:I3 = [ "#ffffff" , "#005f87" , 255 , 24 ]
-
-  ;; let s:V1 = [ "#000000",  "#de935f", 16, 3]
-  ;; let s:V2 = [ "#c5c8c6" , "#373b41" , 15      , 8       ]
-  ;; let s:V3 = [ "#ffffff" , "#282a2e" , 255     , "black" ]
-
-  ;; let g:airline#themes#hybridline#palette.normal.airline_a = ['#005f00', '#b5bd68', 22, 10, '']
-
-  ;; let g:airline#themes#hybridline#palette.replace = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
-  ;; let g:airline#themes#hybridline#palette.replace.airline_a = ['#000000', '#CC6666', 16, 9]
-
-  ;; let g:airline#themes#hybridline#palette.visual = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
-  ;; let g:airline#themes#hybridline#palette.visual.airline_a = ['#000000', '#de935f', 16, 3]
-
-  ;; let s:IA1 = [ "#4e4e4e" , "#1c1c1c" , 239 , 234 , "" ]
-  ;; let s:IA2 = [ "#4e4e4e" , "#262626" , 239 , 235 , "" ]
-  ;; let s:IA3 = [ "#4e4e4e" , "#303030" , 239 , 236 , "" ]
-
-  ;; let g:airline#themes#hybridline#palette.insert_paste = {
-  ;;             \ 'airline_a': ['#000000', '#ac4142', 16 , 1, ''] ,
-  ;; let g:airline#themes#hybridline#palette.accents = {
-  ;;       \ 'red': [ '#ff0000' , '' , 160 , ''  ]
   (let ((normal-outer-foreground  "#282a2e") (normal-outer-background  "#c5c8c6")
         (normal-inner-foreground  "#c5c8c6") (normal-inner-background  "#373b41")
         (normal-center-foreground "#ffffff") (normal-center-background "#282a2e")
@@ -670,40 +367,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-kalisi ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#005f00" , "#afd700","22","148"]
-  ;; let s:N2 = [ "#afd700" , "#005f00","148","22"]
-  ;; let s:N3 =   "#b5b5b5"   "#222222"
-
-  ;; let s:I1 = [ "#ffffff" , "#e80000","231","160"]
-  ;; let s:I2 = [ "#ff0000" , "#5f0000","196","52"]
-  ;; let s:I3 =   "#b5b5b5"   "#222222"
-
-  ;; let s:V1 = [ "#0087ff" , "#ffffff","33","231"]
-  ;; let s:V2 = [ "#005faf" , "#5fafff","25","75"]
-  ;; let s:V3 = [ "#87d7ff" , "#005faf","117","25"]
-
-  ;; let s:R1 = [ "#d75fff" , "#ffffff","171","231"]
-  ;; let s:R2 = [ "#5f005f" , "#d75fff","53","171"]
-  ;; let s:R3 = [ "#ff87ff" , "#8700af","213","91"]
-
-  ;; hi StatusLine       guifg=#b5b5b5 guibg=#222222 gui=none term=NONE cterm=NONE
-  ;; hi StatusLineNC     guifg=#857b6f guibg=#303032 gui=none
-
-  ;; " Tabline Plugin
-  ;; let g:airline#themes#kalisi#palette.tabline = {
-  ;; \ 'airline_tab':    ['#bcbcbc', '#005f00','250','22'],
-  ;; \ 'airline_tabsel': ['#404042', '#A6DB29','238','148'],
-  ;; \ 'airline_tabtype':['#afd700', '#204d20','148','22'],
-  ;; \ 'airline_tabfill': s:StatusLine,
-  ;; \ 'airline_tabhid': ['#c5c5c5', '#404042','251','238'],
-  ;; \ 'airline_tabmod': ['#d7ff00', '#afd700','190','148'],
-  ;; \ 'airline_tabmod_unsel':  ['#d7ff00', '#005f00','190','22']
-  ;; let g:airline#themes#kalisi#palette.inactive_modified = {
-  ;; \ 'airline_c':  ['#d7ff00', s:IA[1],'190',s:IA[3]],
-  ;; let g:airline#themes#kalisi#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;; \ s:StatusLine,
-  ;; \ ['#afd700', '#005f00','148','22'],
-  ;; \ [ '#005f00' , '#afd700' , '22','148']
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/kalisi.vim
 
   (let ((normal-outer-foreground  "#005f00") (normal-outer-background  "#afd700")
         (normal-inner-foreground  "#afd700") (normal-inner-background  "#005f00")
@@ -734,39 +398,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-kolor ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#e2e2e2" , "#4f3598" , 254 , 56  ]
-  ;; let s:N2 = [ "#ff5fd7" , "#242322" , 206 , 234 ]
-  ;; let s:N3 = [ "#e2e2e2" , "#4a4a4a" , 254 , 238 ]
-
-  ;; let s:I1 = [ "#242322" , "#7eaefd" , 234 , 111 ]
-  ;; let s:I2 = [ "#75d7d8" , "#242322" , 80  , 234 ]
-  ;; let s:I3 = [ "#e2e2e2" , "#4a4a4a" , 254 , 238 ]
-
-  ;; let s:V1 = [ "#242322" , "#e6987a" , 234 , 180 ]
-  ;; let s:V2 = [ "#dbc570" , "#242322" , 186 , 234 ]
-  ;; let s:V3 = [ "#e2e2e2" , "#4a4a4a" , 254 , 238 ]
-
-  ;; let s:IA1 = [ "#b2b2b2" , "#4a4a4a" , 247 , 238 , "" ]
-  ;; let s:IA2 = [ "#b2b2b2" , "#4a4a4a" , 247 , 238 ]
-  ;; let s:IA3 = [ "#b2b2b2" , "#4a4a4a" , 247 , 238 , "" ]
-
-  ;; let g:airline#themes#kolor#palette.replace.airline_a = [ s:I2[0]   , '#005154' , s:I2[2] , 23      , ''     ]
-  ;; let g:airline#themes#kolor#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#e2e2e2' , '#4f3598' , 254     , 56      , ''     ] ,
-  ;; let g:airline#themes#kolor#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#242322' , '#7eaefd' , 234     , 111     , ''     ] ,
-  ;; let g:airline#themes#kolor#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#242322' , '#e6987a' , 234     , 180      , ''     ] ,
-  ;; let g:airline#themes#kolor#palette.replace_modified = {
-  ;;       \ 'airline_c': [ '#e2e2e2' , '#005154' , 254 , 23  , '' ] ,
-  ;; let g:airline#themes#kolor#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#875faf' , '' , 97 , '' , '' ] ,
-  ;; let g:airline#themes#kolor#palette.accents = {
-  ;;       \ 'red': [ '#d96e8a' , '' , 168 , ''  ]
-  ;; let g:airline#themes#kolor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;       \ [ '#e2e2e2' , '#4a4a4a' , 254 , 238 , ''     ],
-  ;;       \ [ '#e2e2e2' , '#242322' , 254 , 234 , ''     ],
-  ;;       \ [ '#e2e2e2' , '#4f3598' , 254 , 56  , 'bold' ])
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/kolor.vim
 
   (let ((normal-outer-foreground  "#e2e2e2") (normal-outer-background  "#4f3598")
         (normal-inner-foreground  "#ff5fd7") (normal-inner-background  "#242322")
@@ -797,38 +429,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-understated ()
   ""
   (interactive)
-    ;; let s:N1 = ["#FFFFFF", "#5F87FF", 15, 69]  " Outside blocks in normal mode (mode and file position)
-    ;; let s:N2 = ["#AFAF87", "#5F5F5F", 144, 59] " Next blocks inside (branch and file format)
-    ;; let s:N3 = ["#AFAF87", "#5F5F5F", 144, 59] " The middle block
-
-    ;; let s:I1 = ["#FFFFFF", "#87AF5F", 15, 107] " Outside blocks in normal mode (mode and file position)
-    ;; let s:I2 = ["#AFAF87", "#5F5F5F", 144, 59] " Next blocks inside (branch and file format)
-    ;; let s:I3 = ["#AFAF87", "#5F5F5F", 144, 59] " The middle block
-
-    ;; let s:V1 = ["#FFFFFF", "#AF5F00", 15, 130]
-    ;; let s:V2 = ["#AFAF87", "#5F5F5F", 144, 59]
-    ;; let s:V3 = ["#AFAF87", "#5F5F5F", 144, 59]
-
-    ;; let g:airline#themes#understated#palette.insert_paste = {'airline_c': ['#AFAF87', '#5F5F5F', 144, 59, ''] ,}
-    ;; let g:airline#themes#understated#palette.replace.airline_a = ['#FFFFFF', '#870000', 15, 88, '']
-
-    ;; let s:V1 = ['#080808', '#FFAF00', 232, 214]
-    ;; let s:IA1 = ['#4E4E4E', '#1C1C1C', 239, 234, '']
-    ;; let s:IA2 = ['#4E4E4E', '#1C1C1C', 239, 234, '']
-    ;; let s:IA3 = ['#4E4E4E', '#1C1C1C', 239, 234, '']
-
-    ;; let g:airline#themes#understated#palette.normal_modified = {'airline_c': ['#ffffff', '#5f005f', 144, 59, 'bold'] ,}
-    ;; let g:airline#themes#understated#palette.insert_modified = {'airline_c': ['#AFAF87', '#5F5F5F', 144, 59, 'bold'] ,}
-    ;; let g:airline#themes#understated#palette.replace_modified = {'airline_c': ['#AFAF87', '#5F5F5F', 144, 59, 'bold'] ,}
-    ;; let g:airline#themes#understated#palette.visual_modified = {'airline_c': [ '#AFAF87', '#5f005f', 144, 59, 'bold'] ,}
-    ;; let g:airline#themes#understated#palette.inactive_modified = {'airline_c': ['#4E4E4E', '', 239, '', 'bold'] ,}
-
-    ;; let g:airline#themes#understated#palette.accents = {'red': ['#FF0000', '', 88, '']}
-
-    ;; let g:airline#themes#understated#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-    ;;       \ ['#FFFFFF', '#1C1C1C', 15, 234, '' ],
-    ;;       \ ['#FFFFFF', '#262626', 15, 235, '' ],
-    ;;       \ ['#FFFFFF', '#303030', 15, 236, 'bold'])
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/understated.vim
 
   (let ((normal-outer-foreground  "#FFFFFF") (normal-outer-background  "#5F87FF")
         (normal-inner-foreground  "#AFAF87") (normal-inner-background  "#5F5F5F")
@@ -859,46 +460,7 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-theme-ubaryd ()
   ""
   (interactive)
-
-  ;; let s:N1 = [ "#141413" , "#c7b386" , 232 , 252 ] " blackestgravel & bleaksand
-  ;; let s:N2 = [ "#c7b386" , "#45413b" , 252, 238 ] " bleaksand & deepgravel
-  ;; let s:N3 = [ "#b88853" , "#242321" , 137, 235 ] " toffee & darkgravel
-
-  ;; let s:I1 = [ "#1a1a18" , "#fade3e" , 232 , 221 ] " blackestgravel & warmcorn
-  ;; let s:I2 = [ "#c7b386" , "#45413b" , 252 , 238 ] " bleaksand & deepgravel
-  ;; let s:I3 = [ "#f4cf86" , "#242321" , 222 , 235 ] " lighttannedskin & darkgravel
-
-  ;; let s:V1 = [ "#1c1b1a" , "#9a4820" , 233 , 88 ] " blackgravel & warmadobe
-  ;; let s:V2 = [ "#000000" , "#88633f" , 16 , 95 ] " coal & cappuccino
-  ;; let s:V3 = [ "#88633f" , "#c7b386" , 95 , 252 ] " cappuccino & bleaksand
-
-  ;; let s:N4 = [ "#857f78" , 243 ] " gravel
-  ;; let s:V4 = [ "#c14c3d" , 160 ] " tannedumbrella
-
-  ;; let s:RE = [ "#c7915b" , 173 ] " nut ;; " Replace mode
-
-  ;; let s:PA = [ "#f9ef6d" , 154 ] " bleaklemon ;; " Paste mode
-
-  ;; let s:IA = [ s:N2[1], s:N3[1], s:N2[3], s:N3[3], '' ]
-
-  ;; let g:airline#themes#ubaryd#palette.accents = {
-  ;;       \ 'red': [ '#ff7400' , '' , 196 , '' , '' ],
-
-  ;; let g:airline#themes#ubaryd#palette.inactive = {
-  ;;       \ 'airline_a' : [ s:N2[1] , s:N3[1] , s:N2[3] , s:N3[3] , '' ] }
-
-  ;; let g:airline#themes#ubaryd#palette.normal_modified = {
-  ;;       \ 'airline_a' : [ s:N2[0] , s:N4[0] , s:N2[2] , s:N4[1] , '' ] ,
-  ;;       \ 'airline_c' : [ s:V1[1] , s:N2[1] , s:V1[3] , s:N2[3] , '' ] }
-  ;; let g:airline#themes#ubaryd#palette.insert_modified = {
-  ;;       \ 'airline_c' : [ s:V2[1] , s:N2[1] , s:V2[3] , s:N2[3] , '' ] }
-  ;; let g:airline#themes#ubaryd#palette.visual_modified = {
-  ;;       \ 'airline_c' : [ s:V3[0] , s:V4[0] , s:V3[2] , s:V4[1] , '' ] }
-  ;; let g:airline#themes#ubaryd#palette.inactive_modified = {
-  ;;       \ 'airline_c' : [ s:V1[1] , ''      , s:V1[3] , ''      , '' ] }
-
-  ;; let g:airline#themes#ubaryd#palette.insert_paste = {
-  ;;       \ 'airline_a' : [ s:I1[0] , s:PA[0] , s:I1[2] , s:PA[1] , '' ] }
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/ubaryd.vim
 
   (let ((normal-outer-foreground  "#141413") (normal-outer-background  "#c7b386")
         (normal-inner-foreground  "#c7b386") (normal-inner-background  "#45413b")
@@ -931,6 +493,8 @@ Valid Values: Full, Shortened, Disabled"
 
 url: https://github.com/chriskempson/base16-shell"
   (interactive)
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/base16.vim
+
   (let ((normal-outer-foreground  "color-18") (normal-outer-background  "blue")
         (normal-inner-foreground  "color-20") (normal-inner-background  "color-19")
         (normal-center-foreground "color-20") (normal-center-background "color-18")
@@ -962,6 +526,8 @@ url: https://github.com/chriskempson/base16-shell"
 
 url: https://github.com/mkaito/base16-emacs"
   (interactive)
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/base16.vim
+
   (let ((normal-outer-foreground  (face-background 'highlight))          (normal-outer-background  (face-foreground 'link))
         (normal-inner-foreground  (face-foreground 'font-lock-doc-face)) (normal-inner-background  (face-background 'fringe))
         (normal-center-foreground (face-foreground 'font-lock-doc-face)) (normal-center-background (face-background 'highlight))
@@ -993,6 +559,8 @@ url: https://github.com/mkaito/base16-emacs"
 
 url: https://github.com/mkaito/base16-emacs"
   (interactive)
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/base16.vim
+
   (let ((normal-outer-foreground  (face-background 'default)) (normal-outer-background  (face-foreground 'link))
         (normal-inner-foreground  (face-background 'fringe))  (normal-inner-background  (face-foreground 'rainbow-delimiters-depth-9-face))
         (normal-center-foreground (face-background 'fringe))  (normal-center-background (face-foreground 'mode-line-emphasis))
@@ -1052,6 +620,8 @@ url: https://github.com/mkaito/base16-emacs"
 (defun airline-theme-solarized-gui ()
   ""
   (interactive)
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/solarized.vim
+
   (let ((normal-outer-foreground  (face-background 'highlight)) (normal-outer-background  (face-background 'region))
         (normal-inner-foreground  (face-background 'default))   (normal-inner-background  (face-foreground 'fringe))
         (normal-center-foreground (face-foreground 'fringe))    (normal-center-background (face-background 'highlight))
@@ -1081,55 +651,7 @@ url: https://github.com/mkaito/base16-emacs"
 (defun airline-theme-sol ()
   ""
   (interactive)
-  ;; " vim-airline companion theme of Sol
-  ;; " (https://github.com/Pychimp/vim-sol)
-
-  ;; let s:N1 = [ "#343434" , "#a0a0a0" , 237 , 248 ]
-  ;; let s:N2 = [ "#343434" , "#b3b3b3" , 237 , 250 ]
-  ;; let s:N3 = [ "#343434" , "#c7c7c7" , 237 , 252 ]
-
-  ;; let s:I1 = [ "#eeeeee" , "#09643f" , 255 , 30  ]
-  ;; let s:I2 = [ "#343434" , "#a3a3a3" , 237 , 249 ]
-  ;; let s:I3 = [ "#343434" , "#b0b0b0" , 237 , 250 ]
-
-  ;; let s:V1 = [ "#ffff9a" , "#ff6003" , 222 , 202 ]
-  ;; let s:V2 = [ "#343434" , "#a3a3a3" , 237 , 249 ]
-  ;; let s:V3 = [ "#343434" , "#b0b0b0" , 237 , 250 ]
-
-  ;; let s:IA = [ "#777777" , "#c7c7c7" , 244 , 251 , "" ]
-
-  ;; let g:airline#themes#sol#palette.accents = {
-  ;;       \ 'red': [ '#ffffff' , '' , 231 , '' , '' ],
-  ;; let g:airline#themes#sol#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:I1[0]   , '#09643f' , s:I1[2] , 30 , '' ] ,
-  ;; let g:airline#themes#sol#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#ff6868' , 237 , 209 , '' ] ,
-  ;; let g:airline#themes#sol#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#343434' , '#ffdbc7' , 237 , 216 , '' ] ,
-  ;; let g:airline#themes#sol#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#343434' , '#ffdbc7' , 237 , 216 , '' ] ,
-  ;; let g:airline#themes#sol#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#ff3535' , '' , 203 , '' , '' ] ,
-
-  ;; let g:airline#themes#sol#palette.replace = copy(g:airline#themes#sol#palette.insert)
-  ;; let g:airline#themes#sol#palette.replace.airline_a = [ s:I1[0] , '#ff2121' , s:I1[2] , 196 , '' ]
-  ;; let g:airline#themes#sol#palette.replace.airline_z = [ s:I1[0] , '#ff2121' , s:I1[2] , 196 , '' ]
-
-  ;; let g:airline#themes#sol#palette.tabline = {
-  ;;       \ 'airline_tab':      ['#343434', '#b3b3b3',  237, 250, ''],
-  ;;       \ 'airline_tabsel':   ['#ffffff', '#004b9a',  231, 31 , ''],
-  ;;       \ 'airline_tabtype':  ['#343434', '#a0a0a0',  237, 248, ''],
-  ;;       \ 'airline_tabfill':  ['#343434', '#c7c7c7',  237, 251, ''],
-  ;;       \ 'airline_tabmod':   ['#343434', '#ffdbc7',  237, 216, ''],
-
-  ;; let s:WI = [ '#eeeeee', '#e33900', 255, 166 ]
-  ;; let g:airline#themes#sol#palette.normal.airline_warning = [
-  ;;      \ s:WI[0], s:WI[1], s:WI[2], s:WI[3]
-
-  ;; let g:airline#themes#sol#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;       \ [ '#343434' , '#c7c7c7' , 237 , 251 , ''     ] ,
-  ;;       \ [ '#343434' , '#b3b3b3' , 237 , 250 , ''     ] ,
-  ;;       \ [ '#eeeeee' , '#007fff' , 255 , 27  , ''     ] )
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/sol.vim
 
   (let ((normal-outer-foreground  "#343434") (normal-outer-background  "#a0a0a0")
         (normal-inner-foreground  "#343434") (normal-inner-background  "#b3b3b3")
@@ -1160,37 +682,7 @@ url: https://github.com/mkaito/base16-emacs"
 (defun airline-theme-simple ()
   ""
   (interactive)
-  ;; let g:airline#themes#simple#palette = {}
-
-  ;; let s:guibg = '#080808'
-  ;; let s:guibg2 = '#1c1c1c'
-  ;; let s:termbg = 232
-  ;; let s:termbg2= 234
-
-  ;; let s:n1 = [ "#080808" , "#00dfff" , s:termbg , 45 ]
-  ;; let s:n2 = [ "#ff5f00" , "#1c1c1c", 202 , s:termbg2 ]
-  ;; let s:n3 = [ "#767676" , "#080808", 243 , s:termbg]
-
-  ;; let s:i1 = [ "#080808",  "#5fff00" , s:termbg , 82 ]
-  ;; let s:i2 = [ "#ff5f00" , "#1c1c1c", 202 , s:termbg2 ]
-  ;; let s:i3 = [ "#767676" , "#080808", 243 , s:termbg ]
-
-  ;; let s:v1 = [ "#080808",  "#dfdf00" , s:termbg , 184 ]
-  ;; let s:v2 = [ "#ff5f00" , "#1c1c1c", 202 , s:termbg2 ]
-  ;; let s:v3 = [ "#767676" , "#080808", 243 , s:termbg ]
-
-  ;; let s:ia  = [ "#4e4e4e" , "#080808"  , 239 , s:termbg  , "" ]
-  ;; let s:ia2 = [ "#4e4e4e" , "#1c1c1c" , 239 , s:termbg2 , "" ]
-
-  ;; let g:airline#themes#simple#palette.replace = {
-  ;;       \ 'airline_a': [ s:i1[0]   , '#af0000' , s:i1[2] , 124     , ''     ] ,
-
-  ;; let g:airline#themes#simple#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#df0000' , s:#080808, 160     , s:termbg    , ''     ] ,
-  ;; let g:airline#themes#simple#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:i1[0]   , '#d78700' , s:i1[2] , 172     , ''     ] ,
-  ;; let g:airline#themes#simple#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#df0000', '', 160, '', '' ] ,
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/simple.vim
 
   (let ((normal-outer-foreground  "#080808") (normal-outer-background  "#00dfff")
         (normal-inner-foreground  "#ff5f00") (normal-inner-background  "#1c1c1c")
@@ -1221,52 +713,8 @@ url: https://github.com/mkaito/base16-emacs"
 (defun airline-theme-silver ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#414141" , "#e1e1e1" , 59 , 188 ]
-  ;; let s:N2 = [ "#414141" , "#e1e1e1" , 59 , 188 ]
-  ;; let s:N3 = [ "#414141" , "#e1e1e1" , 59 , 188 ]
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/silver.vim
 
-  ;; let s:I1 = [ "#0d935c" , "#e1e1e1" , 29 , 188 ]
-  ;; let s:I2 = [ "#0d935c" , "#e1e1e1" , 29 , 188 ]
-  ;; let s:I3 = [ "#0d935c" , "#e1e1e1" , 29 , 188 ]
-
-  ;; let s:V1 = [ "#0000b3" , "#e1e1e1" , 19 , 188 ]
-  ;; let s:V2 = [ "#0000b3" , "#e1e1e1" , 19 , 188 ]
-  ;; let s:V3 = [ "#0000b3" , "#e1e1e1" , 19 , 188 ]
-
-  ;; let s:IA = [ "#a1a1a1" , "#dddddd" , 145 , 188 , "" ]
-
-  ;; let g:airline#themes#silver#palette.accents = {
-  ;;       \ 'red': [ '#ff2121' , '' , 196 , '' , '' ],
-  ;; let g:airline#themes#silver#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:I1[0]   , '#e1e1e1' , s:I1[2] , 188 , '' ] ,
-
-  ;; let g:airline#themes#silver#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#e25000' , '#e1e1e1' , 166 , 188 , '' ] ,
-  ;; let g:airline#themes#silver#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#e25000' , '#e1e1e1' , 166 , 188 , '' ] ,
-  ;; let g:airline#themes#silver#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#e25000' , '#e1e1e1' , 166 , 188 , '' ] ,
-  ;; let g:airline#themes#silver#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#e25000' , '' , 166 , '' , '' ] ,
-
-  ;; let g:airline#themes#silver#palette.replace.airline_a = [ '#b30000' , s:I1[1] , 124 , s:I1[3] , '' ]
-  ;; let g:airline#themes#silver#palette.replace.airline_z = [ '#b30000' , s:I1[1] , 124 , s:I1[3] , '' ]
-
-  ;; let g:airline#themes#silver#palette.tabline = {
-  ;;       \ 'airline_tab':      ['#414141' , '#e1e1e1' , 59  , 188 , '' ],
-  ;;       \ 'airline_tabsel':   ['#e1e1e1' , '#007599' , 188 , 30  , '' ],
-  ;;       \ 'airline_tabtype':  ['#414141' , '#e1e1e1' , 59  , 188 , '' ],
-  ;;       \ 'airline_tabfill':  ['#414141' , '#e1e1e1' , 59  , 188 , '' ],
-  ;;       \ 'airline_tabmod':   ['#e1e1e1' , '#007599' , 188 , 30  , '' ],
-
-  ;; let s:WI = [ '#ff0000', '#e1e1e1', 196, 188 ]
-  ;; let g:airline#themes#silver#palette.normal.airline_warning = [
-  ;;      \ s:WI[0], s:WI[1], s:WI[2], s:WI[3]
-
-  ;; let g:airline#themes#silver#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;       \ [ '#414141' , '#e1e1e1' , 59  , 188 , ''     ] ,
-  ;;       \ [ '#414141' , '#e1e1e1' , 59  , 188 , ''     ] ,
-  ;;       \ [ '#e1e1e1' , '#007599' , 188 , 30  , ''     ] )
   (let ((normal-outer-foreground  "#414141") (normal-outer-background  "#e1e1e1")
         (normal-inner-foreground  "#414141") (normal-inner-background  "#e1e1e1")
         (normal-center-foreground "#414141") (normal-center-background "#e1e1e1")
@@ -1296,27 +744,7 @@ url: https://github.com/mkaito/base16-emacs"
 (defun airline-theme-serene ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#00dfff" , "#080808" , 45  , s:termbg ]
-  ;; let s:N2 = [ "#ff5f00" , "#080808" , 202 , s:termbg ]
-  ;; let s:N3 = [ "#767676" , "#080808" , 7   , s:termbg ]
-
-  ;; let s:I1 = [ "#5fff00" , "#080808" , 82  , s:termbg ]
-  ;; let s:I2 = [ "#ff5f00" , "#080808" , 202 , s:termbg ]
-  ;; let s:I3 = [ "#767676" , "#080808" , 7   , s:termbg ]
-
-  ;; let s:V1 = [ "#dfdf00" , "#080808" , 184 , s:termbg ]
-  ;; let s:V2 = [ "#ff5f00" , "#080808" , 202 , s:termbg ]
-  ;; let s:V3 = [ "#767676" , "#080808" , 7   , s:termbg ]
-
-  ;; let s:IA  = [ "#4e4e4e" , "#080808"  , 239 , s:termbg  , "" ]
-  ;; let s:IA2 = [ "#4e4e4e" , "#303030" , 239 , s:termsep , "" ]
-
-  ;; let g:airline#themes#serene#palette.normal_modified = {
-  ;; \ 'airline_c': [ '#df0000' , '#080808', 160     , s:termbg    , ''     ] ,
-  ;; let g:airline#themes#serene#palette.insert_paste = {
-  ;; \ 'airline_a': [ s:I1[0]   , '#d78700' , s:I1[2] , 172     , ''     ] ,
-  ;; let g:airline#themes#serene#palette.replace = {
-  ;; \ 'airline_a': [ s:I1[0]   , '#af0000' , s:I1[2] , 124     , ''     ] ,
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/serene.vim
 
   (let ((normal-outer-foreground  "#00dfff") (normal-outer-background  "#080808")
         (normal-inner-foreground  "#ff5f00") (normal-inner-background  "#080808")
@@ -1347,53 +775,8 @@ url: https://github.com/mkaito/base16-emacs"
 (defun airline-theme-raven ()
   ""
   (interactive)
-  ;; let s:N1 = [ "#c8c8c8" , "#2e2e2e" , 188 , 235 ]
-  ;; let s:N2 = [ "#c8c8c8" , "#2e2e2e" , 188 , 235 ]
-  ;; let s:N3 = [ "#c8c8c8" , "#2e2e2e" , 188 , 235 ]
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/raven.vim
 
-  ;; let s:I1 = [ "#11c279" , "#2e2e2e" , 36 , 235 ]
-  ;; let s:I2 = [ "#11c279" , "#2e2e2e" , 36 , 235 ]
-  ;; let s:I3 = [ "#11c279" , "#2e2e2e" , 36 , 235 ]
-
-  ;; let s:V1 = [ "#6565ff" , "#2e2e2e" , 63 , 235 ]
-  ;; let s:V2 = [ "#6565ff" , "#2e2e2e" , 63 , 235 ]
-  ;; let s:V3 = [ "#6565ff" , "#2e2e2e" , 63 , 235 ]
-
-  ;; let s:IA = [ "#5e5e5e" , "#222222" , 59 , 235 , "" ]
-
-  ;; let g:airline#themes#raven#palette.replace.airline_a = [ '#e60000' , s:I1[1] , 160 , s:I1[3] , '' ]
-  ;; let g:airline#themes#raven#palette.replace.airline_z = [ '#e60000' , s:I1[1] , 160 , s:I1[3] , '' ]
-
-  ;; let g:airline#themes#raven#palette.accents = {
-  ;;       \ 'red': [ '#ff2121' , '' , 196 , '' , '' ],
-
-  ;; let g:airline#themes#raven#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#e25000' , '#2e2e2e' , 166 , 235 , '' ] ,
-  ;; let g:airline#themes#raven#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#e25000' , '#2e2e2e' , 166 , 235 , '' ] ,
-  ;; let g:airline#themes#raven#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#e25000' , '#2e2e2e' , 166 , 235 , '' ] ,
-  ;; let g:airline#themes#raven#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#e25000' , '' , 166 , '' , '' ] ,
-
-  ;; let g:airline#themes#raven#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:I1[0]   , '#2e2e2e' , s:I1[2] , 235 , '' ] ,
-
-  ;; let g:airline#themes#raven#palette.tabline = {
-  ;;       \ 'airline_tab':      ['#c8c8c8' , '#2e2e2e' , 188 , 235 , '' ],
-  ;;       \ 'airline_tabsel':   ['#2e2e2e' , '#a4c639' , 235 , 149 , '' ],
-  ;;       \ 'airline_tabtype':  ['#c8c8c8' , '#2e2e2e' , 188 , 235 , '' ],
-  ;;       \ 'airline_tabfill':  ['#c8c8c8' , '#2e2e2e' , 188 , 235 , '' ],
-  ;;       \ 'airline_tabmod':   ['#2e2e2e' , '#a4c639' , 235 , 149 , '' ],
-
-  ;; let s:WI = [ '#ff0000', '#2e2e2e', 196, 235 ]
-  ;; let g:airline#themes#raven#palette.normal.airline_warning = [
-  ;;      \ s:WI[0], s:WI[1], s:WI[2], s:WI[3]
-
-  ;; let g:airline#themes#raven#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;       \ [ '#c8c8c8' , '#2e2e2e' , 188 , 235 , ''     ] ,
-  ;;       \ [ '#c8c8c8' , '#2e2e2e' , 188 , 235 , ''     ] ,
-  ;;       \ [ '#2e2e2e' , '#a4c639' , 235 , 149 , ''     ] )
   (let ((normal-outer-foreground  "#c8c8c8") (normal-outer-background  "#2e2e2e")
         (normal-inner-foreground  "#c8c8c8") (normal-inner-background  "#2e2e2e")
         (normal-center-foreground "#c8c8c8") (normal-center-background "#2e2e2e")
@@ -1423,54 +806,8 @@ url: https://github.com/mkaito/base16-emacs"
 (defun airline-theme-luna ()
   ""
   (interactive)
-  ;; " vim-airline companion theme of Luna
-  ;; " (https://github.com/Pychimp/vim-luna)
+  ;; https://github.com/bling/vim-airline/blob/master/autoload/airline/themes/luna.vim
 
-  ;; let s:N1 = [ "#ffffff" , "#005252" , 231  , 36 ]
-  ;; let s:N2 = [ "#ffffff" , "#003f3f" , 231 , 29 ]
-  ;; let s:N3 = [ "#ffffff" , "#002b2b" , 231  , 23 ]
-
-  ;; let s:I1 = [ "#ffffff" , "#789f00" , 231 , 106 ]
-  ;; let s:I2 = [ "#ffffff" , "#003f3f" , 231 , 29  ]
-  ;; let s:I3 = [ "#ffffff" , "#002b2b" , 231 , 23  ]
-
-  ;; let s:V1 = [ "#ffff9a" , "#ff8036" , 222 , 208 ]
-  ;; let s:V2 = [ "#ffffff" , "#003f3f" , 231 , 29 ]
-  ;; let s:V3 = [ "#ffffff" , "#002b2b" , 231  , 23  ]
-
-  ;; let s:IA = [ "#4e4e4e" , "#002b2b" , 59 , 23 , "" ]
-
-  ;; let g:airline#themes#luna#palette.replace.airline_a = [ s:I2[0]   , '#920000' , s:I2[2] , 88     , ''     ]
-
-  ;; let g:airline#themes#luna#palette.accents = {
-  ;;       \ 'red': [ '#ffffff' , '' , 231 , '' , '' ],
-
-  ;; let g:airline#themes#luna#palette.normal_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#450000' , 231     , 52      , ''     ] ,
-  ;; let g:airline#themes#luna#palette.insert_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#005e5e' , 255     , 52      , ''     ] ,
-  ;; let g:airline#themes#luna#palette.insert_paste = {
-  ;;       \ 'airline_a': [ s:I1[0]   , '#789f00' , s:I1[2] , 106     , ''     ] ,
-  ;; let g:airline#themes#luna#palette.visual_modified = {
-  ;;       \ 'airline_c': [ '#ffffff' , '#450000' , 231     , 52      , ''     ] ,
-  ;; let g:airline#themes#luna#palette.inactive_modified = {
-  ;;       \ 'airline_c': [ '#e20000' , ''        , 166      , ''      , ''     ] ,
-
-  ;; let g:airline#themes#luna#palette.tabline = {
-  ;;       \ 'airline_tab':  ['#2aa198', '#003f3f',  231, 29, ''],
-  ;;       \ 'airline_tabsel':  ['#ffffff', '#2e8b57',  231, 36, ''],
-  ;;       \ 'airline_tabtype':  ['#ffffff', '#005252',  231, 36, ''],
-  ;;       \ 'airline_tabfill':  ['#ffffff', '#002b2b',  231, 23, ''],
-  ;;       \ 'airline_tabmod':  ['#ffffff', '#780000',  231, 88, ''],
-
-  ;; let s:WI = [ '#ffffff', '#5f0000', 231, 88 ]
-  ;; let g:airline#themes#luna#palette.normal.airline_warning = [
-  ;;      \ s:WI[0], s:WI[1], s:WI[2], s:WI[3]
-
-  ;; let g:airline#themes#luna#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-  ;;       \ [ '#ffffff' , '#002b2b' , 231 , 23 , ''     ] ,
-  ;;       \ [ '#ffffff' , '#005252' , 231 , 36 , ''     ] ,
-  ;;       \ [ '#ffffff' , '#973d45' , 231 , 95 , ''     ] )
   (let ((normal-outer-foreground  "#ffffff") (normal-outer-background  "#005252")
         (normal-inner-foreground  "#ffffff") (normal-inner-background  "#003f3f")
         (normal-center-foreground "#ffffff") (normal-center-background "#002b2b")
