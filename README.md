@@ -13,6 +13,9 @@ This is a port of the themes in [vim-airline](https://github.com/bling/vim-airli
 
 ## Helm Colors
 
+Here is a shot of `helm-mini` with the `airline-base16-shell-dark` and
+`airline-papercolor` themes.
+
 [![airline-helm-demo.gif](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-helm-demo.gif)](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-helm-demo.gif)
 
 ## Installation
