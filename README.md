@@ -17,17 +17,22 @@ This is a port of the themes in [vim-airline](https://github.com/bling/vim-airli
 
 ## Installation
 
-These themes require the `powerline` package. They make the most sense using the
-`evil` package but it isn't required.  You can install via melpa or clone this
-repo into your load-path then add the following to your `init.el`:
+### Requirements
+
+- `powerline`
+- `evil` (optional but recommended)
+
+You can install via melpa or clone this repo into your load-path then add the
+following to your `init.el`:
 
     (require 'airline-themes)
     (load-theme 'airline-light)
 
 If you don't load a theme in your `init.el` then the default `mode-line-format`
 doesn't get set at startup and applying a theme may not look right. If things
-don't look right after applying a theme run `airline-themes-set-modeline` and it
-should apply the styling to the current buffer.
+don't look right after applying a theme run `airline-themes-set-modeline` or
+`(kill-local-variable 'mode-line-format))` and it should apply the styling to
+the current buffer.
 
 ## Custom Options
 
