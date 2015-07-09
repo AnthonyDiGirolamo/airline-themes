@@ -83,37 +83,40 @@ Valid Values: Full, Shortened, Disabled"
                                                                      (cond (visual-block "-BLOCK")
                                                                            (visual-line "-LINE")))))
 
-                          ;; Left Hand Side
-                          (outer-face (cond ((eq evil-state (intern "normal"))
-                                             (if (powerline-selected-window-active) 'airline-normal-outer 'powerline-inactive1))
-                                            ((eq evil-state (intern "insert"))
-                                             (if (powerline-selected-window-active) 'airline-insert-outer 'powerline-inactive1))
-                                            ((eq evil-state (intern "visual"))
-                                             (if (powerline-selected-window-active) 'airline-visual-outer 'powerline-inactive1))
-                                            ((eq evil-state (intern "replace"))
-                                             (if (powerline-selected-window-active) 'airline-replace-outer 'powerline-inactive1))
-                                            ((eq evil-state (intern "emacs"))
-                                             (if (powerline-selected-window-active) 'airline-emacs-outer 'powerline-inactive1))
-                                            (t
-                                             (if (powerline-selected-window-active) 'airline-normal-outer 'powerline-inactive1))))
-                          (inner-face (cond ((eq evil-state (intern "normal"))
-                                             (if (powerline-selected-window-active) 'airline-normal-inner 'powerline-inactive2))
-                                            ((eq evil-state (intern "insert"))
-                                             (if (powerline-selected-window-active) 'airline-insert-inner 'powerline-inactive2))
-                                            ((eq evil-state (intern "visual"))
-                                             (if (powerline-selected-window-active) 'airline-visual-inner 'powerline-inactive2))
-                                            (t
-                                             (if (powerline-selected-window-active) 'airline-normal-inner 'powerline-inactive2))))
-                          (center-face (cond ((eq evil-state (intern "normal"))
-                                              (if (powerline-selected-window-active) 'airline-normal-center 'powerline-inactive2))
-                                             ((eq evil-state (intern "insert"))
-                                              (if (powerline-selected-window-active) 'airline-insert-center 'powerline-inactive2))
-                                             ((eq evil-state (intern "visual"))
-                                              (if (powerline-selected-window-active) 'airline-visual-center 'powerline-inactive2))
-                                             (t
-                                              (if (powerline-selected-window-active) 'airline-normal-center 'powerline-inactive2))))
+                          (outer-face
+                           (if (powerline-selected-window-active)
+                               (if (featurep 'evil)
+                                   (cond ((eq evil-state (intern "normal"))  'airline-normal-outer)
+                                         ((eq evil-state (intern "insert"))  'airline-insert-outer)
+                                         ((eq evil-state (intern "visual"))  'airline-visual-outer)
+                                         ((eq evil-state (intern "replace")) 'airline-replace-outer)
+                                         ((eq evil-state (intern "emacs"))   'airline-emacs-outer)
+                                         (t                                  'airline-normal-outer))
+                                 'airline-normal-outer)
+                             'powerline-inactive1))
 
-                          (lhs-mode (if evil-mode
+                          (inner-face
+                           (if (powerline-selected-window-active)
+                               (if (featurep 'evil)
+                                   (cond ((eq evil-state (intern "normal")) 'airline-normal-inner)
+                                         ((eq evil-state (intern "insert")) 'airline-insert-inner)
+                                         ((eq evil-state (intern "visual")) 'airline-visual-inner)
+                                         (t                                 'airline-normal-inner))
+                                 'airline-normal-inner)
+                             'powerline-inactive2))
+
+                          (center-face
+                           (if (powerline-selected-window-active)
+                               (if (featurep 'evil)
+                                   (cond ((eq evil-state (intern "normal")) 'airline-normal-center)
+                                         ((eq evil-state (intern "insert")) 'airline-insert-center)
+                                         ((eq evil-state (intern "visual")) 'airline-visual-center)
+                                         (t                                 'airline-normal-center))
+                                 'airline-normal-center)
+                             'powerline-inactive2))
+
+                          ;; Left Hand Side
+                          (lhs-mode (if (featurep 'evil)
                                         (list
                                          ;; Evil Mode Name
                                          (powerline-raw (concat " " current-evil-state-string " ") outer-face)
