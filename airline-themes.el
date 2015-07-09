@@ -222,7 +222,8 @@ Valid Values: Full, Shortened, Disabled"
                      (concat (powerline-render lhs)
                              (powerline-fill center-face (powerline-width rhs))
                              (powerline-render rhs))))))
-  (powerline-reset))
+  (powerline-reset)
+  (kill-local-variable 'mode-line-format))
 
 ;;;###autoload
 (defun airline-themes-set-deftheme (theme-name)
@@ -256,8 +257,7 @@ Valid Values: Full, Shortened, Disabled"
    `(mode-line-inactive    ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background     :box nil :underline nil :overline nil))))
    `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil :underline nil :overline nil))))
    `(minibuffer-prompt     ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil))))
-  )
-)
+  ))
 
 ;;;###autoload
 (defun shorten-directory (dir max-length)

@@ -24,6 +24,11 @@ repo into your load-path then add the following to your `init.el`:
     (require 'airline-themes)
     (load-theme 'airline-light)
 
+If you don't load a theme in your `init.el` then the default `mode-line-format`
+doesn't get set at startup and applying a theme may not look right. If things
+don't look right after applying a theme run `airline-themes-set-modeline` and it
+should apply the styling to the current buffer.
+
 ## Custom Options
 
 - `airline-helm-colors` Set helm colors to match the airline theme.<br/>
