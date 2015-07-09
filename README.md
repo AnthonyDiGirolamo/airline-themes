@@ -22,8 +22,8 @@ This is a port of the themes in [vim-airline](https://github.com/bling/vim-airli
 - `powerline`
 - `evil` (optional but recommended)
 
-You can install via melpa or clone this repo into your load-path then add the
-following to your `init.el`:
+Install via melpa or clone this repo into your load-path and add the following
+to your `init.el`
 
     (require 'airline-themes)
     (load-theme 'airline-light)
