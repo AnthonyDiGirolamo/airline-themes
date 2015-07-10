@@ -280,10 +280,10 @@ Valid Values: Full, Shortened, Disabled"
       (setq path (cdr path)))
 
     ;; Shorten trailing path names to one character
-    (setq remaining_paths (mapcar
-                           (function (lambda (x) (substring x 0 1)))
-                           (cdr path)))
-    (setq path (cons (car path) remaining_paths))
+    (let ((remaining_paths (mapcar
+                            (function (lambda (x) (substring x 0 1)))
+                            (cdr path))))
+      (setq path (cons (car path) remaining_paths)))
 
     (while (and path (< (length output) (- max-length 4)))
       (setq output (concat (car path) "/" output))
