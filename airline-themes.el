@@ -2,7 +2,7 @@
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes.el
-;; Version: 1.0
+;; Version: 1.1
 ;; Keywords: evil, mode-line, powerline, airline, themes
 ;; Package-Requires: ((powerline "2.3"))
 
@@ -225,7 +225,12 @@ Valid Values: Full, Shortened, Disabled"
                                      (powerline-raw "%3c" outer-face 'r)
 
                                      ;; % location in file
-                                     (powerline-raw "%6p" outer-face 'r))))
+                                     (powerline-raw "%6p" outer-face 'r)
+
+                                     ;; position in file image
+                                     (when powerline-display-hud
+                                       (powerline-hud inner-face outer-face)))
+                               ))
 
                      ;; Combine Left and Right Hand Sides
                      (concat (powerline-render lhs)
