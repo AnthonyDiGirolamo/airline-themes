@@ -61,6 +61,55 @@ Valid Values: Full, Shortened, Disabled"
                  (const :tag "Disabled" nil)))
 
 ;;;###autoload
+(defcustom airline-utf-glyph-separator-left #x2b80
+  "The unicode character number used for the left side separator."
+  :group 'airline-themes
+  :type '(choice (const :tag "powerline #xe0b0"     #xe0b0)
+                 (const :tag "vim-powerline #x2b80" #x2b80)))
+
+;;;###autoload
+(defcustom airline-utf-glyph-separator-right #x2b82
+  "The unicode character number used for the right side separator."
+  :group 'airline-themes
+  :type '(choice (const :tag "powerline #xe0b2"     #xe0b2)
+                 (const :tag "vim-powerline #x2b82" #x2b82)))
+
+;;;###autoload
+(defcustom airline-utf-glyph-subseparator-left #x2b81
+  "The unicode character number used for the left side subseparator."
+  :group 'airline-themes
+  :type '(choice (const :tag "powerline #xe0b1"     #xe0b1)
+                 (const :tag "vim-powerline #x2b81" #x2b81)))
+
+;;;###autoload
+(defcustom airline-utf-glyph-subseparator-right #x2b83
+  "The unicode character number used for the right side subseparator."
+  :group 'airline-themes
+  :type '(choice (const :tag "powerline #xe0b3"     #xe0b3)
+                 (const :tag "vim-powerline #x2b83" #x2b83)))
+
+;;;###autoload
+(defcustom airline-utf-glyph-branch #x2b60
+  "The unicode character number used for the branch symbol."
+  :group 'airline-themes
+  :type '(choice (const :tag "powerline #xe0a0"     #xe0a0)
+                 (const :tag "vim-powerline #x2b60" #x2b60)))
+
+;;;###autoload
+(defcustom airline-utf-glyph-readonly #x2b64
+  "The unicode character number used for the readonly symbol."
+  :group 'airline-themes
+  :type '(choice (const :tag "powerline #xe0a2"     #xe0a2)
+                 (const :tag "vim-powerline #x2b64" #x2b64)))
+
+;;;###autoload
+(defcustom airline-utf-glyph-linenumber #x2b61
+  "The unicode character number used for the linenumber symbol."
+  :group 'airline-themes
+  :type '(choice (const :tag "powerline #xe0a1"     #xe0a1)
+                 (const :tag "vim-powerline #x2b61" #x2b61)))
+
+;;;###autoload
 (defun airline-themes-set-modeline ()
   "Set the airline mode-line-format"
   (interactive)
@@ -189,8 +238,8 @@ Valid Values: Full, Shortened, Disabled"
                                      (powerline-minor-modes center-face 'l)
                                      ;; (powerline-narrow center-face 'l)
 
-                                     ;; Separator <
-                                     (powerline-raw (char-to-string #x2b83) center-face 'l)
+                                     ;; Subseparator <
+                                     (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)
 
                                      ;; Major Mode
                                      (powerline-major-mode center-face 'l)
@@ -213,10 +262,9 @@ Valid Values: Full, Shortened, Disabled"
                                      ;; Separator <
                                      (funcall separator-right inner-face outer-face)
 
-                                     ;; LN charachter?
+                                     ;; LN charachter
                                      (unless window-system
-                                       (powerline-raw (char-to-string #x2b61) outer-face 'l))
-                                       ;; (powerline-raw (char-to-string #xe0a1) outer-face 'l))
+                                       (powerline-raw (char-to-string airline-utf-glyph-linenumber) outer-face 'l))
 
                                      ;; Current Line
                                      (powerline-raw "%4l" outer-face 'l)
