@@ -25,15 +25,15 @@ url: https://github.com/mkaito/base16-emacs")
       (inactive1-foreground (face-foreground 'font-lock-doc-face)) (inactive1-background (face-foreground 'mode-line-emphasis))
       (inactive2-foreground (face-foreground 'font-lock-doc-face)) (inactive2-background (face-foreground 'mode-line-emphasis)))
 
+  (airline-themes-set-deftheme 'airline-base16-gui-light)
+
   (when airline-cursor-colors
     (progn
      (setq evil-emacs-state-cursor   emacs-outer-background)
      (setq evil-normal-state-cursor  normal-outer-background)
-     (setq evil-insert-state-cursor  insert-outer-background)
+     (setq evil-insert-state-cursor  `(bar ,insert-outer-background))
      (setq evil-replace-state-cursor replace-outer-background)
      (setq evil-visual-state-cursor  visual-outer-background)))
-
-  (airline-themes-set-deftheme 'airline-base16-gui-light)
 )
 
 (airline-themes-set-modeline)

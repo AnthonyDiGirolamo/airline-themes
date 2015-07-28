@@ -22,15 +22,15 @@
       (inactive1-foreground "#4e4e4e") (inactive1-background "#002b2b")
       (inactive2-foreground "#4e4e4e") (inactive2-background "#002b2b"))
 
+  (airline-themes-set-deftheme 'airline-luna)
+
   (when airline-cursor-colors
     (progn
      (setq evil-emacs-state-cursor   emacs-outer-background)
      (setq evil-normal-state-cursor  normal-outer-background)
-     (setq evil-insert-state-cursor  insert-outer-background)
+     (setq evil-insert-state-cursor  `(bar ,insert-outer-background))
      (setq evil-replace-state-cursor replace-outer-background)
      (setq evil-visual-state-cursor  visual-outer-background)))
-
-  (airline-themes-set-deftheme 'airline-luna)
 )
 
 (airline-themes-set-modeline)

@@ -22,15 +22,15 @@
       (inactive1-foreground (face-foreground 'fringe)) (inactive1-background (face-foreground 'highlight))
       (inactive2-foreground (face-foreground 'fringe)) (inactive2-background (face-foreground 'highlight)))
 
+  (airline-themes-set-deftheme 'airline-solarized-alternate-gui)
+
   (when airline-cursor-colors
     (progn
      (setq evil-emacs-state-cursor   emacs-outer-background)
      (setq evil-normal-state-cursor  normal-outer-background)
-     (setq evil-insert-state-cursor  insert-outer-background)
+     (setq evil-insert-state-cursor  `(bar ,insert-outer-background))
      (setq evil-replace-state-cursor replace-outer-background)
      (setq evil-visual-state-cursor  visual-outer-background)))
-
-  (airline-themes-set-deftheme 'airline-solarized-alternate-gui)
 )
 
 (airline-themes-set-modeline)
