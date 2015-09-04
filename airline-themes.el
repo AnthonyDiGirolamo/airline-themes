@@ -1,7 +1,7 @@
 ;;; airline-themes.el --- vim-airline themes for emacs powerline
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
-;; URL: http://github.com/AnthonyDiGirolamo/airline-themes.el
+;; URL: http://github.com/AnthonyDiGirolamo/airline-themes
 ;; Version: 1.1
 ;; Keywords: evil, mode-line, powerline, airline, themes
 ;; Package-Requires: ((powerline "2.3"))
