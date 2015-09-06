@@ -1,5 +1,7 @@
 # airline-themes
 
+[![MELPA](http://melpa.org/packages/airline-themes-badge.svg)](http://melpa.org/#/airline-themes)
+
 This is a port of the themes in [vim-airline](https://github.com/bling/vim-airline) to emacs [powerline](https://github.com/milkypostman/powerline).
 
 [![airline-demo.gif](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-demo.gif)](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-demo.gif)
