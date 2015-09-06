@@ -1,8 +1,8 @@
 ;;; airline-themes.el --- vim-airline themes for emacs powerline
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
-;; URL: http://github.com/AnthonyDiGirolamo/airline-themes
-;; Version: 1.1
+;; URL: http://github.com/AnthonyDiGirolamo/airline-themes.el
+;; Version: 1.2
 ;; Keywords: evil, mode-line, powerline, airline, themes
 ;; Package-Requires: ((powerline "2.3"))
 
@@ -31,6 +31,22 @@
 (when load-file-name
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
+
+;;;###autoload
+(defcustom airline-shortened-directory-length 30
+  "Set the desired directory length."
+
+  :group 'airline-themes
+  :type '(integer))
+
+;;;###autoload
+(defcustom airline-eshell-colors t
+  "Set eshell prompt colors to match the airline theme.
+
+Valid Values: Enabled, Disabled"
+  :group 'airline-themes
+  :type '(choice (const :tag "Enabled" t)
+                 (const :tag "Disabled" nil)))
 
 ;;;###autoload
 (defcustom airline-helm-colors t
@@ -108,6 +124,41 @@ Valid Values: Full, Shortened, Disabled"
   :group 'airline-themes
   :type '(choice (const :tag "powerline #xe0a1"     #xe0a1)
                  (const :tag "vim-powerline #x2b61" #x2b61)))
+
+;;;###autoload
+(defun airline-themes-set-eshell-prompt ()
+  "Set the eshell prompt"
+
+  (setq eshell-highlight-prompt t
+        eshell-prompt-regexp "^ [^#$]* [#$] "
+        eshell-prompt-function
+        (lambda ()
+          (concat
+           (propertize (concat " " (eshell/whoami) " ") 'face
+                       `(:foreground ,(face-foreground 'airline-insert-outer) :background ,(face-background 'airline-insert-outer)))
+
+           (propertize (concat (char-to-string airline-utf-glyph-separator-left) " ") 'face
+                       `(:foreground ,(face-background 'airline-insert-outer) :background ,(face-background 'airline-insert-inner)))
+
+
+           (if (eq airline-display-directory 'airline-directory-shortened)
+             (propertize (concat (airline-shorten-directory (eshell/pwd) airline-shortened-directory-length) " ") 'face
+                         `(:foreground ,(face-foreground 'airline-insert-inner) :background ,(face-background 'airline-insert-inner)))
+             (propertize (concat (abbreviate-file-name (eshell/pwd)) " ") 'face
+                         `(:foreground ,(face-foreground 'airline-insert-inner) :background ,(face-background 'airline-insert-inner)))
+           )
+
+           (propertize (concat (char-to-string airline-utf-glyph-separator-left) " ") 'face
+                       `(:foreground ,(face-background 'airline-insert-inner) :background ,(face-background 'airline-insert-center)))
+
+           (propertize (concat (curr-dir-git-branch-string (eshell/pwd)) " ") 'face
+                       `(:foreground ,(face-foreground 'airline-insert-center) :background ,(face-background 'airline-insert-center)))
+
+           (propertize (concat (char-to-string airline-utf-glyph-separator-left)) 'face
+                       `(:foreground ,(face-background 'airline-insert-center)))
+
+           (propertize " $ " 'face `())
+           ))))
 
 ;;;###autoload
 (defun airline-themes-set-modeline ()
@@ -199,7 +250,7 @@ Valid Values: Full, Shortened, Disabled"
 
                                      ;; Directory
                                      (when (eq airline-display-directory 'airline-directory-shortened)
-                                       (powerline-raw (shorten-directory default-directory 50) center-face 'l))
+                                       (powerline-raw (airline-shorten-directory default-directory airline-shortened-directory-length) center-face 'l))
                                      (when (eq airline-display-directory 'airline-directory-full)
                                        (powerline-raw default-directory center-face 'l))
                                      (when (eq airline-display-directory nil)
@@ -291,6 +342,9 @@ Valid Values: Full, Shortened, Disabled"
 (defun airline-themes-set-deftheme (theme-name)
   "Set appropriate face attributes"
 
+  (when airline-eshell-colors
+    (airline-themes-set-eshell-prompt))
+
   (when airline-helm-colors
     (custom-theme-set-faces
      theme-name
@@ -324,26 +378,26 @@ Valid Values: Full, Shortened, Disabled"
   ))
 
 ;;;###autoload
-(defun shorten-directory (dir max-length)
-  "Show up to `max-length' characters of a directory name `dir'."
-  (let ((path (reverse (split-string (abbreviate-file-name dir) "/")))
-        (output ""))
-    ;; Remove any empty dirnames
-    (when (and path (equal "" (car path)))
-      (setq path (cdr path)))
+(defun airline-shorten-directory (dir max-length)
+  "Return a shortened ersion of `DIR'.
 
-    ;; Shorten trailing path names to one character
-    (let ((remaining_paths (mapcar
-                            (function (lambda (x) (substring x 0 1)))
-                            (cdr path))))
-      (setq path (cons (car path) remaining_paths)))
+Replacing elements with single characters starting from the left to try and get
+the path down to `MAX-LENGTH'"
 
-    (while (and path (< (length output) (- max-length 4)))
-      (setq output (concat (car path) "/" output))
-      (setq path (cdr path)))
-    (when path
-      (setq output (concat "<" output)))
-    output))
+  (let* ((components (split-string (abbreviate-file-name dir) "/"))
+         (len (+ (1- (length components))
+                 (reduce '+ components :key 'length)))
+         (str ""))
+    (while (and (> len max-length)
+                (cdr components))
+      (setq str (concat str (if (= 0 (length (car components)))
+                                "/"
+                              (string (elt (car components) 0) ?/)))
+            len (- len (1- (length (car components))))
+            components (cdr components)))
+    (concat str (reduce (lambda (a b) (concat a "/" b)) components))
+  )
+)
 
 (provide 'airline-themes)
 ;;; airline-themes.el ends here
