@@ -11,6 +11,12 @@ This is a port of the themes in [vim-airline](https://github.com/bling/vim-airli
 - Can set the current cursor color based on the current airline theme
 - Works nicely in the gui or terminal
 
+## Eshell Colors
+
+Here is a shot of eshell in use with the prompt set to match the current airline theme (`airline-base16-shell-dark`):
+
+[![airline-eshell-screen1.png](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-eshell-screen1.png)](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/eshell-screen1.png)
+
 ## Helm Colors
 
 Here is a shot of `helm-mini` with the `airline-base16-shell-dark` and
