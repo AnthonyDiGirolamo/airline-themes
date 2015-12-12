@@ -76,26 +76,23 @@ the current buffer.
   are the ones used by airline themes. The default characters are in the
   vim-powerline column.
 
-      | Symbol             | powerline    | vim-powerline |
-      |--------------------+--------------+---------------|
-      | separator.left     | ''  #xe0b0  | '⮀'  #x2b80   |
-      | separator.right    | ''  #xe0b2  | '⮂'  #x2b82   |
-      | subseparator.left  | ''  #xe0b1  | '⮁'  #x2b81   |
-      | subseparator.right | ''  #xe0b3  | '⮃'  #x2b83   |
-      | branch symbol      | ''  #xe0a0  | '⭠'  #x2b60   |
-      | readonly symbol    | ''  #xe0a2  | '⭤'  #x2b64   |
-      | linecolumn symbol  | ''  #xe0a1  | '⭡'  #x2b61   |
+    | Variable Name                        | powerline   | vim-powerline (default) |
+    |--------------------------------------+-------------+-------------------------|
+    | airline-utf-glyph-separator-left     | ''  #xe0b0 | '⮀'  #x2b80             |
+    | airline-utf-glyph-separator-right    | ''  #xe0b2 | '⮂'  #x2b82             |
+    | airline-utf-glyph-subseparator-left  | ''  #xe0b1 | '⮁'  #x2b81             |
+    | airline-utf-glyph-subseparator-right | ''  #xe0b3 | '⮃'  #x2b83             |
+    | airline-utf-glyph-branch             | ''  #xe0a0 | '⭠'  #x2b60             |
+    | airline-utf-glyph-readonly           | ''  #xe0a2 | '⭤'  #x2b64             |
+    | airline-utf-glyph-linenumber         | ''  #xe0a1 | '⭡'  #x2b61             |
 
-  - `airline-utf-glyph-separator-left` The unicode character number used for the left side separator.
+  If your font characters don't look right try setting them to the powerline utf
+  glyphs by adding this to your init.el:
 
-  - `airline-utf-glyph-separator-right` The unicode character number used for the right side separator.
-
-  - `airline-utf-glyph-subseparator-left` The unicode character number used for the left side subseparator.
-
-  - `airline-utf-glyph-subseparator-right` The unicode character number used for the right side subseparator.
-
-  - `airline-utf-glyph-branch` The unicode character number used for the branch symbol.
-
-  - `airline-utf-glyph-readonly` The unicode character number used for the readonly symbol.
-
-  - `airline-utf-glyph-linenumber` The unicode character number used for the linenumber symbol.
+    (setq airline-utf-glyph-separator-left      #xe0b0
+          airline-utf-glyph-separator-right     #xe0b2
+          airline-utf-glyph-subseparator-left   #xe0b1
+          airline-utf-glyph-subseparator-right  #xe0b3
+          airline-utf-glyph-branch              #xe0a0
+          airline-utf-glyph-readonly            #xe0a2
+          airline-utf-glyph-linenumber          #xe0a1)
