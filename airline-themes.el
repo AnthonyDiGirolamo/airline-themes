@@ -2,7 +2,7 @@
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes
-;; Version: 1.2
+;; Version: 1.3
 ;; Keywords: evil, mode-line, powerline, airline, themes
 ;; Package-Requires: ((powerline "2.3"))
 
@@ -151,7 +151,7 @@ Valid Values: Full, Shortened, Disabled"
            (propertize (concat (char-to-string airline-utf-glyph-separator-left) " ") 'face
                        `(:foreground ,(face-background 'airline-insert-inner) :background ,(face-background 'airline-insert-center)))
 
-           (propertize (concat (curr-dir-git-branch-string (eshell/pwd)) " ") 'face
+           (propertize (concat (airline-curr-dir-git-branch-string (eshell/pwd)) " ") 'face
                        `(:foreground ,(face-foreground 'airline-insert-center) :background ,(face-background 'airline-insert-center)))
 
            (propertize (concat (char-to-string airline-utf-glyph-separator-left)) 'face
@@ -376,6 +376,18 @@ Valid Values: Full, Shortened, Disabled"
    `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil :underline nil :overline nil))))
    `(minibuffer-prompt     ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil))))
   ))
+
+;;;###autoload
+(defun airline-curr-dir-git-branch-string (pwd)
+  "Returns current git branch as a string, or the empty string if
+PWD is not in a git repo (or the git command is not found)."
+  (interactive)
+  (when (and (eshell-search-path "git")
+             (locate-dominating-file pwd ".git"))
+    (let ((git-output (shell-command-to-string (concat "cd " pwd " && git branch | grep '\\*' | sed -e 's/^\\* //'"))))
+      (if (> (length git-output) 0)
+          (concat (substring git-output 0 -1))
+        "(no branch)"))))
 
 ;;;###autoload
 (defun airline-shorten-directory (dir max-length)
