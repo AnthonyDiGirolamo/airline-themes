@@ -244,6 +244,10 @@ Valid Values: Full, Shortened, Disabled"
                                      ;; Git Branch
                                      (powerline-vc inner-face)
 
+                                     ;; Eyebrowse current tab/window config
+                                     (if (featurep 'eyebrowse)
+                                         (powerline-raw (concat " " (eyebrowse-mode-line-indicator)) inner-face))
+
                                      ;; Separator >
                                      (powerline-raw " " inner-face)
                                      (funcall separator-left inner-face center-face)
