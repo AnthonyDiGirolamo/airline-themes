@@ -19,8 +19,8 @@
      (replace-outer-foreground "#000000") (replace-outer-background "#5f87af")
      (emacs-outer-foreground   "#000000") (emacs-outer-background   "#d75f00")
 
-     (inactive1-foreground "#45413b") (inactive1-background "#000000")
-     (inactive2-foreground "#45413b") (inactive2-background "#242321"))
+     (inactive1-foreground "#444444") (inactive1-background "#1c1c1c")
+     (inactive2-foreground "#444444") (inactive2-background "#000000"))
 
   (airline-themes-set-deftheme 'airline-distinguished)
 
