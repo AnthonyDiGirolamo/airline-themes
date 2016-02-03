@@ -2,7 +2,7 @@
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes
-;; Version: 1.3
+;; Version: 1.4
 ;; Keywords: evil, mode-line, powerline, airline, themes
 ;; Package-Requires: ((powerline "2.3"))
 
@@ -242,7 +242,7 @@ Valid Values: Full, Shortened, Disabled"
                                      ;; (powerline-raw (char-to-string #x2b81) inner-face 'l)
 
                                      ;; Git Branch
-                                     (powerline-vc inner-face)
+                                     (powerline-raw (airline-get-vc) inner-face)
 
                                      ;; Eyebrowse current tab/window config
                                      (if (featurep 'eyebrowse)
@@ -318,8 +318,7 @@ Valid Values: Full, Shortened, Disabled"
                                      (funcall separator-right inner-face outer-face)
 
                                      ;; LN charachter
-                                     (unless window-system
-                                       (powerline-raw (char-to-string airline-utf-glyph-linenumber) outer-face 'l))
+                                     (powerline-raw (char-to-string airline-utf-glyph-linenumber) outer-face 'l)
 
                                      ;; Current Line
                                      (powerline-raw "%4l" outer-face 'l)
@@ -392,6 +391,19 @@ PWD is not in a git repo (or the git command is not found)."
       (if (> (length git-output) 0)
           (concat (substring git-output 0 -1))
         "(no branch)"))))
+
+;;;###autoload
+(defun airline-get-vc ()
+  "Reimplementation of powerline-vc function to give the same result in gui as the terminal."
+  (interactive)
+  (when (and (buffer-file-name (current-buffer)) vc-mode)
+    ;; (if window-system
+    ;;     (format-mode-line '(vc-mode vc-mode))
+    (let ((backend (vc-backend (buffer-file-name (current-buffer)))))
+      (when backend
+        (format " %s %s"
+                (char-to-string airline-utf-glyph-branch)
+                (vc-working-revision (buffer-file-name (current-buffer)) backend))))))
 
 ;;;###autoload
 (defun airline-shorten-directory (dir max-length)
