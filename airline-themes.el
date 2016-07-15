@@ -241,12 +241,12 @@ Valid Values: Full, Shortened, Disabled"
                                      ;; ;; Separator >
                                      ;; (powerline-raw (char-to-string #x2b81) inner-face 'l)
 
-                                     ;; Git Branch
-                                     (powerline-raw (airline-get-vc) inner-face)
-
                                      ;; Eyebrowse current tab/window config
                                      (if (featurep 'eyebrowse)
                                          (powerline-raw (concat " " (eyebrowse-mode-line-indicator)) inner-face))
+
+                                     ;; Git Branch
+                                     (powerline-raw (airline-get-vc) inner-face)
 
                                      ;; Separator >
                                      (powerline-raw " " inner-face)

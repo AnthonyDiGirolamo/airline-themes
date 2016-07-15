@@ -89,7 +89,9 @@ the current buffer.
   If your font characters don't look right try setting them to the powerline utf
   glyphs by adding this to your init.el:
 
-      (setq airline-utf-glyph-separator-left      #xe0b0
+      (setq powerline-utf-8-separator-left        #xe0b0
+            powerline-utf-8-separator-right       #xe0b2
+            airline-utf-glyph-separator-left      #xe0b0
             airline-utf-glyph-separator-right     #xe0b2
             airline-utf-glyph-subseparator-left   #xe0b1
             airline-utf-glyph-subseparator-right  #xe0b3
