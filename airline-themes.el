@@ -2,7 +2,7 @@
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes
-;; Version: 1.4
+;; Version: 1.5
 ;; Keywords: evil, mode-line, powerline, airline, themes
 ;; Package-Requires: ((powerline "2.3"))
 
@@ -397,13 +397,11 @@ PWD is not in a git repo (or the git command is not found)."
   "Reimplementation of powerline-vc function to give the same result in gui as the terminal."
   (interactive)
   (when (and (buffer-file-name (current-buffer)) vc-mode)
-    ;; (if window-system
-    ;;     (format-mode-line '(vc-mode vc-mode))
-    (let ((backend (vc-backend (buffer-file-name (current-buffer)))))
-      (when backend
-        (format " %s %s"
-                (char-to-string airline-utf-glyph-branch)
-                (vc-working-revision (buffer-file-name (current-buffer)) backend))))))
+    (format " %s %s"
+            (char-to-string airline-utf-glyph-branch)
+            (if (featurep 'magit)
+                (magit-get-current-branch)
+              (format-mode-line '(vc-mode vc-mode))))))
 
 ;;;###autoload
 (defun airline-shorten-directory (dir max-length)
