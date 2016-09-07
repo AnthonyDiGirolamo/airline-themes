@@ -43,7 +43,7 @@
 (defcustom airline-eshell-colors t
   "Set eshell prompt colors to match the airline theme.
 
-Valid Values: Enabled, Disabled"
+Valid Values: t (enabled), nil (disabled)"
   :group 'airline-themes
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
@@ -52,7 +52,7 @@ Valid Values: Enabled, Disabled"
 (defcustom airline-helm-colors t
   "Set helm colors to match the airline theme.
 
-Valid Values: Enabled, Disabled"
+Valid Values: t (enabled), nil (disabled)"
   :group 'airline-themes
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
@@ -61,7 +61,7 @@ Valid Values: Enabled, Disabled"
 (defcustom airline-cursor-colors t
   "Set the cursor color based on the current evil state.
 
-Valid Values: Enabled, Disabled"
+Valid Values: t (enabled), nil (disabled)"
   :group 'airline-themes
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
@@ -70,7 +70,7 @@ Valid Values: Enabled, Disabled"
 (defcustom airline-display-directory 'airline-directory-shortened
   "Display the currend directory along with the filename.
 
-Valid Values: Full, Shortened, Disabled"
+Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled)"
   :group 'airline-themes
   :type '(choice (const :tag "Full" airline-directory-full)
                  (const :tag "Shortened" airline-directory-shortened)
