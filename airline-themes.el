@@ -43,14 +43,12 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-;;;###autoload
 (defcustom airline-shortened-directory-length 30
   "Set the desired directory length."
 
   :group 'airline-themes
   :type '(integer))
 
-;;;###autoload
 (defcustom airline-eshell-colors t
   "Set eshell prompt colors to match the airline theme.
 
@@ -59,7 +57,6 @@ Valid Values: t (enabled), nil (disabled)"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
-;;;###autoload
 (defcustom airline-helm-colors t
   "Set helm colors to match the airline theme.
 
@@ -68,7 +65,6 @@ Valid Values: t (enabled), nil (disabled)"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
-;;;###autoload
 (defcustom airline-cursor-colors t
   "Set the cursor color based on the current evil state.
 
@@ -77,7 +73,6 @@ Valid Values: t (enabled), nil (disabled)"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
-;;;###autoload
 (defcustom airline-display-directory 'airline-directory-shortened
   "Display the currend directory along with the filename.
 
@@ -87,56 +82,48 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                  (const :tag "Shortened" airline-directory-shortened)
                  (const :tag "Disabled" nil)))
 
-;;;###autoload
 (defcustom airline-utf-glyph-separator-left #x2b80
   "The unicode character number used for the left side separator."
   :group 'airline-themes
   :type '(choice (const :tag "powerline #xe0b0"     #xe0b0)
                  (const :tag "vim-powerline #x2b80" #x2b80)))
 
-;;;###autoload
 (defcustom airline-utf-glyph-separator-right #x2b82
   "The unicode character number used for the right side separator."
   :group 'airline-themes
   :type '(choice (const :tag "powerline #xe0b2"     #xe0b2)
                  (const :tag "vim-powerline #x2b82" #x2b82)))
 
-;;;###autoload
 (defcustom airline-utf-glyph-subseparator-left #x2b81
   "The unicode character number used for the left side subseparator."
   :group 'airline-themes
   :type '(choice (const :tag "powerline #xe0b1"     #xe0b1)
                  (const :tag "vim-powerline #x2b81" #x2b81)))
 
-;;;###autoload
 (defcustom airline-utf-glyph-subseparator-right #x2b83
   "The unicode character number used for the right side subseparator."
   :group 'airline-themes
   :type '(choice (const :tag "powerline #xe0b3"     #xe0b3)
                  (const :tag "vim-powerline #x2b83" #x2b83)))
 
-;;;###autoload
 (defcustom airline-utf-glyph-branch #x2b60
   "The unicode character number used for the branch symbol."
   :group 'airline-themes
   :type '(choice (const :tag "powerline #xe0a0"     #xe0a0)
                  (const :tag "vim-powerline #x2b60" #x2b60)))
 
-;;;###autoload
 (defcustom airline-utf-glyph-readonly #x2b64
   "The unicode character number used for the readonly symbol."
   :group 'airline-themes
   :type '(choice (const :tag "powerline #xe0a2"     #xe0a2)
                  (const :tag "vim-powerline #x2b64" #x2b64)))
 
-;;;###autoload
 (defcustom airline-utf-glyph-linenumber #x2b61
   "The unicode character number used for the linenumber symbol."
   :group 'airline-themes
   :type '(choice (const :tag "powerline #xe0a1"     #xe0a1)
                  (const :tag "vim-powerline #x2b61" #x2b61)))
 
-;;;###autoload
 (defun airline-themes-set-eshell-prompt ()
   "Set the eshell prompt"
 
@@ -171,7 +158,6 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
            (propertize " $ " 'face `())
            ))))
 
-;;;###autoload
 (defun airline-themes-set-modeline ()
   "Set the airline mode-line-format"
   (interactive)
@@ -356,7 +342,6 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
   (powerline-reset)
   (kill-local-variable 'mode-line-format))
 
-;;;###autoload
 (defun airline-themes-set-deftheme (theme-name)
   "Set appropriate face attributes"
 
@@ -400,7 +385,6 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
    `(minibuffer-prompt     ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil))))
   ))
 
-;;;###autoload
 (defun airline-curr-dir-git-branch-string (pwd)
   "Returns current git branch as a string, or the empty string if
 PWD is not in a git repo (or the git command is not found)."
@@ -412,7 +396,6 @@ PWD is not in a git repo (or the git command is not found)."
           (concat (substring git-output 0 -1))
         "(no branch)"))))
 
-;;;###autoload
 (defun airline-get-vc ()
   "Reimplementation of powerline-vc function to give the same result in gui as the terminal."
   (interactive)
@@ -423,7 +406,6 @@ PWD is not in a git repo (or the git command is not found)."
                 (magit-get-current-branch)
               (format-mode-line '(vc-mode vc-mode))))))
 
-;;;###autoload
 (defun airline-shorten-directory (dir max-length)
   "Return a shortened ersion of `DIR'.
 
