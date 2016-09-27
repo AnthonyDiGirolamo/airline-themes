@@ -16,11 +16,17 @@
      (visual-inner-foreground  "#000000") (visual-inner-background  "#fade3e")
      (visual-center-foreground "#000000") (visual-center-background "#b88853")
 
-     (replace-outer-foreground "#141413") (replace-outer-background "#ff9eb8")
-     (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+     (replace-outer-foreground  "#141413") (replace-outer-background  "#ff9eb8")
+     (replace-inner-foreground  "#f4cf86") (replace-inner-background  "#45413b")
+     (replace-center-foreground "#8cffba") (replace-center-background "#242321")
+
+     (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+     (emacs-inner-foreground  "#f4cf86") (emacs-inner-background  "#45413b")
+     (emacs-center-foreground "#8cffba") (emacs-center-background "#242321")
 
      (inactive1-foreground "#45413b") (inactive1-background "#141413")
-     (inactive2-foreground "#45413b") (inactive2-background "#242321"))
+     (inactive2-foreground "#45413b") (inactive2-background "#242321")
+     (inactive3-foreground "#45413b") (inactive3-background "#242321"))
 
   (airline-themes-set-deftheme 'airline-badwolf)
 

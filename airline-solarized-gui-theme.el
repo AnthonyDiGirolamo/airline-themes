@@ -16,11 +16,17 @@
       (visual-inner-foreground  (face-background 'default))   (visual-inner-background  (face-foreground 'fringe))
       (visual-center-foreground (face-foreground 'fringe))    (visual-center-background (face-background 'highlight))
 
-      (replace-outer-foreground (face-background 'highlight)) (replace-outer-background (face-foreground 'error))
-      (emacs-outer-foreground   (face-background 'highlight)) (emacs-outer-background   (face-foreground 'escape-glyph))
+      (replace-outer-foreground  (face-background 'highlight)) (replace-outer-background  (face-foreground 'error))
+      (replace-inner-foreground  (face-background 'default))   (replace-inner-background  (face-foreground 'fringe))
+      (replace-center-foreground (face-foreground 'fringe))    (replace-center-background (face-background 'highlight))
+
+      (emacs-outer-foreground  (face-background 'highlight)) (emacs-outer-background  (face-foreground 'escape-glyph))
+      (emacs-inner-foreground  (face-background 'default))   (emacs-inner-background  (face-foreground 'fringe))
+      (emacs-center-foreground (face-foreground 'fringe))    (emacs-center-background (face-background 'highlight))
 
       (inactive1-foreground (face-foreground 'fringe)) (inactive1-background (face-foreground 'highlight))
-      (inactive2-foreground (face-foreground 'fringe)) (inactive2-background (face-foreground 'highlight)))
+      (inactive2-foreground (face-foreground 'fringe)) (inactive2-background (face-foreground 'highlight))
+      (inactive3-foreground (face-foreground 'fringe)) (inactive3-background (face-foreground 'highlight)))
 
   (airline-themes-set-deftheme 'airline-solarized-gui)
 

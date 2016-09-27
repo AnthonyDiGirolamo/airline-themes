@@ -16,11 +16,17 @@
       (visual-inner-foreground  "#ffffff") (visual-inner-background  "#003f3f")
       (visual-center-foreground "#ffffff") (visual-center-background "#002b2b")
 
-      (replace-outer-foreground "#ffffff") (replace-outer-background "#920000")
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+      (replace-outer-foreground  "#ffffff") (replace-outer-background  "#920000")
+      (replace-inner-foreground  "#ffffff") (replace-inner-background  "#003f3f")
+      (replace-center-foreground "#ffffff") (replace-center-background "#002b2b")
+
+      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+      (emacs-inner-foreground  "#ffffff") (emacs-inner-background  "#003f3f")
+      (emacs-center-foreground "#ffffff") (emacs-center-background "#002b2b")
 
       (inactive1-foreground "#4e4e4e") (inactive1-background "#002b2b")
-      (inactive2-foreground "#4e4e4e") (inactive2-background "#002b2b"))
+      (inactive2-foreground "#4e4e4e") (inactive2-background "#002b2b")
+      (inactive3-foreground "#4e4e4e") (inactive3-background "#002b2b"))
 
   (airline-themes-set-deftheme 'airline-luna)
 

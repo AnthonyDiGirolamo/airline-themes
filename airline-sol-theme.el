@@ -16,11 +16,17 @@
       (visual-inner-foreground  "#343434") (visual-inner-background  "#a3a3a3")
       (visual-center-foreground "#343434") (visual-center-background "#b0b0b0")
 
-      (replace-outer-foreground "#eeeeee") (replace-outer-background "#ff2121")
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+      (replace-outer-foreground  "#eeeeee") (replace-outer-background  "#ff2121")
+      (replace-inner-foreground  "#343434") (replace-inner-background  "#b3b3b3")
+      (replace-center-foreground "#343434") (replace-center-background "#c7c7c7")
+
+      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+      (emacs-inner-foreground  "#343434") (emacs-inner-background  "#b3b3b3")
+      (emacs-center-foreground "#343434") (emacs-center-background "#c7c7c7")
 
       (inactive1-foreground "#777777") (inactive1-background "#c7c7c7")
-      (inactive2-foreground "#777777") (inactive2-background "#c7c7c7"))
+      (inactive2-foreground "#777777") (inactive2-background "#c7c7c7")
+      (inactive3-foreground "#777777") (inactive3-background "#c7c7c7"))
 
   (airline-themes-set-deftheme 'airline-sol)
 

@@ -18,11 +18,17 @@ url: https://github.com/mkaito/base16-emacs")
       (visual-inner-foreground  (face-foreground 'warning))            (visual-inner-background  (face-background 'default))
       (visual-center-foreground (face-foreground 'font-lock-doc-face)) (visual-center-background (face-background 'highlight))
 
-      (replace-outer-foreground (face-background 'highlight)) (replace-outer-background (face-foreground 'error))
-      (emacs-outer-foreground   (face-background 'highlight)) (emacs-outer-background   (face-foreground 'link-visited))
+      (replace-outer-foreground  (face-background 'highlight))          (replace-outer-background  (face-foreground 'error))
+      (replace-inner-foreground  (face-foreground 'font-lock-doc-face)) (replace-inner-background  (face-background 'fringe))
+      (replace-center-foreground (face-foreground 'font-lock-doc-face)) (replace-center-background (face-background 'highlight))
+
+      (emacs-outer-foreground  (face-background 'highlight))          (emacs-outer-background  (face-foreground 'link-visited))
+      (emacs-inner-foreground  (face-foreground 'font-lock-doc-face)) (emacs-inner-background  (face-background 'fringe))
+      (emacs-center-foreground (face-foreground 'font-lock-doc-face)) (emacs-center-background (face-background 'highlight))
 
       (inactive1-foreground (face-foreground 'font-lock-doc-face)) (inactive1-background (face-foreground 'highlight))
-      (inactive2-foreground (face-foreground 'font-lock-doc-face)) (inactive2-background (face-foreground 'highlight)))
+      (inactive2-foreground (face-foreground 'font-lock-doc-face)) (inactive2-background (face-foreground 'highlight))
+      (inactive3-foreground (face-foreground 'font-lock-doc-face)) (inactive3-background (face-foreground 'highlight)))
 
   (airline-themes-set-deftheme 'airline-base16-gui-dark)
 

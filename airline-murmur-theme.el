@@ -16,11 +16,17 @@
       (visual-inner-foreground  "#AFAF87") (visual-inner-background  "#5F5F5F")
       (visual-center-foreground "#ff8c00") (visual-center-background "#1C1C1C")
 
-      (replace-outer-foreground "#FFFFFF") (replace-outer-background "#870000")
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+      (replace-outer-foreground  "#FFFFFF") (replace-outer-background  "#870000")
+      (replace-inner-foreground  "#AFAF87") (replace-inner-background  "#5F5F5F")
+      (replace-center-foreground "#5F87FF") (replace-center-background "#1C1C1C")
+
+      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+      (emacs-inner-foreground  "#AFAF87") (emacs-inner-background  "#5F5F5F")
+      (emacs-center-foreground "#5F87FF") (emacs-center-background "#1C1C1C")
 
       (inactive1-foreground "#4E4E4E") (inactive1-background "#1C1C1C")
-      (inactive2-foreground "#4E4E4E") (inactive2-background "#1C1C1C"))
+      (inactive2-foreground "#4E4E4E") (inactive2-background "#1C1C1C")
+      (inactive3-foreground "#4E4E4E") (inactive3-background "#1C1C1C"))
 
   (airline-themes-set-deftheme 'airline-murmur)
 

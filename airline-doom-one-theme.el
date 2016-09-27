@@ -21,12 +21,13 @@
       (replace-inner-foreground "#B5BABF") (replace-inner-background "#262c34")
       (replace-center-foreground "#B5BABF") (replace-center-background "#1f1f1f")
 
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#C57BDB")
+      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#C57BDB")
+      (emacs-inner-foreground  "#B5BABF") (emacs-inner-background  "#262c34")
+      (emacs-center-foreground "#B5BABF") (emacs-center-background "#1f1f1f")
 
       (inactive1-foreground "#525252") (inactive1-background "#262c34")
       (inactive2-foreground "#525252") (inactive2-background "#1f1f1f")
-      ;; (inactive3-foreground "#525252") (inactive3-background "#1f1f1f")
-      )
+      (inactive3-foreground "#525252") (inactive3-background "#1f1f1f"))
 
   (airline-themes-set-deftheme 'airline-doom-one)
 

@@ -16,11 +16,17 @@
       (visual-inner-foreground  "#005faf") (visual-inner-background  "#5fafff")
       (visual-center-foreground "#87d7ff") (visual-center-background "#005faf")
 
-      (replace-outer-foreground "#5f005f") (replace-outer-background "#d75fff")
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+      (replace-outer-foreground  "#5f005f") (replace-outer-background  "#d75fff")
+      (replace-inner-foreground  "#afd700") (replace-inner-background  "#005f00")
+      (replace-center-foreground "#b5b5b5") (replace-center-background "#222222")
+
+      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+      (emacs-inner-foreground  "#afd700") (emacs-inner-background  "#005f00")
+      (emacs-center-foreground "#b5b5b5") (emacs-center-background "#222222")
 
       (inactive1-foreground "#857b6f") (inactive1-background "#303032")
-      (inactive2-foreground "#857b6f") (inactive2-background "#303032"))
+      (inactive2-foreground "#857b6f") (inactive2-background "#303032")
+      (inactive3-foreground "#857b6f") (inactive3-background "#303032"))
 
   (airline-themes-set-deftheme 'airline-kalisi)
 

@@ -16,11 +16,17 @@
       (visual-inner-foreground  "#f8f8f0") (visual-inner-background  "#232526")
       (visual-center-foreground "#f8f8f0") (visual-center-background "#465457")
 
-      (replace-outer-foreground "#080808") (replace-outer-background "#ef5939")
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+      (replace-outer-foreground  "#080808") (replace-outer-background  "#ef5939")
+      (replace-inner-foreground  "#f8f8f0") (replace-inner-background  "#232526")
+      (replace-center-foreground "#f8f8f0") (replace-center-background "#465457")
+
+      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+      (emacs-inner-foreground  "#f8f8f0") (emacs-inner-background  "#232526")
+      (emacs-center-foreground "#f8f8f0") (emacs-center-background "#465457")
 
       (inactive1-foreground "#1b1d1e") (inactive1-background "#465457")
-      (inactive2-foreground "#1b1d1e") (inactive2-background "#465457"))
+      (inactive2-foreground "#1b1d1e") (inactive2-background "#465457")
+      (inactive3-foreground "#1b1d1e") (inactive3-background "#465457"))
 
   (airline-themes-set-deftheme 'airline-molokai)
 

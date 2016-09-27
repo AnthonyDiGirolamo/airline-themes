@@ -16,11 +16,17 @@
       (visual-inner-foreground  "#000000") (visual-inner-background  "#ff5f00")
       (visual-center-foreground "#ffffff") (visual-center-background "#5f0000")
 
-      (replace-outer-foreground "#ffffff") (replace-outer-background "#af0000")
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+      (replace-outer-foreground  "#ffffff") (replace-outer-background  "#af0000")
+      (replace-inner-foreground  "#ffffff") (replace-inner-background  "#444444")
+      (replace-center-foreground "#9cffd3") (replace-center-background "#202020")
+
+      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+      (emacs-inner-foreground  "#ffffff") (emacs-inner-background  "#444444")
+      (emacs-center-foreground "#9cffd3") (emacs-center-background "#202020")
 
       (inactive1-foreground "#4e4e4e") (inactive1-background "#1c1c1c")
-      (inactive2-foreground "#4e4e4e") (inactive2-background "#262626"))
+      (inactive2-foreground "#4e4e4e") (inactive2-background "#262626")
+      (inactive3-foreground "#4e4e4e") (inactive3-background "#262626"))
 
   (airline-themes-set-deftheme 'airline-dark)
 

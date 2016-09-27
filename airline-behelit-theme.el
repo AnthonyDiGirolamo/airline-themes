@@ -16,11 +16,17 @@
       (visual-inner-foreground  "#5f87ff") (visual-inner-background  "#262626")
       (visual-center-foreground "#5f87ff") (visual-center-background "#1c1c1c")
 
-      (replace-outer-foreground "#121212") (replace-outer-background "#d70057")
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+      (replace-outer-foreground  "#121212") (replace-outer-background  "#d70057")
+      (replace-inner-foreground  "#5f87ff") (replace-inner-background  "#262626")
+      (replace-center-foreground "#5f87ff") (replace-center-background "#1c1c1c")
+
+      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+      (emacs-inner-foreground  "#5f87ff") (emacs-inner-background  "#262626")
+      (emacs-center-foreground "#5f87ff") (emacs-center-background "#1c1c1c")
 
       (inactive1-foreground "#4e4e4e") (inactive1-background "#1c1c1c")
-      (inactive2-foreground "#4e4e4e") (inactive2-background "#262626"))
+      (inactive2-foreground "#4e4e4e") (inactive2-background "#262626")
+      (inactive3-foreground "#4e4e4e") (inactive3-background "#262626"))
 
   (airline-themes-set-deftheme 'airline-behelit)
 
