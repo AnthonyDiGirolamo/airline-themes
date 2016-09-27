@@ -407,7 +407,7 @@ PWD is not in a git repo (or the git command is not found)."
               (format-mode-line '(vc-mode vc-mode))))))
 
 (defun airline-shorten-directory (dir max-length)
-  "Return a shortened ersion of `DIR'.
+  "Return a shortened version of `DIR'.
 
 Replacing elements with single characters starting from the left to try and get
 the path down to `MAX-LENGTH'"
@@ -423,7 +423,7 @@ the path down to `MAX-LENGTH'"
                               (string (elt (car components) 0) ?/)))
             len (- len (1- (length (car components))))
             components (cdr components)))
-    (concat str (reduce (lambda (a b) (concat a "/" b)) components))
+    (concat str (cl-reduce (lambda (a b) (concat a "/" b)) components))
   )
 )
 
