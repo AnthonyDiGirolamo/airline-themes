@@ -19,14 +19,24 @@
 (defface airline-normal-outer  '((t (:foreground "#141413" :background "#aeee00" :weight normal))) "Airline Normal Outer Face"  :group 'airline-themes)
 (defface airline-normal-inner  '((t (:foreground "#f4cf86" :background "#45413b" :weight normal))) "Airline Normal Inner Face"  :group 'airline-themes)
 (defface airline-normal-center '((t (:foreground "#8cffba" :background "#242321" :weight normal))) "Airline Normal Center Face" :group 'airline-themes)
+
 (defface airline-insert-outer  '((t (:foreground "#141413" :background "#0a9dff" :weight normal))) "Airline Insert Outer Face"  :group 'airline-themes)
 (defface airline-insert-inner  '((t (:foreground "#f4cf86" :background "#005faf" :weight normal))) "Airline Insert Inner Face"  :group 'airline-themes)
 (defface airline-insert-center '((t (:foreground "#0a9dff" :background "#242321" :weight normal))) "Airline Insert Center Face" :group 'airline-themes)
+
 (defface airline-visual-outer  '((t (:foreground "#141413" :background "#ffa724" :weight normal))) "Airline Visual Outer Face"  :group 'airline-themes)
 (defface airline-visual-inner  '((t (:foreground "#000000" :background "#fade3e" :weight normal))) "Airline Visual Inner Face"  :group 'airline-themes)
 (defface airline-visual-center '((t (:foreground "#000000" :background "#b88853" :weight normal))) "Airline Visual Center Face" :group 'airline-themes)
+
 (defface airline-replace-outer '((t (:foreground "#141413" :background "#aeee00" :weight normal))) "Airline Replace Outer Face" :group 'airline-themes)
+(defface airline-replace-inner  '((t (:foreground "#f4cf86" :background "#45413b" :weight normal))) "Airline Replace Inner Face"  :group 'airline-themes)
+(defface airline-replace-center '((t (:foreground "#8cffba" :background "#242321" :weight normal))) "Airline Replace Center Face" :group 'airline-themes)
+
 (defface airline-emacs-outer   '((t (:foreground "#d7d7ff" :background "#5f00af" :weight normal))) "Airline Emacs Outer Face"   :group 'airline-themes)
+(defface airline-emacs-inner  '((t (:foreground "#f4cf86" :background "#45413b" :weight normal))) "Airline Emacs Inner Face"  :group 'airline-themes)
+(defface airline-emacs-center '((t (:foreground "#8cffba" :background "#242321" :weight normal))) "Airline Emacs Center Face" :group 'airline-themes)
+
+(defface airline-inactive3 '((t (:foreground "#45413b" :background "#242321" :weight normal))) "Airline Inactive Center Face" :group 'airline-themes)
 
 ;;;###autoload
 (when load-file-name
@@ -208,6 +218,8 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                    (cond ((eq evil-state (intern "normal")) 'airline-normal-inner)
                                          ((eq evil-state (intern "insert")) 'airline-insert-inner)
                                          ((eq evil-state (intern "visual")) 'airline-visual-inner)
+                                         ((eq evil-state (intern "replace")) 'airline-replace-inner)
+                                         ((eq evil-state (intern "emacs"))   'airline-emacs-inner)
                                          (t                                 'airline-normal-inner))
                                  'airline-normal-inner)
                              'powerline-inactive2))
@@ -218,9 +230,11 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                    (cond ((eq evil-state (intern "normal")) 'airline-normal-center)
                                          ((eq evil-state (intern "insert")) 'airline-insert-center)
                                          ((eq evil-state (intern "visual")) 'airline-visual-center)
+                                         ((eq evil-state (intern "replace")) 'airline-replace-center)
+                                         ((eq evil-state (intern "emacs"))   'airline-emacs-center)
                                          (t                                 'airline-normal-center))
                                  'airline-normal-center)
-                             'powerline-inactive2))
+                             'airline-inactive3))
 
                           ;; Left Hand Side
                           (lhs-mode (if (featurep 'evil)
@@ -372,9 +386,14 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
    `(airline-visual-inner  ((t ( :foreground ,visual-inner-foreground  :background ,visual-inner-background))))
    `(airline-visual-center ((t ( :foreground ,visual-center-foreground :background ,visual-center-background))))
    `(airline-replace-outer ((t ( :foreground ,replace-outer-foreground :background ,replace-outer-background))))
+   `(airline-replace-inner  ((t ( :foreground ,replace-inner-foreground  :background ,replace-inner-background))))
+   `(airline-replace-center ((t ( :foreground ,replace-center-foreground :background ,replace-center-background))))
    `(airline-emacs-outer   ((t ( :foreground ,emacs-outer-foreground   :background ,emacs-outer-background))))
+   `(airline-emacs-inner  ((t ( :foreground ,emacs-inner-foreground  :background ,emacs-inner-background))))
+   `(airline-emacs-center ((t ( :foreground ,emacs-center-foreground :background ,emacs-center-background))))
    `(powerline-inactive1   ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background))))
    `(powerline-inactive2   ((t ( :foreground ,inactive2-foreground     :background ,inactive2-background))))
+   `(airline-inactive3   ((t ( :foreground ,inactive3-foreground     :background ,inactive3-background))))
    `(mode-line             ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :box nil :underline nil :overline nil))))
    `(mode-line-inactive    ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background     :box nil :underline nil :overline nil))))
    `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil :underline nil :overline nil))))

@@ -26,12 +26,13 @@
       ;; \ [ '#EEEEEE' , '#008787' , 231  , 30 , ''     ],
       ;; \ [ '#585858' , '#E4E4E4' , 59 , 188  , ''     ])
 
-      (emacs-outer-foreground   "#d7d7ff") (emacs-outer-background   "#5f00af")
+      (emacs-outer-foreground   "#585858") (emacs-outer-background   "#E4E4E4")
+      (emacs-inner-foreground   "#E4E4E4") (emacs-inner-background   "#8968cd")
+      (emacs-center-foreground  "#EEEEEE") (emacs-center-background  "#5d478b")
 
       (inactive1-foreground "#585858") (inactive1-background "#E4E4E4")
       (inactive2-foreground "#E4E4E4") (inactive2-background "#466D79")
-      ;; (inactive3-foreground "#EEEEEE") (inactive3-background "#324E59")
-      )
+      (inactive3-foreground "#EEEEEE") (inactive3-background "#324E59"))
 
   (airline-themes-set-deftheme 'airline-cool)
 
