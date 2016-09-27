@@ -9,7 +9,6 @@ url: https://github.com/mkaito/base16-emacs")
 (let ((normal-outer-foreground  (face-background 'default)) (normal-outer-background  (face-foreground 'link))
       (normal-inner-foreground  (face-background 'fringe))  (normal-inner-background  (face-foreground 'rainbow-delimiters-depth-9-face))
       (normal-center-foreground (face-background 'fringe))  (normal-center-background (face-foreground 'mode-line-emphasis))
-      (ansi-color-names-vector)
 
       (insert-outer-foreground  (face-background 'highlight)) (insert-outer-background  (face-foreground 'success))
       (insert-inner-foreground  (face-foreground 'success))   (insert-inner-background  (face-background 'default))
