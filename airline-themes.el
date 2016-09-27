@@ -2,13 +2,13 @@
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes
-;; Version: 1.5
+;; Version: 1.6
 ;; Keywords: evil, mode-line, powerline, airline, themes
 ;; Package-Requires: ((powerline "2.3"))
 
 ;;; Commentary:
 ;;
-;; vim-airline themes https://github.com/bling/vim-airline for emacs powerline https://github.com/milkypostman/powerline
+;; vim-airline themes https://github.com/vim-airline/vim-airline for emacs powerline https://github.com/milkypostman/powerline
 ;;
 
 ;;; Code:
