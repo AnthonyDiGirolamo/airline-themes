@@ -2,7 +2,7 @@
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes
-;; Version: 1.6
+;; Version: 1.7
 ;; Keywords: evil, mode-line, powerline, airline, themes
 ;; Package-Requires: ((powerline "2.3"))
 
@@ -414,7 +414,7 @@ the path down to `MAX-LENGTH'"
 
   (let* ((components (split-string (abbreviate-file-name dir) "/"))
          (len (+ (1- (length components))
-                 (reduce '+ components :key 'length)))
+                 (cl-reduce '+ components :key 'length)))
          (str ""))
     (while (and (> len max-length)
                 (cdr components))
