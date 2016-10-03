@@ -37,11 +37,11 @@
   (airline-themes-set-deftheme 'airline-cool)
 
   (when airline-cursor-colors
-    (setq evil-emacs-state-cursor   emacs-outer-background
-          evil-normal-state-cursor  normal-outer-background
-          evil-insert-state-cursor  `(bar ,insert-outer-background)
-          evil-replace-state-cursor replace-outer-background
-          evil-visual-state-cursor  visual-outer-background))
+    (setq evil-emacs-state-cursor   emacs-center-background
+          evil-normal-state-cursor  normal-center-background
+          evil-insert-state-cursor  `(bar ,insert-center-background)
+          evil-replace-state-cursor replace-center-background
+          evil-visual-state-cursor  visual-center-background))
   )
 
 (airline-themes-set-modeline)
