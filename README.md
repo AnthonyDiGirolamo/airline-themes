@@ -111,6 +111,6 @@ the current buffer.
               airline-utf-glyph-readonly            #x2194
               airline-utf-glyph-linenumber          #x2191)
 
-![new chrecters in windows](https://s12.postimg.org/vugxkkf15/image.png)
-![new chrecters in windows](https://s12.postimg.org/5nfqolwrd/image.png)
-![new chrecters in windows](https://s12.postimg.org/s0s2p5n2x/image.png)
+![new chrecters in windows](https://s12.postimg.org/sauzurcbh/image.png)
+![new chrecters in windows](https://s12.postimg.org/dg6egl2ql/image.png)
+![new chrecters in windows](https://s12.postimg.org/ig8g29xr1/image.png)
