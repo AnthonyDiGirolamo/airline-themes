@@ -103,10 +103,14 @@ the current buffer.
 
   In windows setting this in your emacs init file will also work, even if you dont have the fonts installed or the installed fonts         stil won't work :- 
     
-      (setq airline-utf-glyph-separator-left      #x2161
-       airline-utf-glyph-separator-right     #x21c1
-       airline-utf-glyph-subseparator-left   #x21c5
-       airline-utf-glyph-subseparator-right  #x21c5
-       airline-utf-glyph-branch              #x3bb
-       airline-utf-glyph-readonly            #x2194
-       airline-utf-glyph-linenumber          #x2191)
+        (setq airline-utf-glyph-separator-left      #x2161
+              airline-utf-glyph-separator-right     #x21c1
+              airline-utf-glyph-subseparator-left   #x21c5
+              airline-utf-glyph-subseparator-right  #x21c5
+              airline-utf-glyph-branch              #x3bb
+              airline-utf-glyph-readonly            #x2194
+              airline-utf-glyph-linenumber          #x2191)
+
+![new chrecters in windows](https://s12.postimg.org/vugxkkf15/image.png)
+![new chrecters in windows](https://s12.postimg.org/5nfqolwrd/image.png)
+![new chrecters in windows](https://s12.postimg.org/s0s2p5n2x/image.png)
