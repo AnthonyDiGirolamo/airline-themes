@@ -88,8 +88,12 @@ the current buffer.
       | airline-utf-glyph-readonly           | ''  #xe0a2 | '⭤'  #x2b64             |
       | airline-utf-glyph-linenumber         | ''  #xe0a1 | '⭡'  #x2b61             |
 
-  If your font characters don't look right try setting them to the powerline utf
-  glyphs by adding this to your init.el:
+  If your font characters don't look right, consider install
+  [GNU Unifont Glyphs](http://unifoundry.com/unifont.html):
+  
+      sudo apt-get install unifont  # on Debian/Ubuntu
+  
+  Or try setting them to the powerline utf glyphs by adding this to your init.el:
 
       (setq powerline-utf-8-separator-left        #xe0b0
             powerline-utf-8-separator-right       #xe0b2
