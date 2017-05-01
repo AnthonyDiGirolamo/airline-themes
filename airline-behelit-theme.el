@@ -20,7 +20,7 @@
       (replace-inner-foreground  "#5f87ff") (replace-inner-background  "#262626")
       (replace-center-foreground "#5f87ff") (replace-center-background "#1c1c1c")
 
-      (emacs-outer-foreground  "#d7d7ff") (emacs-outer-background  "#5f00af")
+      (emacs-outer-foreground  "#121212") (emacs-outer-background  "#aa88ff")
       (emacs-inner-foreground  "#5f87ff") (emacs-inner-background  "#262626")
       (emacs-center-foreground "#5f87ff") (emacs-center-background "#1c1c1c")
 
