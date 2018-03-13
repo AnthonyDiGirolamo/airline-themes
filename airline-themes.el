@@ -73,6 +73,14 @@ Valid Values: t (enabled), nil (disabled)"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
+(defcustom airline-minor-mides t
+  "Set wether to display the minor modes or not
+
+Valid Values: t (enabled), nil (disabled)"
+  :group 'airline-themes
+  :type '(choice (const :tag "Enabled" t)
+                 (const :tag "Disabled" nil)))
+
 (defcustom airline-display-directory 'airline-directory-shortened
   "Display the currend directory along with the filename.
 
@@ -291,11 +299,13 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; (powerline-raw (char-to-string #x2b83) center-face 'l)
 
                                      ;; Minor Modes
-                                     (powerline-minor-modes center-face 'l)
+                                     (when (eq airline-minor-modes t)
+                                       (powerline-minor-modes center-face 'l))
                                      ;; (powerline-narrow center-face 'l)
 
                                      ;; Subseparator <
-                                     (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)
+                                     (when (eq airline-minor-modes t)
+                                       (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l))
 
                                      ;; Major Mode
                                      (powerline-major-mode center-face 'l)
