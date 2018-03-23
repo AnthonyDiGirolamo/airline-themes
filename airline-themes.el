@@ -73,8 +73,16 @@ Valid Values: t (enabled), nil (disabled)"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
-(defcustom airline-minor-mides t
-  "Set wether to display the minor modes or not
+(defcustom airline-minor-modes t
+  "Set wether to display the minor modes or not.
+
+Valid Values: t (enabled), nil (disabled)"
+  :group 'airline-themes
+  :type '(choice (const :tag "Enabled" t)
+                 (const :tag "Disabled" nil)))
+
+(defcustom airline-flycheck-status nil
+  "Set wether to display the flycheck status.
 
 Valid Values: t (enabled), nil (disabled)"
   :group 'airline-themes
@@ -133,7 +141,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                  (const :tag "vim-powerline #x2b61" #x2b61)))
 
 (defun airline-themes-set-eshell-prompt ()
-  "Set the eshell prompt"
+  "Set the eshell prompt."
 
   (setq eshell-highlight-prompt t
         eshell-prompt-regexp "^ [^#$]* [#$] "
@@ -288,6 +296,12 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; ;; Separator <
                                      ;; (powerline-raw " " face1)
                                      ;; (funcall separator-right face1 face2)
+
+                                     (if (featurep 'flycheck)
+                                         (when (eq airline-flycheck-status t)
+                                           (powerline-raw (airline-flycheck-status-text)
+                                                          (airline-flycheck-status-face)
+                                                          'l)))
                                    ))
 
                           (lhs (append lhs-mode lhs-rest))
@@ -439,6 +453,27 @@ the path down to `MAX-LENGTH'"
     (concat str (cl-reduce (lambda (a b) (concat a "/" b)) components))
   )
 )
+
+(defun airline-flycheck-status-text ()
+  "Display flycheck status in the modeline."
+  (cond ((flycheck-has-current-errors-p 'error)
+         "✗ ")
+        ((flycheck-has-current-errors-p 'warning)
+         "⚠ ")
+        ((flycheck-has-current-errors-p 'info)
+         "☆ ")))
+
+(defun airline-flycheck-status-face ()
+  "Get appropriate face for the flycheck status."
+  (cond ((flycheck-has-current-errors-p 'error)
+         'flycheck-fringe-error)
+        ((flycheck-has-current-errors-p 'warning)
+         'flycheck-fringe-warning)
+        ((flycheck-has-current-errors-p 'info)
+         'flycheck-fringe-info)))
+
+
+
 
 (provide 'airline-themes)
 ;;; airline-themes.el ends here
