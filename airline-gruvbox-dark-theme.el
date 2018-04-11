@@ -1,5 +1,3 @@
-;;; airline-dark --- Summary
-;;; Commentary: Medium version of gruvbox dark
 ;;; Code:
 
 (deftheme airline-gruvbox-dark
