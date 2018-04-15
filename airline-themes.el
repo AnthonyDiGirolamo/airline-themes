@@ -301,7 +301,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                          (when (eq airline-flycheck-status t)
                                            (powerline-raw (airline-flycheck-status-text)
                                                           (airline-flycheck-status-face)
-                                                          center-face 'l)))
+                                                          'l)))
                                    ))
 
                           (lhs (append lhs-mode lhs-rest))
@@ -312,12 +312,12 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; ;; Separator <
                                      ;; (powerline-raw (char-to-string #x2b83) center-face 'l)
 
-                                     ;; Minor Modes
+                                     ;; Persp-mode if minor-modes are off
                                      (when (eq airline-minor-modes nil)
                                        (if (featurep 'persp-mode)
-                                           (powerline-raw (persp-name persp-curr) center-face 'l)
-                                           (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)))
+                                         (powerline-raw (airline-persp-indicator) center-face 'l)))
 
+                                    ;; Minor Modes
                                      (when (eq airline-minor-modes t)
                                        (powerline-minor-modes center-face 'l))
                                      ;; (powerline-narrow center-face 'l)
@@ -476,6 +476,14 @@ the path down to `MAX-LENGTH'"
          'flycheck-fringe-warning)
         ((flycheck-has-current-errors-p 'info)
          'flycheck-fringe-info)))
+
+(defun airline-persp-indicator ()
+  "Get the name of the current workspace from persp-mode."
+  (when (bound-and-true-p persp-mode)
+  (let ((name (safe-persp-name (get-frame-persp))))
+	(if (file-directory-p name)
+		(file-name-nondirectory (directory-file-name name))
+		name))))
 
 
 (provide 'airline-themes)
