@@ -315,7 +315,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; Minor Modes
                                      (when (eq airline-minor-modes nil)
                                        (if (featurep 'persp-mode)
-                                           (powerline-raw (get-current-persp) center-face 'l)
+                                           (powerline-raw (persp-name persp-curr) center-face 'l)
                                            (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)))
 
                                      (when (eq airline-minor-modes t)
