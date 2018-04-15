@@ -301,7 +301,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                          (when (eq airline-flycheck-status t)
                                            (powerline-raw (airline-flycheck-status-text)
                                                           (airline-flycheck-status-face)
-                                                          'l)))
+                                                          center-face 'l)))
                                    ))
 
                           (lhs (append lhs-mode lhs-rest))
@@ -313,6 +313,11 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; (powerline-raw (char-to-string #x2b83) center-face 'l)
 
                                      ;; Minor Modes
+                                     (when (eq airline-minor-modes nil)
+                                       (if (featurep 'persp-mode)
+                                           (powerline-raw (get-current-persp) center-face 'l)
+                                           (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)))
+
                                      (when (eq airline-minor-modes t)
                                        (powerline-minor-modes center-face 'l))
                                      ;; (powerline-narrow center-face 'l)
@@ -471,8 +476,6 @@ the path down to `MAX-LENGTH'"
          'flycheck-fringe-warning)
         ((flycheck-has-current-errors-p 'info)
          'flycheck-fringe-info)))
-
-
 
 
 (provide 'airline-themes)
