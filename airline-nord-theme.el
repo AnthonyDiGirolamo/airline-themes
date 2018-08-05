@@ -6,28 +6,28 @@
   "source: https://github.com/hlissner/emacs-doom-theme")
 
 (let ((normal-outer-foreground   "#373E4C") (normal-outer-background   "#80A0C2")
-      (normal-inner-foreground   "#D8DEE9") (normal-inner-background   "#2C333F")
-      (normal-center-foreground  "#D8DEE9") (normal-center-background  "#2C333F")
+      (normal-inner-foreground   "#88C0D0") (normal-inner-background   "#4C566A")
+      (normal-center-foreground  "#88C0D0") (normal-center-background  "#4C566A")
 
       (insert-outer-foreground   "#373E4C") (insert-outer-background   "#A2BF8A")
-      (insert-inner-foreground   "#D8DEE9") (insert-inner-background   "#2C333F")
-      (insert-center-foreground  "#D8DEE9") (insert-center-background  "#2C333F")
+      (insert-inner-foreground   "#88C0D0") (insert-inner-background   "#4C566A")
+      (insert-center-foreground  "#88C0D0") (insert-center-background  "#4C566A")
 
       (visual-outer-foreground   "#373E4C") (visual-outer-background   "#8EBCBB")
-      (visual-inner-foreground   "#D8DEE9") (visual-inner-background   "#2C333F")
-      (visual-center-foreground  "#D8DEE9") (visual-center-background  "#2C333F")
+      (visual-inner-foreground   "#88C0D0") (visual-inner-background   "#4C566A")
+      (visual-center-foreground  "#88C0D0") (visual-center-background  "#4C566A")
 
       (replace-outer-foreground  "#373E4C") (replace-outer-background  "#C16069")
-      (replace-inner-foreground  "#D8DEE9") (replace-inner-background  "#2C333F")
-      (replace-center-foreground "#D8DEE9") (replace-center-background "#2C333F")
+      (replace-inner-foreground  "#88C0D0") (replace-inner-background  "#4C566A")
+      (replace-center-foreground "#88C0D0") (replace-center-background "#4C566A")
 
       (emacs-outer-foreground    "#373E4C") (emacs-outer-background    "#B58DAE")
-      (emacs-inner-foreground    "#D8DEE9") (emacs-inner-background    "#2C333F")
-      (emacs-center-foreground   "#D8DEE9") (emacs-center-background   "#2C333F")
+      (emacs-inner-foreground    "#88C0D0") (emacs-inner-background    "#4C566A")
+      (emacs-center-foreground   "#88C0D0") (emacs-center-background   "#4C566A")
 
-      (inactive1-foreground      "#9099AB") (inactive1-background      "#242832")
-      (inactive2-foreground      "#9099AB") (inactive2-background      "#2E3440")
-      (inactive3-foreground      "#9099AB") (inactive3-background      "#2E3440"))
+      (inactive1-foreground      "#9099AB") (inactive1-background      "#4C566A")
+      (inactive2-foreground      "#9099AB") (inactive2-background      "#4C566A")
+      (inactive3-foreground      "#9099AB") (inactive3-background      "#4C566A"))
 
   (airline-themes-set-deftheme 'airline-nord)
 
