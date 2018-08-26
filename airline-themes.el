@@ -73,6 +73,22 @@ Valid Values: t (enabled), nil (disabled)"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
+(defcustom airline-minor-modes t
+  "Set wether to display the minor modes or not.
+
+Valid Values: t (enabled), nil (disabled)"
+  :group 'airline-themes
+  :type '(choice (const :tag "Enabled" t)
+                 (const :tag "Disabled" nil)))
+
+(defcustom airline-flycheck-status nil
+  "Set wether to display the flycheck status.
+
+Valid Values: t (enabled), nil (disabled)"
+  :group 'airline-themes
+  :type '(choice (const :tag "Enabled" t)
+                 (const :tag "Disabled" nil)))
+
 (defcustom airline-display-directory 'airline-directory-shortened
   "Display the currend directory along with the filename.
 
@@ -125,7 +141,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                  (const :tag "vim-powerline #x2b61" #x2b61)))
 
 (defun airline-themes-set-eshell-prompt ()
-  "Set the eshell prompt"
+  "Set the eshell prompt."
 
   (setq eshell-highlight-prompt t
         eshell-prompt-regexp "^ [^#$]* [#$] "
@@ -280,6 +296,12 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; ;; Separator <
                                      ;; (powerline-raw " " face1)
                                      ;; (funcall separator-right face1 face2)
+
+                                     (if (featurep 'flycheck)
+                                         (when (eq airline-flycheck-status t)
+                                           (powerline-raw (airline-flycheck-status-text)
+                                                          (airline-flycheck-status-face)
+                                                          'l)))
                                    ))
 
                           (lhs (append lhs-mode lhs-rest))
@@ -290,12 +312,19 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; ;; Separator <
                                      ;; (powerline-raw (char-to-string #x2b83) center-face 'l)
 
-                                     ;; Minor Modes
-                                     (powerline-minor-modes center-face 'l)
+                                     ;; Persp-mode if minor-modes are off
+                                     (when (eq airline-minor-modes nil)
+                                       (if (featurep 'persp-mode)
+                                         (powerline-raw (airline-persp-indicator) center-face 'l)))
+
+                                    ;; Minor Modes
+                                     (when (eq airline-minor-modes t)
+                                       (powerline-minor-modes center-face 'l))
                                      ;; (powerline-narrow center-face 'l)
 
                                      ;; Subseparator <
-                                     (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)
+                                     (when (eq airline-minor-modes t)
+                                       (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l))
 
                                      ;; Major Mode
                                      (powerline-major-mode center-face 'l)
@@ -429,6 +458,33 @@ the path down to `MAX-LENGTH'"
     (concat str (cl-reduce (lambda (a b) (concat a "/" b)) components))
   )
 )
+
+(defun airline-flycheck-status-text ()
+  "Display flycheck status in the modeline."
+  (cond ((flycheck-has-current-errors-p 'error)
+         "✗ ")
+        ((flycheck-has-current-errors-p 'warning)
+         "⚠ ")
+        ((flycheck-has-current-errors-p 'info)
+         "☆ ")))
+
+(defun airline-flycheck-status-face ()
+  "Get appropriate face for the flycheck status."
+  (cond ((flycheck-has-current-errors-p 'error)
+         'flycheck-fringe-error)
+        ((flycheck-has-current-errors-p 'warning)
+         'flycheck-fringe-warning)
+        ((flycheck-has-current-errors-p 'info)
+         'flycheck-fringe-info)))
+
+(defun airline-persp-indicator ()
+  "Get the name of the current workspace from persp-mode."
+  (when (bound-and-true-p persp-mode)
+  (let ((name (safe-persp-name (get-frame-persp))))
+	(if (file-directory-p name)
+		(file-name-nondirectory (directory-file-name name))
+		name))))
+
 
 (provide 'airline-themes)
 ;;; airline-themes.el ends here
