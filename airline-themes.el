@@ -1,4 +1,4 @@
-;;; airline-themes.el --- vim-airline themes for emacs powerline
+;;; airline-themes.el --- vim-airline themes for emacs powerline -*- lexical-binding: t; -*-
 
 ;; Author: Anthony DiGirolamo <anthony.digirolamo@gmail.com>
 ;; URL: http://github.com/AnthonyDiGirolamo/airline-themes
@@ -132,7 +132,8 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
         eshell-prompt-function
         (lambda ()
           (concat
-           (propertize (concat " " (eshell/whoami) " ") 'face
+           ;; (concat " " (eshell/whoami) " ")
+           (propertize " " 'face
                        `(:foreground ,(face-foreground 'airline-insert-outer) :background ,(face-background 'airline-insert-outer)))
 
            (propertize (concat (char-to-string airline-utf-glyph-separator-left) " ") 'face
@@ -385,19 +386,56 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
    `(minibuffer-prompt     ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil))))
   ))
 
+(defun airline--git-branch-from-head-file (filename)
+  "Return the current branch name or sha from a .git/HEAD FILENAME."
+  (when (file-regular-p filename)
+    (with-temp-buffer
+      ;; extract the branch name
+      (insert-file-contents filename)
+      (point-min)
+      (cond
+       ;; ref symbol
+       ((re-search-forward "ref: .*/\\([^/\n]+\\)" nil t)
+        (match-string-no-properties 1))
+       ;; commit sha
+       ((re-search-forward "\\([A-Za-z0-9]+\\)\n" nil t)
+        ;; shorten
+        (substring (match-string-no-properties 1) 0 7))))))
+
 (defun airline-curr-dir-git-branch-string (pwd)
-  "Returns current git branch as a string, or the empty string if
-PWD is not in a git repo (or the git command is not found)."
-  (interactive)
+  "Return the current git branch as a string.
+Returns an empty string if PWD is not a git repo."
   (if (featurep 'magit)
+      ;; use magit
       (magit-get-current-branch)
-    (when (and (not (string-match "^\/ssh:" pwd))
+    ;; Get branch from .git/HEAD file
+    (when (and (not (string-match-p "^\/ssh:" pwd))
                (eshell-search-path "git")
                (locate-dominating-file pwd ".git"))
-      (let ((git-output (shell-command-to-string (concat "cd '" pwd "' && git branch | grep '\\*' | sed -e 's/^\\* //'"))))
-        (if (> (length git-output) 0)
-            (concat (substring git-output 0 -1))
-          "(no branch)")))))
+      (let* ((symlink-expanded-pwd (file-chase-links (expand-file-name pwd)))
+             (root-git-repo-dir (file-name-as-directory (expand-file-name (locate-dominating-file symlink-expanded-pwd ".git"))))
+             (dotgit-folder (concat (file-name-as-directory root-git-repo-dir) ".git"))
+             (dotgit-head-file (concat (file-name-as-directory dotgit-folder) "HEAD")))
+        (cond
+         ;; standard repo with .git/HEAD file
+         ((and (file-regular-p dotgit-head-file) (file-directory-p dotgit-folder))
+          (airline--git-branch-from-head-file dotgit-head-file))
+         ;; submodule with .git containing the path to the submodule
+         ;; only handles submodules one level deep
+         ((file-regular-p dotgit-folder)
+          (let* ((submodule-relative-dir (with-temp-buffer
+                                           ;; extract the submodule repo location
+                                           (insert-file-contents dotgit-folder) (point-min)
+                                           (when (re-search-forward "gitdir: \\([^\n]+\\)" nil t)
+                                             (match-string-no-properties 1))))
+                 (submodule-absolute-dir (expand-file-name (concat (file-name-as-directory symlink-expanded-pwd) (file-name-as-directory submodule-relative-dir))))
+                 (submodule-head-file (concat (file-name-as-directory submodule-absolute-dir) "HEAD")))
+            (airline--git-branch-from-head-file submodule-head-file)
+
+            ))
+         ;; empty string if no git branch
+         (t
+          (string)))))))
 
 (defun airline-get-vc ()
   "Reimplementation of powerline-vc function to give the same result in gui as the terminal."
