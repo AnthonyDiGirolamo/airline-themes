@@ -85,47 +85,87 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
 (defcustom airline-utf-glyph-separator-left #x2b80
   "The unicode character number used for the left side separator."
   :group 'airline-themes
-  :type '(choice (const :tag "powerline #xe0b0"     #xe0b0)
-                 (const :tag "vim-powerline #x2b80" #x2b80)))
+  :type '(choice
+          (const :tag "Space: #x20" #x20)
+          (const :tag "Box Drawing Bar: │ #x2502" #x2502)
+          (const :tag "Box Drawing Forward: Slash ╲ #x2572" #x2572)
+          (const :tag "Box Drawing Back Slash: ╱ #x2571" #x2571)
+          (const :tag "Block Element Solid Block: █ #x2588" #x2588)
+          (const :tag "Block Element 75% Block: ▓ #x2593" #x2593)
+          (const :tag "Block Element 50% Block: ▒ #x2592" #x2592)
+          (const :tag "Block Element 25% Block: ░ #x2591" #x2591)
+          (const :tag "powerline:  #xe0b0" #xe0b0)
+          (const :tag "vim-powerline: ⮀ #x2b80" #x2b80)))
 
 (defcustom airline-utf-glyph-separator-right #x2b82
   "The unicode character number used for the right side separator."
   :group 'airline-themes
-  :type '(choice (const :tag "powerline #xe0b2"     #xe0b2)
-                 (const :tag "vim-powerline #x2b82" #x2b82)))
+  :type '(choice
+          (const :tag "Space: #x20" #x20)
+          (const :tag "Box Drawing Bar: │ #x2502" #x2502)
+          (const :tag "Box Drawing Forward Slash: ╲ #x2572" #x2572)
+          (const :tag "Box Drawing Back Slash: ╱ #x2571" #x2571)
+          (const :tag "Block Element Solid Block: █ #x2588" #x2588)
+          (const :tag "Block Element 75% Block: ▓ #x2593" #x2593)
+          (const :tag "Block Element 50% Block: ▒ #x2592" #x2592)
+          (const :tag "Block Element 25% Block: ░ #x2591" #x2591)
+          (const :tag "powerline:  #xe0b2" #xe0b2)
+          (const :tag "vim-powerline: ⮂ #x2b82" #x2b82)))
 
 (defcustom airline-utf-glyph-subseparator-left #x2b81
   "The unicode character number used for the left side subseparator."
   :group 'airline-themes
-  :type '(choice (const :tag "powerline #xe0b1"     #xe0b1)
-                 (const :tag "vim-powerline #x2b81" #x2b81)))
+  :type '(choice
+          (const :tag "Space: #x20" #x20)
+          (const :tag "Box Drawing Bar: │ #x2502" #x2502)
+          (const :tag "Box Drawing Forward Slash: ╲ #x2572" #x2572)
+          (const :tag "Box Drawing Back Slash: ╱ #x2571" #x2571)
+          (const :tag "Block Element Solid Block: █ #x2588" #x2588)
+          (const :tag "Block Element 75% Block: ▓ #x2593" #x2593)
+          (const :tag "Block Element 50% Block: ▒ #x2592" #x2592)
+          (const :tag "Block Element 25% Block: ░ #x2591" #x2591)
+          (const :tag "powerline:  #xe0b1" #xe0b1)
+          (const :tag "vim-powerline ⮁ #x2b81" #x2b81)))
 
 (defcustom airline-utf-glyph-subseparator-right #x2b83
   "The unicode character number used for the right side subseparator."
   :group 'airline-themes
-  :type '(choice (const :tag "powerline #xe0b3"     #xe0b3)
-                 (const :tag "vim-powerline #x2b83" #x2b83)))
+  :type '(choice
+          (const :tag "Space: #x20" #x20)
+          (const :tag "Box Drawing Bar: │ #x2502" #x2502)
+          (const :tag "Box Drawing Forward Slash: ╲ #x2572" #x2572)
+          (const :tag "Box Drawing Back Slash: ╱ #x2571" #x2571)
+          (const :tag "Block Element Solid Block: █ #x2588" #x2588)
+          (const :tag "Block Element 75% Block: ▓ #x2593" #x2593)
+          (const :tag "Block Element 50% Block: ▒ #x2592" #x2592)
+          (const :tag "Block Element 25% Block: ░ #x2591" #x2591)
+          (const :tag "powerline:  #xe0b3" #xe0b3)
+          (const :tag "vim-powerline: ⮃ #x2b83" #x2b83)))
 
 (defcustom airline-utf-glyph-branch #x2b60
   "The unicode character number used for the branch symbol."
   :group 'airline-themes
-  :type '(choice (const :tag "powerline #xe0a0"     #xe0a0)
-                 (const :tag "vim-powerline #x2b60" #x2b60)))
+  :type '(choice
+          (const :tag "option key symbol: ⌥ #x2325" #x2325)
+          (const :tag "runic letter fehu: ᚠ #x16a0" #x16a0)
+          (const :tag "powerline:  #xe0a0" #xe0a0)
+          (const :tag "vim-powerline: ⭠ #x2b60" #x2b60)))
 
 (defcustom airline-utf-glyph-readonly #x2b64
   "The unicode character number used for the readonly symbol."
   :group 'airline-themes
   :type '(choice
-          (const :tag "powerline  #xe0a2"     #xe0a2)
-          (const :tag "vim-powerline ⭤ #x2b64" #x2b64)))
+          (const :tag "powerline:  #xe0a2" #xe0a2)
+          (const :tag "vim-powerline: ⭤ #x2b64" #x2b64)))
 
 (defcustom airline-utf-glyph-linenumber #x2630
   "The unicode character number used for the linenumber symbol."
   :group 'airline-themes
   :type '(choice
-          (const :tag "three horizontal lines ☰ #x2630" #x2630)
-          (const :tag "powerline  #xe0a1" #xe0a1)
-          (const :tag "vim-powerline ⭡ #x2b61" #x2b61)))
+          (const :tag "Box Drawing two horizontal lines: ═ #x2550" #x2550)
+          (const :tag "Three horizontal lines: ☰ #x2630" #x2630)
+          (const :tag "powerline ln:  #xe0a1" #xe0a1)
+          (const :tag "vim-powerline ln: ⭡ #x2b61" #x2b61)))
 
 (defun airline-themes-set-eshell-prompt ()
   "Set the eshell prompt"
@@ -168,7 +208,8 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
   (setq-default mode-line-format
                 '("%e"
                   (:eval
-                   (let* ((active (powerline-selected-window-active))
+                   (let* ((current-window-width (window-width))
+                          (active (powerline-selected-window-active))
                           (separator-left (intern (format "powerline-%s-%s"
                                                           (powerline-current-separator)
                                                           (car powerline-default-separator-dir))))
@@ -189,9 +230,13 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                                                          (cond (visual-block "-BLOCK")
                                                                                (visual-line "-LINE"))))
                                                        nil))
-
+                          ;; Shorten evil state to a single charater instead of the full word
+                          (current-evil-state-string (if (and current-evil-state-string
+                                                              (< current-window-width 80))
+                                                         (substring current-evil-state-string 0 1)
+                                                       current-evil-state-string))
                           (outer-face
-                           (if (powerline-selected-window-active)
+                           (if active
                                (if (featurep 'evil)
                                    (cond ((eq evil-state (intern "normal"))  'airline-normal-outer)
                                          ((eq evil-state (intern "insert"))  'airline-insert-outer)
@@ -203,7 +248,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                              'powerline-inactive1))
 
                           (inner-face
-                           (if (powerline-selected-window-active)
+                           (if active
                                (if (featurep 'evil)
                                    (cond ((eq evil-state (intern "normal")) 'airline-normal-inner)
                                          ((eq evil-state (intern "insert")) 'airline-insert-inner)
@@ -215,7 +260,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                              'powerline-inactive2))
 
                           (center-face
-                           (if (powerline-selected-window-active)
+                           (if active
                                (if (featurep 'evil)
                                    (cond ((eq evil-state (intern "normal")) 'airline-normal-center)
                                          ((eq evil-state (intern "insert")) 'airline-insert-center)
@@ -247,22 +292,28 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
 
                                      ;; Eyebrowse current tab/window config
                                      (if (featurep 'eyebrowse)
-                                         (powerline-raw (concat " " (eyebrowse-mode-line-indicator)) inner-face))
+                                         (powerline-raw (concat " " (eyebrowse-mode-line-indicator)) inner-face 'r))
 
                                      ;; Git Branch
-                                     (powerline-raw (airline-get-vc) inner-face)
+                                     (when (and buffer-file-name vc-mode)
+                                       (powerline-raw (airline-get-vc) inner-face))
 
                                      ;; Separator >
                                      (powerline-raw " " inner-face)
                                      (funcall separator-left inner-face center-face)
 
                                      ;; Directory
-                                     (when (eq airline-display-directory 'airline-directory-shortened)
+                                     (cond
+                                      ((and buffer-file-name ;; if buffer has a filename
+                                            (eq airline-display-directory
+                                                'airline-directory-shortened))
                                        (powerline-raw (airline-shorten-directory default-directory airline-shortened-directory-length) center-face 'l))
-                                     (when (eq airline-display-directory 'airline-directory-full)
+                                      ((and buffer-file-name ;; if buffer has a filename
+                                            (eq airline-display-directory
+                                                'airline-directory-full))
                                        (powerline-raw default-directory center-face 'l))
-                                     (when (eq airline-display-directory nil)
-                                       (powerline-raw " " center-face))
+                                      (t
+                                       (powerline-raw " " center-face)))
 
                                      ;; Buffer ID
                                      ;; (powerline-buffer-id center-face)
@@ -283,7 +334,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; ;; Separator <
                                      ;; (powerline-raw " " face1)
                                      ;; (funcall separator-right face1 face2)
-                                   ))
+                                     ))
 
                           (lhs (append lhs-mode lhs-rest))
 
@@ -315,7 +366,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      ;; (when powerline-display-mule-info
                                      ;;   (powerline-raw mode-line-mule-info inner-face 'l))
                                      ;; (powerline-raw " " inner-face)
-
+                                     (powerline-raw (format " %s " buffer-file-coding-system) inner-face)
 
                                      ;; Separator <
                                      (funcall separator-right inner-face outer-face)
@@ -453,12 +504,13 @@ Returns an empty string if PWD is not a git repo."
 (defun airline-get-vc ()
   "Reimplementation of powerline-vc function to give the same result in gui as the terminal."
   (interactive)
-  (when (and (buffer-file-name (current-buffer)) vc-mode)
-    (format " %s %s"
-            (char-to-string airline-utf-glyph-branch)
-            (if (featurep 'magit)
-                (magit-get-current-branch)
-              (format-mode-line '(vc-mode vc-mode))))))
+  (format "%s%s"
+          (char-to-string airline-utf-glyph-branch)
+          (if nil ;; (featurep 'magit)
+              ;; prepend a space
+              (format " %s" (magit-get-current-branch))
+            ;; vc-mode prepends a space
+            (format-mode-line '(vc-mode vc-mode)))))
 
 (defun airline-shorten-directory (dir max-length)
   "Return a shortened version of `DIR'.
