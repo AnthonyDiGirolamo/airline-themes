@@ -115,14 +115,17 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
 (defcustom airline-utf-glyph-readonly #x2b64
   "The unicode character number used for the readonly symbol."
   :group 'airline-themes
-  :type '(choice (const :tag "powerline #xe0a2"     #xe0a2)
-                 (const :tag "vim-powerline #x2b64" #x2b64)))
+  :type '(choice
+          (const :tag "powerline  #xe0a2"     #xe0a2)
+          (const :tag "vim-powerline ⭤ #x2b64" #x2b64)))
 
-(defcustom airline-utf-glyph-linenumber #x2b61
+(defcustom airline-utf-glyph-linenumber #x2630
   "The unicode character number used for the linenumber symbol."
   :group 'airline-themes
-  :type '(choice (const :tag "powerline #xe0a1"     #xe0a1)
-                 (const :tag "vim-powerline #x2b61" #x2b61)))
+  :type '(choice
+          (const :tag "three horizontal lines ☰ #x2630" #x2630)
+          (const :tag "powerline  #xe0a1" #xe0a1)
+          (const :tag "vim-powerline ⭡ #x2b61" #x2b61)))
 
 (defun airline-themes-set-eshell-prompt ()
   "Set the eshell prompt"
@@ -230,14 +233,13 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                          (powerline-raw (concat " " current-evil-state-string " ") outer-face)
                                          (funcall separator-left outer-face inner-face)
                                          ;; Modified string
-                                         (powerline-raw "%*" inner-face 'l)
-                                         )
-                                        (list
-                                         ;; Modified string
-                                         (powerline-raw "%*" outer-face 'l)
-                                         ;; Separator >
-                                         (powerline-raw " " outer-face)
-                                         (funcall separator-left outer-face inner-face))))
+                                         (powerline-raw "%*" inner-face 'l))
+                                      (list
+                                       ;; Modified string
+                                       (powerline-raw "%*" outer-face 'l)
+                                       ;; Separator >
+                                       (powerline-raw " " outer-face)
+                                       (funcall separator-left outer-face inner-face))))
 
                           (lhs-rest (list
                                      ;; ;; Separator >
@@ -306,40 +308,44 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                      (powerline-raw " " center-face)
                                      (funcall separator-right center-face inner-face)
 
-                                     ;; Buffer Size
-                                     (when powerline-display-buffer-size
-                                       (powerline-buffer-size inner-face 'l))
+                                     ;; ;; Buffer Size
+                                     ;; (when powerline-display-buffer-size
+                                     ;;   (powerline-buffer-size inner-face 'l))
+                                     ;; ;; Mule Info
+                                     ;; (when powerline-display-mule-info
+                                     ;;   (powerline-raw mode-line-mule-info inner-face 'l))
+                                     ;; (powerline-raw " " inner-face)
 
-                                     ;; Mule Info
-                                     (when powerline-display-mule-info
-                                       (powerline-raw mode-line-mule-info inner-face 'l))
-
-                                     (powerline-raw " " inner-face)
 
                                      ;; Separator <
                                      (funcall separator-right inner-face outer-face)
 
+                                     ;; % location in file
+                                     (powerline-raw "%3p" outer-face 'l)
                                      ;; LN charachter
                                      (powerline-raw (char-to-string airline-utf-glyph-linenumber) outer-face 'l)
 
-                                     ;; Current Line
-                                     (powerline-raw "%4l" outer-face 'l)
-                                     (powerline-raw ":" outer-face 'l)
+                                     ;; Current Line / File Size
+                                     ;; (powerline-raw "%l/%I" outer-face 'l)
+                                     ;; Current Line / Number of lines
+                                     (powerline-raw
+                                      (format "%%l/%d" (count-lines (point-min) (point-max))) outer-face 'l)
+
+                                     (powerline-raw "ln :" outer-face 'l)
                                      ;; Current Column
-                                     (powerline-raw "%3c" outer-face 'r)
+                                     (powerline-raw "%3c " outer-face 'l)
 
-                                     ;; % location in file
-                                     (powerline-raw "%6p" outer-face 'r)
-
-                                     ;; position in file image
-                                     (when powerline-display-hud
-                                       (powerline-hud inner-face outer-face)))
+                                     ;; ;; position in file image
+                                     ;; (when powerline-display-hud
+                                     ;;   (powerline-hud inner-face outer-face))
+                                     )
                                ))
 
                      ;; Combine Left and Right Hand Sides
                      (concat (powerline-render lhs)
                              (powerline-fill center-face (powerline-width rhs))
-                             (powerline-render rhs))))))
+                             (powerline-render rhs)))
+                   )))
   (powerline-reset)
   (kill-local-variable 'mode-line-format))
 
