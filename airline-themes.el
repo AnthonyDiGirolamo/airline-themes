@@ -388,7 +388,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
 
 (defun airline--git-branch-from-head-file (filename)
   "Return the current branch name or sha from a .git/HEAD FILENAME."
-  (when (file-regular-p filename)
+  (when (and (file-regular-p filename) (file-readable-p filename))
     (with-temp-buffer
       ;; extract the branch name
       (insert-file-contents filename)
@@ -412,30 +412,37 @@ Returns an empty string if PWD is not a git repo."
     (when (and (not (string-match-p "^\/ssh:" pwd))
                (eshell-search-path "git")
                (locate-dominating-file pwd ".git"))
-      (let* ((symlink-expanded-pwd (file-chase-links (expand-file-name pwd)))
-             (root-git-repo-dir (file-name-as-directory (expand-file-name (locate-dominating-file symlink-expanded-pwd ".git"))))
+      (let* ((symlink-expanded-pwd (file-truename (expand-file-name pwd)))
+             (root-git-repo-dir (file-name-as-directory
+                                 (expand-file-name
+                                  (locate-dominating-file symlink-expanded-pwd ".git"))))
              (dotgit-folder (concat (file-name-as-directory root-git-repo-dir) ".git"))
              (dotgit-head-file (concat (file-name-as-directory dotgit-folder) "HEAD")))
         (cond
          ;; standard repo with .git/HEAD file
-         ((and (file-regular-p dotgit-head-file) (file-directory-p dotgit-folder))
+         ((and (file-directory-p dotgit-folder)
+               (file-regular-p dotgit-head-file))
           (airline--git-branch-from-head-file dotgit-head-file))
          ;; submodule with .git containing the path to the submodule
          ;; only handles submodules one level deep
-         ((file-regular-p dotgit-folder)
+         ((and (file-regular-p dotgit-folder)
+               (file-readable-p dotgit-folder))
           (let* ((submodule-relative-dir (with-temp-buffer
                                            ;; extract the submodule repo location
                                            (insert-file-contents dotgit-folder) (point-min)
                                            (when (re-search-forward "gitdir: \\([^\n]+\\)" nil t)
                                              (match-string-no-properties 1))))
-                 (submodule-absolute-dir (expand-file-name (concat (file-name-as-directory symlink-expanded-pwd) (file-name-as-directory submodule-relative-dir))))
+                 (submodule-absolute-dir (expand-file-name
+                                          (concat
+                                           (file-name-as-directory root-git-repo-dir)
+                                           (file-name-as-directory submodule-relative-dir))))
                  (submodule-head-file (concat (file-name-as-directory submodule-absolute-dir) "HEAD")))
             (airline--git-branch-from-head-file submodule-head-file)
-
             ))
          ;; empty string if no git branch
          (t
-          (string)))))))
+          (string))))
+      )))
 
 (defun airline-get-vc ()
   "Reimplementation of powerline-vc function to give the same result in gui as the terminal."
