@@ -563,33 +563,110 @@ the path down to `MAX-LENGTH'"
   )
 )
 
-(defun airline-preview-themes ()
+(defun airline-generate-theme-file (theme-name json)
   (interactive)
-  (let* ((preview-buffer-name "*airline-preview-themes*")
-         (preview-buffer (get-buffer preview-buffer-name)))
-    (when (not preview-buffer)
-      (setq preview-buffer (generate-new-buffer preview-buffer-name)))
-    (switch-to-buffer preview-buffer)
-    (funcall 'fundamental-mode)
-    (setq buffer-offer-save nil)
-    (erase-buffer)
-    (let* ((json-object-type 'hash-table)
-           (json-array-type 'list)
-           (json-key-type 'string)
-           (json (json-read-file "vim-airline-theme-palettes.json")))
-      (setq themenames (list))
-      (maphash (lambda (k v) (push k themenames)) json)
-      (cl-loop
-       for k in (sort themenames 'string-lessp)
-       do (insert (format "%s\n" k))
-       ;; (insert (format "%s\n" k))
-       ;; (airline-set-colors-from-json k)
-       ;; (insert (eval (plist-get (car (cdr mode-line-format)) :eval)))
-       ;; (insert "\n")
-       )
-      )
-    )
-  )
+  (when (and theme-name json)
+    (with-temp-file (format "airline-%s-theme.el" theme-name)
+      (let* ((normal-outer (gethash "airline_a" (gethash "normal" json)))
+             (normal-inner (gethash "airline_b" (gethash "normal" json)))
+             (normal-center (gethash "airline_c" (gethash "normal" json)))
+
+             (insert-outer (gethash "airline_a" (gethash "insert" json) normal-outer))
+             (insert-inner (gethash "airline_b" (gethash "insert" json) normal-inner))
+             (insert-center (gethash "airline_c" (gethash "insert" json) normal-center))
+
+             (visual-outer (gethash "airline_a" (gethash "visual" json) normal-outer))
+             (visual-inner (gethash "airline_b" (gethash "visual" json) normal-inner))
+             (visual-center (gethash "airline_c" (gethash "visual" json) normal-center))
+
+             (replace-outer (gethash "airline_a" (gethash "replace" json) normal-outer))
+             (replace-inner (gethash "airline_b" (gethash "replace" json) normal-inner))
+             (replace-center (gethash "airline_c" (gethash "replace" json) normal-center))
+
+             (inactive1 (gethash "airline_a" (gethash "inactive" json)))
+             (inactive2 (gethash "airline_b" (gethash "inactive" json)))
+             (inactive3 (gethash "airline_c" (gethash "inactive" json)))
+
+             (normal-outer-foreground   (nth 0 normal-outer))   (normal-outer-background   (nth 1 normal-outer))
+             (normal-inner-foreground   (nth 0 normal-inner))   (normal-inner-background   (nth 1 normal-inner))
+             (normal-center-foreground  (nth 0 normal-center))  (normal-center-background  (nth 1 normal-center))
+
+             (insert-outer-foreground   (nth 0 insert-outer))   (insert-outer-background   (nth 1 insert-outer))
+             (insert-inner-foreground   (nth 0 insert-inner))   (insert-inner-background   (nth 1 insert-inner))
+             (insert-center-foreground  (nth 0 insert-center))  (insert-center-background  (nth 1 insert-center))
+
+             (visual-outer-foreground   (nth 0 visual-outer))   (visual-outer-background   (nth 1 visual-outer))
+             (visual-inner-foreground   (nth 0 visual-inner))   (visual-inner-background   (nth 1 visual-inner))
+             (visual-center-foreground  (nth 0 visual-center))  (visual-center-background  (nth 1 visual-center))
+
+             (replace-outer-foreground  (nth 0 replace-outer))  (replace-outer-background  (nth 1 replace-outer))
+             (replace-inner-foreground  (nth 0 replace-inner))  (replace-inner-background  (nth 1 replace-inner))
+             (replace-center-foreground (nth 0 replace-center)) (replace-center-background (nth 1 replace-center))
+
+             (emacs-outer-foreground    (nth 0 normal-outer))   (emacs-outer-background    (nth 1 normal-outer))
+             (emacs-inner-foreground    (nth 0 normal-inner))   (emacs-inner-background    (nth 1 normal-inner))
+             (emacs-center-foreground   (nth 0 normal-center))  (emacs-center-background   (nth 1 normal-center))
+
+             (inactive1-foreground      (nth 0 inactive1))      (inactive1-background      (nth 1 inactive1))
+             (inactive2-foreground      (nth 0 inactive2))      (inactive2-background      (nth 1 inactive2))
+             (inactive3-foreground      (nth 0 inactive3))      (inactive3-background      (nth 1 inactive3)))
+        (insert (s-lex-format "
+;;; Code:
+
+(deftheme airline-${theme-name}
+  \"source: https://github.com/vim-airline/vim-airline-themes\")
+
+(let ((normal-outer-foreground   \"${normal-outer-foreground}\") (normal-outer-background   \"${normal-outer-background}\")
+      (normal-inner-foreground   \"${normal-inner-foreground}\") (normal-inner-background   \"${normal-inner-background}\")
+      (normal-center-foreground  \"${normal-center-foreground}\") (normal-center-background  \"${normal-center-background}\")
+
+      (insert-outer-foreground   \"${insert-outer-foreground}\") (insert-outer-background   \"${insert-outer-background}\")
+      (insert-inner-foreground   \"${insert-inner-foreground}\") (insert-inner-background   \"${insert-inner-background}\")
+      (insert-center-foreground  \"${insert-center-foreground}\") (insert-center-background  \"${insert-center-background}\")
+
+      (visual-outer-foreground   \"${visual-outer-foreground}\") (visual-outer-background   \"${visual-outer-background}\")
+      (visual-inner-foreground   \"${visual-inner-foreground}\") (visual-inner-background   \"${visual-inner-background}\")
+      (visual-center-foreground  \"${visual-center-foreground}\") (visual-center-background  \"${visual-center-background}\")
+
+      (replace-outer-foreground  \"${replace-outer-foreground}\") (replace-outer-background  \"${replace-outer-background}\")
+      (replace-inner-foreground  \"${replace-inner-foreground}\") (replace-inner-background  \"${replace-inner-background}\")
+      (replace-center-foreground \"${replace-center-foreground}\") (replace-center-background \"${replace-center-background}\")
+
+      (emacs-outer-foreground    \"${emacs-outer-foreground}\") (emacs-outer-background    \"${emacs-outer-background}\")
+      (emacs-inner-foreground    \"${emacs-inner-foreground}\") (emacs-inner-background    \"${emacs-inner-background}\")
+      (emacs-center-foreground   \"${emacs-center-foreground}\") (emacs-center-background   \"${emacs-center-background}\")
+
+      (inactive1-foreground      \"${inactive1-foreground}\") (inactive1-background      \"${inactive1-background}\")
+      (inactive2-foreground      \"${inactive2-foreground}\") (inactive2-background      \"${inactive2-background}\")
+      (inactive3-foreground      \"${inactive3-foreground}\") (inactive3-background      \"${inactive3-background}\"))
+
+  (airline-themes-set-deftheme 'airline-${theme-name})
+
+  (when airline-cursor-colors
+    (setq evil-emacs-state-cursor   emacs-outer-background
+          evil-normal-state-cursor  normal-outer-background
+          evil-insert-state-cursor  `(bar ,insert-outer-background)
+          evil-replace-state-cursor replace-outer-background
+          evil-visual-state-cursor  visual-outer-background))
+)
+
+(airline-themes-set-modeline)
+
+(provide-theme 'airline-${theme-name})
+;;; airline-${theme-name}-theme.el ends here
+"))))))
+
+(defun airline-generate-themes ()
+  (interactive)
+  (require 's)
+  (let* ((json-object-type 'hash-table)
+         (json-array-type 'list)
+         (json-key-type 'string)
+         (json (json-read-file "vim-airline-theme-palettes.json")))
+    (maphash
+     (lambda (k v)
+       (airline-generate-theme-file k v))
+     json)))
 
 (defun airline-set-colors-from-json (themename)
   (interactive)
@@ -676,9 +753,11 @@ the path down to `MAX-LENGTH'"
             (setq evil-normal-state-cursor  normal-outer-background)
             (setq evil-insert-state-cursor  `(bar ,insert-outer-background))
             (setq evil-replace-state-cursor replace-outer-background)
-            (setq evil-visual-state-cursor  visual-outer-background))))
+            (setq evil-visual-state-cursor  visual-outer-background)))
+        )
 
-      (airline-themes-set-modeline)))
+      ;; (airline-themes-set-modeline)
+      ))
   )
 
 (provide 'airline-themes)
