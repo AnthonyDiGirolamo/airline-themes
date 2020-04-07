@@ -49,6 +49,30 @@
   :group 'airline-themes
   :type '(integer))
 
+(defcustom airline-hide-state-on-inactive-buffers nil
+  "Hide Evil and buffer state on inactive buffers.
+
+Valid Values: t (hidden), nil (shown)"
+  :group 'airline-themes
+  :type '(choice (const :tag "Hidden" t)
+                 (const :tag "Shown" nil)))
+
+(defcustom airline-hide-eyebrowse-on-inactive-buffers nil
+  "Hide eyebrowse indicator on inactive buffers.
+
+Valid Values: t (hidden), nil (shown)"
+  :group 'airline-themes
+  :type '(choice (const :tag "Hidden" t)
+                 (const :tag "Shown" nil)))
+
+(defcustom airline-hide-vc-branch-on-inactive-buffers nil
+  "Hide vc branch on inactive buffers.
+
+Valid Values: t (hidden), nil (shown)"
+  :group 'airline-themes
+  :type '(choice (const :tag "Hidden" t)
+                 (const :tag "Shown" nil)))
+
 (defcustom airline-eshell-colors t
   "Set eshell prompt colors to match the airline theme.
 
@@ -217,15 +241,16 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                                            (powerline-current-separator)
                                                            (cdr powerline-default-separator-dir))))
                           (mode-line-face (if active 'mode-line 'mode-line-inactive))
-                          (visual-block (if (featurep 'evil)
+                          (evil-mode-active (featurep 'evil))
+                          (visual-block (if evil-mode-active
                                             (and (evil-visual-state-p)
                                                  (eq evil-visual-selection 'block))
                                           nil))
-                          (visual-line (if (featurep 'evil)
+                          (visual-line (if evil-mode-active
                                            (and (evil-visual-state-p)
                                                 (eq evil-visual-selection 'line))
                                          nil))
-                          (current-evil-state-string (if (featurep 'evil)
+                          (current-evil-state-string (if evil-mode-active
                                                          (upcase (concat (symbol-name evil-state)
                                                                          (cond (visual-block "-BLOCK")
                                                                                (visual-line "-LINE"))))
@@ -237,7 +262,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                                                        current-evil-state-string))
                           (outer-face
                            (if active
-                               (if (featurep 'evil)
+                               (if evil-mode-active
                                    (cond ((eq evil-state (intern "normal"))  'airline-normal-outer)
                                          ((eq evil-state (intern "insert"))  'airline-insert-outer)
                                          ((eq evil-state (intern "visual"))  'airline-visual-outer)
@@ -249,7 +274,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
 
                           (inner-face
                            (if active
-                               (if (featurep 'evil)
+                               (if evil-mode-active
                                    (cond ((eq evil-state (intern "normal")) 'airline-normal-inner)
                                          ((eq evil-state (intern "insert")) 'airline-insert-inner)
                                          ((eq evil-state (intern "visual")) 'airline-visual-inner)
@@ -261,7 +286,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
 
                           (center-face
                            (if active
-                               (if (featurep 'evil)
+                               (if evil-mode-active
                                    (cond ((eq evil-state (intern "normal")) 'airline-normal-center)
                                          ((eq evil-state (intern "insert")) 'airline-insert-center)
                                          ((eq evil-state (intern "visual")) 'airline-visual-center)
@@ -272,30 +297,36 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                              'airline-inactive3))
 
                           ;; Left Hand Side
-                          (lhs-mode (if (featurep 'evil)
+                          (lhs-mode (when (or (not airline-hide-state-on-inactive-buffers)
+                                              (and airline-hide-state-on-inactive-buffers active))
+                                      (if evil-mode-active
+                                          (list
+                                           ;; Evil Mode Name
+                                           (powerline-raw (concat " " current-evil-state-string " ") outer-face)
+                                           (funcall separator-left outer-face inner-face)
+                                           ;; Modified string
+                                           (powerline-raw "%*" inner-face 'l))
                                         (list
-                                         ;; Evil Mode Name
-                                         (powerline-raw (concat " " current-evil-state-string " ") outer-face)
-                                         (funcall separator-left outer-face inner-face)
                                          ;; Modified string
-                                         (powerline-raw "%*" inner-face 'l))
-                                      (list
-                                       ;; Modified string
-                                       (powerline-raw "%*" outer-face 'l)
-                                       ;; Separator >
-                                       (powerline-raw " " outer-face)
-                                       (funcall separator-left outer-face inner-face))))
+                                         (powerline-raw "%*" outer-face 'l)
+                                         ;; Separator >
+                                         (powerline-raw " " outer-face)
+                                         (funcall separator-left outer-face inner-face)))))
 
                           (lhs-rest (list
                                      ;; ;; Separator >
                                      ;; (powerline-raw (char-to-string #x2b81) inner-face 'l)
 
                                      ;; Eyebrowse current tab/window config
-                                     (if (featurep 'eyebrowse)
+                                     (if (and (or (not airline-hide-eyebrowse-on-inactive-buffers)
+                                                  (and airline-hide-eyebrowse-on-inactive-buffers active))
+                                              (featurep 'eyebrowse))
                                          (powerline-raw (concat " " (eyebrowse-mode-line-indicator)) inner-face 'r))
 
                                      ;; Git Branch
-                                     (when (and buffer-file-name vc-mode)
+                                     (if (and (or (not airline-hide-vc-branch-on-inactive-buffers)
+                                                  (and airline-hide-vc-branch-on-inactive-buffers active))
+                                              buffer-file-name vc-mode)
                                        (powerline-raw (airline-get-vc) inner-face))
 
                                      ;; Separator >
@@ -395,8 +426,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                      ;; Combine Left and Right Hand Sides
                      (concat (powerline-render lhs)
                              (powerline-fill center-face (powerline-width rhs))
-                             (powerline-render rhs)))
-                   )))
+                             (powerline-render rhs))))))
   (powerline-reset)
   (kill-local-variable 'mode-line-format))
 
@@ -533,13 +563,41 @@ the path down to `MAX-LENGTH'"
   )
 )
 
-(defun airline-set-colors-from-json ()
+(defun airline-preview-themes ()
+  (interactive)
+  (let* ((preview-buffer-name "*airline-preview-themes*")
+         (preview-buffer (get-buffer preview-buffer-name)))
+    (when (not preview-buffer)
+      (setq preview-buffer (generate-new-buffer preview-buffer-name)))
+    (switch-to-buffer preview-buffer)
+    (funcall 'fundamental-mode)
+    (setq buffer-offer-save nil)
+    (erase-buffer)
+    (let* ((json-object-type 'hash-table)
+           (json-array-type 'list)
+           (json-key-type 'string)
+           (json (json-read-file "vim-airline-theme-palettes.json")))
+      (setq themenames (list))
+      (maphash (lambda (k v) (push k themenames)) json)
+      (cl-loop
+       for k in (sort themenames 'string-lessp)
+       do (insert (format "%s\n" k))
+       ;; (insert (format "%s\n" k))
+       ;; (airline-set-colors-from-json k)
+       ;; (insert (eval (plist-get (car (cdr mode-line-format)) :eval)))
+       ;; (insert "\n")
+       )
+      )
+    )
+  )
+
+(defun airline-set-colors-from-json (themename)
   (interactive)
   (let* ((json-object-type 'hash-table)
          (json-array-type 'list)
          (json-key-type 'string)
          (json (json-read-file "vim-airline-theme-palettes.json"))
-         (cs (gethash "fruit_punch" json)))
+         (cs (gethash themename json)))
     (when cs
       (let* ((normal-outer (gethash "airline_a" (gethash "normal" cs)))
              (normal-inner (gethash "airline_b" (gethash "normal" cs)))
