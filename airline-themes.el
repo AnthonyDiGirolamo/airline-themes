@@ -226,207 +226,211 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
            (propertize " $ " 'face `())
            ))))
 
+(defun airline-themes-mode-line-format ()
+  '(let* ((current-window-width (window-width))
+          (active (powerline-selected-window-active))
+          (separator-left (intern (format "powerline-%s-%s"
+                                          (powerline-current-separator)
+                                          (car powerline-default-separator-dir))))
+          (separator-right (intern (format "powerline-%s-%s"
+                                           (powerline-current-separator)
+                                           (cdr powerline-default-separator-dir))))
+          (mode-line-face (if active 'mode-line 'mode-line-inactive))
+          (evil-mode-active (featurep 'evil))
+          (visual-block (if evil-mode-active
+                            (and (evil-visual-state-p)
+                                 (eq evil-visual-selection 'block))
+                          nil))
+          (visual-line (if evil-mode-active
+                           (and (evil-visual-state-p)
+                                (eq evil-visual-selection 'line))
+                         nil))
+          (current-evil-state-string (if evil-mode-active
+                                         (upcase (concat (symbol-name evil-state)
+                                                         (cond (visual-block "-BLOCK")
+                                                               (visual-line "-LINE"))))
+                                       nil))
+          ;; Shorten evil state to a single charater instead of the full word
+          (current-evil-state-string (if (and current-evil-state-string
+                                              (< current-window-width 80))
+                                         (substring current-evil-state-string 0 1)
+                                       current-evil-state-string))
+          (outer-face
+           (if active
+               (if evil-mode-active
+                   (cond ((eq evil-state (intern "normal"))  'airline-normal-outer)
+                         ((eq evil-state (intern "insert"))  'airline-insert-outer)
+                         ((eq evil-state (intern "visual"))  'airline-visual-outer)
+                         ((eq evil-state (intern "replace")) 'airline-replace-outer)
+                         ((eq evil-state (intern "emacs"))   'airline-emacs-outer)
+                         (t                                  'airline-normal-outer))
+                 'airline-normal-outer)
+             'powerline-inactive1))
+
+          (inner-face
+           (if active
+               (if evil-mode-active
+                   (cond ((eq evil-state (intern "normal")) 'airline-normal-inner)
+                         ((eq evil-state (intern "insert")) 'airline-insert-inner)
+                         ((eq evil-state (intern "visual")) 'airline-visual-inner)
+                         ((eq evil-state (intern "replace")) 'airline-replace-inner)
+                         ((eq evil-state (intern "emacs"))   'airline-emacs-inner)
+                         (t                                 'airline-normal-inner))
+                 'airline-normal-inner)
+             'powerline-inactive2))
+
+          (center-face
+           (if active
+               (if evil-mode-active
+                   (cond ((eq evil-state (intern "normal")) 'airline-normal-center)
+                         ((eq evil-state (intern "insert")) 'airline-insert-center)
+                         ((eq evil-state (intern "visual")) 'airline-visual-center)
+                         ((eq evil-state (intern "replace")) 'airline-replace-center)
+                         ((eq evil-state (intern "emacs"))   'airline-emacs-center)
+                         (t                                 'airline-normal-center))
+                 'airline-normal-center)
+             'airline-inactive3))
+
+          ;; Left Hand Side
+          (lhs-mode (when (or (not airline-hide-state-on-inactive-buffers)
+                              (and airline-hide-state-on-inactive-buffers active))
+                      (if evil-mode-active
+                          (list
+                           ;; Evil Mode Name
+                           (powerline-raw (concat " " current-evil-state-string " ") outer-face)
+                           (funcall separator-left outer-face inner-face)
+                           ;; Modified string
+                           (powerline-raw "%*" inner-face 'l))
+                        (list
+                         ;; Modified string
+                         (powerline-raw "%*" outer-face 'l)
+                         ;; Separator >
+                         (powerline-raw " " outer-face)
+                         (funcall separator-left outer-face inner-face)))))
+
+          (lhs-rest (list
+                     ;; ;; Separator >
+                     ;; (powerline-raw (char-to-string #x2b81) inner-face 'l)
+
+                     ;; Eyebrowse current tab/window config
+                     (if (and (or (not airline-hide-eyebrowse-on-inactive-buffers)
+                                  (and airline-hide-eyebrowse-on-inactive-buffers active))
+                              (featurep 'eyebrowse))
+                         (powerline-raw (concat " " (eyebrowse-mode-line-indicator)) inner-face 'r))
+
+                     ;; Git Branch
+                     (if (and (or (not airline-hide-vc-branch-on-inactive-buffers)
+                                  (and airline-hide-vc-branch-on-inactive-buffers active))
+                              buffer-file-name vc-mode)
+                         (powerline-raw (airline-get-vc) inner-face))
+
+                     ;; Separator >
+                     (powerline-raw " " inner-face)
+                     (funcall separator-left inner-face center-face)
+
+                     ;; Directory
+                     (cond
+                      ((and buffer-file-name ;; if buffer has a filename
+                            (eq airline-display-directory
+                                'airline-directory-shortened))
+                       (powerline-raw (airline-shorten-directory default-directory airline-shortened-directory-length) center-face 'l))
+                      ((and buffer-file-name ;; if buffer has a filename
+                            (eq airline-display-directory
+                                'airline-directory-full))
+                       (powerline-raw default-directory center-face 'l))
+                      (t
+                       (powerline-raw " " center-face)))
+
+                     ;; Buffer ID
+                     ;; (powerline-buffer-id center-face)
+                     (powerline-raw "%b" center-face)
+
+                     ;; Current Function (which-function-mode)
+                     (when (and (boundp 'which-func-mode) which-func-mode)
+                       ;; (powerline-raw which-func-format 'l nil))
+                       (powerline-raw which-func-format center-face 'l))
+
+                     ;; ;; Separator >
+                     ;; (powerline-raw " " center-face)
+                     ;; (funcall separator-left mode-line face1)
+
+                     (when (boundp 'erc-modified-channels-object)
+                       (powerline-raw erc-modified-channels-object center-face 'l))
+
+                     ;; ;; Separator <
+                     ;; (powerline-raw " " face1)
+                     ;; (funcall separator-right face1 face2)
+                     ))
+
+          (lhs (append lhs-mode lhs-rest))
+
+          ;; Right Hand Side
+          (rhs (list (powerline-raw global-mode-string center-face 'r)
+
+                     ;; ;; Separator <
+                     ;; (powerline-raw (char-to-string #x2b83) center-face 'l)
+
+                     ;; Minor Modes
+                     (powerline-minor-modes center-face 'l)
+                     ;; (powerline-narrow center-face 'l)
+
+                     ;; Subseparator <
+                     (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)
+
+                     ;; Major Mode
+                     (powerline-major-mode center-face 'l)
+                     (powerline-process center-face)
+
+                     ;; Separator <
+                     (powerline-raw " " center-face)
+                     (funcall separator-right center-face inner-face)
+
+                     ;; ;; Buffer Size
+                     ;; (when powerline-display-buffer-size
+                     ;;   (powerline-buffer-size inner-face 'l))
+                     ;; ;; Mule Info
+                     ;; (when powerline-display-mule-info
+                     ;;   (powerline-raw mode-line-mule-info inner-face 'l))
+                     ;; (powerline-raw " " inner-face)
+                     (powerline-raw (format " %s " buffer-file-coding-system) inner-face)
+
+                     ;; Separator <
+                     (funcall separator-right inner-face outer-face)
+
+                     ;; % location in file
+                     (powerline-raw "%3p" outer-face 'l)
+                     ;; LN charachter
+                     (powerline-raw (char-to-string airline-utf-glyph-linenumber) outer-face 'l)
+
+                     ;; Current Line / File Size
+                     ;; (powerline-raw "%l/%I" outer-face 'l)
+                     ;; Current Line / Number of lines
+                     (powerline-raw
+                      (format "%%l/%d" (count-lines (point-min) (point-max))) outer-face 'l)
+
+                     (powerline-raw "ln :" outer-face 'l)
+                     ;; Current Column
+                     (powerline-raw "%3c " outer-face 'l)
+
+                     ;; ;; position in file image
+                     ;; (when powerline-display-hud
+                     ;;   (powerline-hud inner-face outer-face))
+                     )
+               ))
+
+     ;; Combine Left and Right Hand Sides
+     (concat (powerline-render lhs)
+             (powerline-fill center-face (powerline-width rhs))
+             (powerline-render rhs))))
+
 (defun airline-themes-set-modeline ()
   "Set the airline mode-line-format"
   (interactive)
   (setq-default mode-line-format
-                '("%e"
+                `("%e"
                   (:eval
-                   (let* ((current-window-width (window-width))
-                          (active (powerline-selected-window-active))
-                          (separator-left (intern (format "powerline-%s-%s"
-                                                          (powerline-current-separator)
-                                                          (car powerline-default-separator-dir))))
-                          (separator-right (intern (format "powerline-%s-%s"
-                                                           (powerline-current-separator)
-                                                           (cdr powerline-default-separator-dir))))
-                          (mode-line-face (if active 'mode-line 'mode-line-inactive))
-                          (evil-mode-active (featurep 'evil))
-                          (visual-block (if evil-mode-active
-                                            (and (evil-visual-state-p)
-                                                 (eq evil-visual-selection 'block))
-                                          nil))
-                          (visual-line (if evil-mode-active
-                                           (and (evil-visual-state-p)
-                                                (eq evil-visual-selection 'line))
-                                         nil))
-                          (current-evil-state-string (if evil-mode-active
-                                                         (upcase (concat (symbol-name evil-state)
-                                                                         (cond (visual-block "-BLOCK")
-                                                                               (visual-line "-LINE"))))
-                                                       nil))
-                          ;; Shorten evil state to a single charater instead of the full word
-                          (current-evil-state-string (if (and current-evil-state-string
-                                                              (< current-window-width 80))
-                                                         (substring current-evil-state-string 0 1)
-                                                       current-evil-state-string))
-                          (outer-face
-                           (if active
-                               (if evil-mode-active
-                                   (cond ((eq evil-state (intern "normal"))  'airline-normal-outer)
-                                         ((eq evil-state (intern "insert"))  'airline-insert-outer)
-                                         ((eq evil-state (intern "visual"))  'airline-visual-outer)
-                                         ((eq evil-state (intern "replace")) 'airline-replace-outer)
-                                         ((eq evil-state (intern "emacs"))   'airline-emacs-outer)
-                                         (t                                  'airline-normal-outer))
-                                 'airline-normal-outer)
-                             'powerline-inactive1))
-
-                          (inner-face
-                           (if active
-                               (if evil-mode-active
-                                   (cond ((eq evil-state (intern "normal")) 'airline-normal-inner)
-                                         ((eq evil-state (intern "insert")) 'airline-insert-inner)
-                                         ((eq evil-state (intern "visual")) 'airline-visual-inner)
-                                         ((eq evil-state (intern "replace")) 'airline-replace-inner)
-                                         ((eq evil-state (intern "emacs"))   'airline-emacs-inner)
-                                         (t                                 'airline-normal-inner))
-                                 'airline-normal-inner)
-                             'powerline-inactive2))
-
-                          (center-face
-                           (if active
-                               (if evil-mode-active
-                                   (cond ((eq evil-state (intern "normal")) 'airline-normal-center)
-                                         ((eq evil-state (intern "insert")) 'airline-insert-center)
-                                         ((eq evil-state (intern "visual")) 'airline-visual-center)
-                                         ((eq evil-state (intern "replace")) 'airline-replace-center)
-                                         ((eq evil-state (intern "emacs"))   'airline-emacs-center)
-                                         (t                                 'airline-normal-center))
-                                 'airline-normal-center)
-                             'airline-inactive3))
-
-                          ;; Left Hand Side
-                          (lhs-mode (when (or (not airline-hide-state-on-inactive-buffers)
-                                              (and airline-hide-state-on-inactive-buffers active))
-                                      (if evil-mode-active
-                                          (list
-                                           ;; Evil Mode Name
-                                           (powerline-raw (concat " " current-evil-state-string " ") outer-face)
-                                           (funcall separator-left outer-face inner-face)
-                                           ;; Modified string
-                                           (powerline-raw "%*" inner-face 'l))
-                                        (list
-                                         ;; Modified string
-                                         (powerline-raw "%*" outer-face 'l)
-                                         ;; Separator >
-                                         (powerline-raw " " outer-face)
-                                         (funcall separator-left outer-face inner-face)))))
-
-                          (lhs-rest (list
-                                     ;; ;; Separator >
-                                     ;; (powerline-raw (char-to-string #x2b81) inner-face 'l)
-
-                                     ;; Eyebrowse current tab/window config
-                                     (if (and (or (not airline-hide-eyebrowse-on-inactive-buffers)
-                                                  (and airline-hide-eyebrowse-on-inactive-buffers active))
-                                              (featurep 'eyebrowse))
-                                         (powerline-raw (concat " " (eyebrowse-mode-line-indicator)) inner-face 'r))
-
-                                     ;; Git Branch
-                                     (if (and (or (not airline-hide-vc-branch-on-inactive-buffers)
-                                                  (and airline-hide-vc-branch-on-inactive-buffers active))
-                                              buffer-file-name vc-mode)
-                                       (powerline-raw (airline-get-vc) inner-face))
-
-                                     ;; Separator >
-                                     (powerline-raw " " inner-face)
-                                     (funcall separator-left inner-face center-face)
-
-                                     ;; Directory
-                                     (cond
-                                      ((and buffer-file-name ;; if buffer has a filename
-                                            (eq airline-display-directory
-                                                'airline-directory-shortened))
-                                       (powerline-raw (airline-shorten-directory default-directory airline-shortened-directory-length) center-face 'l))
-                                      ((and buffer-file-name ;; if buffer has a filename
-                                            (eq airline-display-directory
-                                                'airline-directory-full))
-                                       (powerline-raw default-directory center-face 'l))
-                                      (t
-                                       (powerline-raw " " center-face)))
-
-                                     ;; Buffer ID
-                                     ;; (powerline-buffer-id center-face)
-                                     (powerline-raw "%b" center-face)
-
-                                     ;; Current Function (which-function-mode)
-                                     (when (and (boundp 'which-func-mode) which-func-mode)
-                                       ;; (powerline-raw which-func-format 'l nil))
-                                       (powerline-raw which-func-format center-face 'l))
-
-                                     ;; ;; Separator >
-                                     ;; (powerline-raw " " center-face)
-                                     ;; (funcall separator-left mode-line face1)
-
-                                     (when (boundp 'erc-modified-channels-object)
-                                       (powerline-raw erc-modified-channels-object center-face 'l))
-
-                                     ;; ;; Separator <
-                                     ;; (powerline-raw " " face1)
-                                     ;; (funcall separator-right face1 face2)
-                                     ))
-
-                          (lhs (append lhs-mode lhs-rest))
-
-                          ;; Right Hand Side
-                          (rhs (list (powerline-raw global-mode-string center-face 'r)
-
-                                     ;; ;; Separator <
-                                     ;; (powerline-raw (char-to-string #x2b83) center-face 'l)
-
-                                     ;; Minor Modes
-                                     (powerline-minor-modes center-face 'l)
-                                     ;; (powerline-narrow center-face 'l)
-
-                                     ;; Subseparator <
-                                     (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)
-
-                                     ;; Major Mode
-                                     (powerline-major-mode center-face 'l)
-                                     (powerline-process center-face)
-
-                                     ;; Separator <
-                                     (powerline-raw " " center-face)
-                                     (funcall separator-right center-face inner-face)
-
-                                     ;; ;; Buffer Size
-                                     ;; (when powerline-display-buffer-size
-                                     ;;   (powerline-buffer-size inner-face 'l))
-                                     ;; ;; Mule Info
-                                     ;; (when powerline-display-mule-info
-                                     ;;   (powerline-raw mode-line-mule-info inner-face 'l))
-                                     ;; (powerline-raw " " inner-face)
-                                     (powerline-raw (format " %s " buffer-file-coding-system) inner-face)
-
-                                     ;; Separator <
-                                     (funcall separator-right inner-face outer-face)
-
-                                     ;; % location in file
-                                     (powerline-raw "%3p" outer-face 'l)
-                                     ;; LN charachter
-                                     (powerline-raw (char-to-string airline-utf-glyph-linenumber) outer-face 'l)
-
-                                     ;; Current Line / File Size
-                                     ;; (powerline-raw "%l/%I" outer-face 'l)
-                                     ;; Current Line / Number of lines
-                                     (powerline-raw
-                                      (format "%%l/%d" (count-lines (point-min) (point-max))) outer-face 'l)
-
-                                     (powerline-raw "ln :" outer-face 'l)
-                                     ;; Current Column
-                                     (powerline-raw "%3c " outer-face 'l)
-
-                                     ;; ;; position in file image
-                                     ;; (when powerline-display-hud
-                                     ;;   (powerline-hud inner-face outer-face))
-                                     )
-                               ))
-
-                     ;; Combine Left and Right Hand Sides
-                     (concat (powerline-render lhs)
-                             (powerline-fill center-face (powerline-width rhs))
-                             (powerline-render rhs))))))
+                   ,(airline-themes-mode-line-format)
+                   )))
   (powerline-reset)
   (kill-local-variable 'mode-line-format))
 
@@ -669,6 +673,127 @@ the path down to `MAX-LENGTH'"
        (lambda (k v)
          (airline-generate-theme-file k v))
        json))))
+
+(defun airline-preview-themes ()
+  (interactive)
+  (let* ((preview-buffer-name "*airline-preview-themes*")
+         (preview-buffer (get-buffer preview-buffer-name)))
+    (when (not preview-buffer)
+      (setq preview-buffer (generate-new-buffer preview-buffer-name)))
+    (switch-to-buffer preview-buffer)
+    (funcall 'fundamental-mode)
+    (setq buffer-offer-save nil)
+    (erase-buffer)
+    (let* ((default-directory (file-name-directory (locate-library "airline-themes" )))
+           (json-object-type 'hash-table)
+           (json-array-type 'list)
+           (json-key-type 'string)
+           (json-themes (json-read-file "vim-airline-theme-palettes.json")))
+      (setq themenames (list))
+      (maphash
+       (lambda (k v) (push k themenames)) json-themes)
+      (cl-loop
+       for k in (sort themenames 'string-lessp)
+       do
+       (let* ((json (gethash k json-themes))
+              (normal-outer (gethash "airline_a" (gethash "normal" json)))
+              (normal-inner (gethash "airline_b" (gethash "normal" json)))
+              (normal-center (gethash "airline_c" (gethash "normal" json)))
+
+              (insert-outer (gethash "airline_a" (gethash "insert" json) normal-outer))
+              (insert-inner (gethash "airline_b" (gethash "insert" json) normal-inner))
+              (insert-center (gethash "airline_c" (gethash "insert" json) normal-center))
+
+              (visual-outer (gethash "airline_a" (gethash "visual" json) normal-outer))
+              (visual-inner (gethash "airline_b" (gethash "visual" json) normal-inner))
+              (visual-center (gethash "airline_c" (gethash "visual" json) normal-center))
+
+              (replace-outer (gethash "airline_a" (gethash "replace" json) normal-outer))
+              (replace-inner (gethash "airline_b" (gethash "replace" json) normal-inner))
+              (replace-center (gethash "airline_c" (gethash "replace" json) normal-center))
+
+              (inactive1 (gethash "airline_a" (gethash "inactive" json)))
+              (inactive2 (gethash "airline_b" (gethash "inactive" json)))
+              (inactive3 (gethash "airline_c" (gethash "inactive" json)))
+
+              (normal-outer-foreground   (nth 0 normal-outer))   (normal-outer-background   (nth 1 normal-outer))
+              (normal-inner-foreground   (nth 0 normal-inner))   (normal-inner-background   (nth 1 normal-inner))
+              (normal-center-foreground  (nth 0 normal-center))  (normal-center-background  (nth 1 normal-center))
+
+              (insert-outer-foreground   (nth 0 insert-outer))   (insert-outer-background   (nth 1 insert-outer))
+              (insert-inner-foreground   (nth 0 insert-inner))   (insert-inner-background   (nth 1 insert-inner))
+              (insert-center-foreground  (nth 0 insert-center))  (insert-center-background  (nth 1 insert-center))
+
+              (visual-outer-foreground   (nth 0 visual-outer))   (visual-outer-background   (nth 1 visual-outer))
+              (visual-inner-foreground   (nth 0 visual-inner))   (visual-inner-background   (nth 1 visual-inner))
+              (visual-center-foreground  (nth 0 visual-center))  (visual-center-background  (nth 1 visual-center))
+
+              (replace-outer-foreground  (nth 0 replace-outer))  (replace-outer-background  (nth 1 replace-outer))
+              (replace-inner-foreground  (nth 0 replace-inner))  (replace-inner-background  (nth 1 replace-inner))
+              (replace-center-foreground (nth 0 replace-center)) (replace-center-background (nth 1 replace-center))
+
+              (emacs-outer-foreground    (nth 0 normal-outer))   (emacs-outer-background    (nth 1 normal-outer))
+              (emacs-inner-foreground    (nth 0 normal-inner))   (emacs-inner-background    (nth 1 normal-inner))
+              (emacs-center-foreground   (nth 0 normal-center))  (emacs-center-background   (nth 1 normal-center))
+
+              (inactive1-foreground      (nth 0 inactive1))      (inactive1-background      (nth 1 inactive1))
+              (inactive2-foreground      (nth 0 inactive2))      (inactive2-background      (nth 1 inactive2))
+              (inactive3-foreground      (nth 0 inactive3))      (inactive3-background      (nth 1 inactive3))
+
+              (airline-normal-outer   `((t ( :foreground ,normal-outer-foreground   background ,normal-outer-background))))
+              (airline-normal-inner   `((t ( :foreground ,normal-inner-foreground   background ,normal-inner-background))))
+              (airline-normal-center  `((t ( :foreground ,normal-center-foreground  background ,normal-center-background))))
+              (airline-insert-outer   `((t ( :foreground ,insert-outer-foreground   background ,insert-outer-background))))
+              (airline-insert-inner   `((t ( :foreground ,insert-inner-foreground   background ,insert-inner-background))))
+              (airline-insert-center  `((t ( :foreground ,insert-center-foreground  background ,insert-center-background))))
+              (airline-visual-outer   `((t ( :foreground ,visual-outer-foreground   background ,visual-outer-background))))
+              (airline-visual-inner   `((t ( :foreground ,visual-inner-foreground   background ,visual-inner-background))))
+              (airline-visual-center  `((t ( :foreground ,visual-center-foreground  background ,visual-center-background))))
+              (airline-replace-outer  `((t ( :foreground ,replace-outer-foreground  background ,replace-outer-background))))
+              (airline-replace-inner  `((t ( :foreground ,replace-inner-foreground  background ,replace-inner-background))))
+              (airline-replace-center `((t ( :foreground ,replace-center-foreground background ,replace-center-background))))
+              (airline-emacs-outer    `((t ( :foreground ,emacs-outer-foreground    background ,emacs-outer-background))))
+              (airline-emacs-inner    `((t ( :foreground ,emacs-inner-foreground    background ,emacs-inner-background))))
+              (airline-emacs-center   `((t ( :foreground ,emacs-center-foreground   background ,emacs-center-background))))
+              (powerline-inactive1    `((t ( :foreground ,inactive1-foreground      background ,inactive1-background))))
+              (powerline-inactive2    `((t ( :foreground ,inactive2-foreground      background ,inactive2-background))))
+              (airline-inactive3      `((t ( :foreground ,inactive3-foreground      background ,inactive3-background))))
+              (mode-line              `((t ( :foreground ,normal-center-foreground  background ,normal-center-background :box nil :underline nil :overline nil))))
+              (mode-line-inactive     `((t ( :foreground ,inactive1-foreground      background ,inactive1-background     :box nil :underline nil :overline nil))))
+              (mode-line-buffer-id    `((t ( :foreground ,normal-outer-foreground   background ,normal-outer-background  :box nil :underline nil :overline nil)))))
+
+         (custom-set-faces
+          `(airline-normal-outer  ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background))))
+          `(airline-normal-inner  ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background))))
+          `(airline-normal-center ((t ( :foreground ,normal-center-foreground :background ,normal-center-background))))
+          `(airline-insert-outer  ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background))))
+          `(airline-insert-inner  ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background))))
+          `(airline-insert-center ((t ( :foreground ,insert-center-foreground :background ,insert-center-background))))
+          `(airline-visual-outer  ((t ( :foreground ,visual-outer-foreground  :background ,visual-outer-background))))
+          `(airline-visual-inner  ((t ( :foreground ,visual-inner-foreground  :background ,visual-inner-background))))
+          `(airline-visual-center ((t ( :foreground ,visual-center-foreground :background ,visual-center-background))))
+          `(airline-replace-outer ((t ( :foreground ,replace-outer-foreground :background ,replace-outer-background))))
+          `(airline-replace-inner  ((t ( :foreground ,replace-inner-foreground  :background ,replace-inner-background))))
+          `(airline-replace-center ((t ( :foreground ,replace-center-foreground :background ,replace-center-background))))
+          `(airline-emacs-outer   ((t ( :foreground ,emacs-outer-foreground   :background ,emacs-outer-background))))
+          `(airline-emacs-inner  ((t ( :foreground ,emacs-inner-foreground  :background ,emacs-inner-background))))
+          `(airline-emacs-center ((t ( :foreground ,emacs-center-foreground :background ,emacs-center-background))))
+          `(powerline-inactive1   ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background))))
+          `(powerline-inactive2   ((t ( :foreground ,inactive2-foreground     :background ,inactive2-background))))
+          `(airline-inactive3   ((t ( :foreground ,inactive3-foreground     :background ,inactive3-background))))
+          `(mode-line             ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :box nil :underline nil :overline nil))))
+          `(mode-line-inactive    ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background     :box nil :underline nil :overline nil))))
+          `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil :underline nil :overline nil)))))
+         (insert (format "%s\n" k))
+         (insert (eval (airline-themes-mode-line-format)))
+         (insert "\n")
+         )
+       ;; (insert (eval (plist-get (car (cdr mode-line-format)) :eval)))
+       )
+      )
+    )
+  )
+
 
 (provide 'airline-themes)
 ;;; airline-themes.el ends here
