@@ -1,10 +1,11 @@
 # airline-themes
 
 [![MELPA](http://melpa-stable.milkbox.net/packages/airline-themes-badge.svg)](http://melpa-stable.milkbox.net/#/airline-themes)
-
 [![MELPA](http://melpa.org/packages/airline-themes-badge.svg)](http://melpa.org/#/airline-themes)
 
-This is a port of the themes in [vim-airline](https://github.com/vim-airline/vim-airline-themes) to emacs [powerline](https://github.com/milkypostman/powerline).
+This is a port of the themes in
+[vim-airline](https://github.com/vim-airline/vim-airline-themes)
+to emacs [powerline](https://github.com/milkypostman/powerline).
 
 [![airline-demo.gif](/screenshots/airline-demo.gif)](/screenshots/airline-demo.gif)
 
@@ -14,19 +15,6 @@ This is a port of the themes in [vim-airline](https://github.com/vim-airline/vim
 - Can set [Helm](https://github.com/emacs-helm/helm) colors
 - Can set the current cursor color based on the current airline theme
 - Works nicely in the gui or terminal
-
-## Eshell Colors
-
-Here is a shot of eshell in use with the prompt set to match the current airline theme (`airline-base16-shell-dark`):
-
-[![airline-eshell-screen1.png](/screenshots/airline-eshell-screen1.png)](/screenshots/eshell-screen1.png)
-
-## Helm Colors
-
-Here is a shot of `helm-mini` with the `airline-base16-shell-dark` and
-`airline-papercolor` themes.
-
-[![airline-helm-demo.gif](/screenshots/airline-helm-demo.gif)](/screenshots/airline-helm-demo.gif)
 
 ## Installation
 
@@ -38,8 +26,10 @@ Here is a shot of `helm-mini` with the `airline-base16-shell-dark` and
 Install via melpa or clone this repo into your load-path and add the following
 to your `init.el`
 
-    (require 'airline-themes)
-    (load-theme 'airline-light t)
+``` emacs-lisp
+(require 'airline-themes)
+(load-theme 'airline-light t)
+```
 
 If you don't load a theme in your `init.el` then the default `mode-line-format`
 doesn't get set at startup and applying a theme may not look right. If things
@@ -52,7 +42,7 @@ the current buffer.
 Run `M-x customize-group airline-themes` to see and set all options with
 suggestions. Here are all the options for copy-pasting:
 
-```
+``` emacs-lisp
 ;; Hide Evil and buffer state on inactive buffers.
 ;; Valid Values: t (hidden), nil (shown)
 (setq airline-hide-state-on-inactive-buffers t)
@@ -101,15 +91,31 @@ suggestions. Here are all the options for copy-pasting:
       powerline-utf-8-separator-right #x2b82)
 ```
 
-- **Glyph Variables**
+### Glyph Variables
 
-  The `airline-utf-glyph-*` variables control which UTF glyphs are used on the
-  modeline. They require a powerline patched font. Head over to
-  https://github.com/powerline/fonts if you need one.
+The `airline-utf-glyph-*` variables control which UTF glyphs are used on the
+modeline. They require a powerline patched font. Head over to
+https://github.com/powerline/fonts if you need one.
 
-  Depending on your font, you may need to set the correct glyph character. If
-  your font characters don't look right try running `M-x customize-group
-  airline-themes` and choose some characters that look right with your
-  font. Some default options have been added so you can pick what looks good.
+Depending on your font, you may need to set the correct glyph character. If
+your font characters don't look right try running
+`M-x customize-group airline-themes` and choose some characters that look right
+with your font. Some default options have been added so you can pick what looks
+good.
 
 [![customize-group.png](/screenshots/customize-group.png)](/screenshots/customize-group.png)
+
+## Screenshots
+
+### Eshell Colors
+
+Here is a shot of eshell in use with the prompt set to match the current airline theme (`airline-base16-shell-dark`):
+
+[![airline-eshell-screen1.png](/screenshots/airline-eshell-screen1.png)](/screenshots/eshell-screen1.png)
+
+### Helm Colors
+
+Here is a shot of `helm-mini` with the `airline-base16-shell-dark` and
+`airline-papercolor` themes.
+
+[![airline-helm-demo.gif](/screenshots/airline-helm-demo.gif)](/screenshots/airline-helm-demo.gif)
