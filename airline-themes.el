@@ -97,7 +97,7 @@ Valid Values: t (enabled), nil (disabled)"
   :type '(choice (const :tag "Enabled" t)
                  (const :tag "Disabled" nil)))
 
-(defcustom airline-display-directory 'airline-directory-shortened
+(defcustom airline-display-directory nil
   "Display the currend directory along with the filename.
 
 Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled)"
