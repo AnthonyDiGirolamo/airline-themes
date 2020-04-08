@@ -7,7 +7,7 @@ This is a port of the themes in
 [vim-airline](https://github.com/vim-airline/vim-airline-themes)
 to emacs [powerline](https://github.com/milkypostman/powerline).
 
-[![airline-demo.gif](/screenshots/airline-demo.gif)](/screenshots/airline-demo.gif)
+![/screenshots/themes/theme-084.png](/screenshots/themes/theme-084.png)
 
 ## Features
 
@@ -102,8 +102,6 @@ your font characters don't look right try running
 `M-x customize-group airline-themes` and choose some characters that look right
 with your font. Some default options have been added so you can pick what looks
 good.
-
-[![customize-group.png](/screenshots/customize-group.png)](/screenshots/customize-group.png)
 
 ## Screenshots
 
