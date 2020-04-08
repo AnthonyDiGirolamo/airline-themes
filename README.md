@@ -105,6 +105,5 @@ good.
 
 ## Screenshots
 
-Head over to [All theme screenshots](/screenshots/all-themes.md) for preview
+Head over to [All Theme Screenshots](/screenshots/all-themes.md) for preview
 images.
-
