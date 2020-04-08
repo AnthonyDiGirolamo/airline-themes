@@ -4,9 +4,9 @@
 
 [![MELPA](http://melpa.org/packages/airline-themes-badge.svg)](http://melpa.org/#/airline-themes)
 
-This is a port of the themes in [vim-airline](https://github.com/vim-airline/vim-airline) to emacs [powerline](https://github.com/milkypostman/powerline).
+This is a port of the themes in [vim-airline](https://github.com/vim-airline/vim-airline-themes) to emacs [powerline](https://github.com/milkypostman/powerline).
 
-[![airline-demo.gif](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-demo.gif)](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-demo.gif)
+[![airline-demo.gif](/screenshots/airline-demo.gif)](/screenshots/airline-demo.gif)
 
 ## Features
 
@@ -19,14 +19,14 @@ This is a port of the themes in [vim-airline](https://github.com/vim-airline/vim
 
 Here is a shot of eshell in use with the prompt set to match the current airline theme (`airline-base16-shell-dark`):
 
-[![airline-eshell-screen1.png](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-eshell-screen1.png)](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/eshell-screen1.png)
+[![airline-eshell-screen1.png](/screenshots/airline-eshell-screen1.png)](/screenshots/eshell-screen1.png)
 
 ## Helm Colors
 
 Here is a shot of `helm-mini` with the `airline-base16-shell-dark` and
 `airline-papercolor` themes.
 
-[![airline-helm-demo.gif](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-helm-demo.gif)](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/airline-helm-demo.gif)
+[![airline-helm-demo.gif](/screenshots/airline-helm-demo.gif)](/screenshots/airline-helm-demo.gif)
 
 ## Installation
 
