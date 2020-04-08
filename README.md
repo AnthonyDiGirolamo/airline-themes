@@ -112,4 +112,4 @@ suggestions. Here are all the options for copy-pasting:
   airline-themes` and choose some characters that look right with your
   font. Some default options have been added so you can pick what looks good.
 
-[![customize-group.png](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/customize-group.png)](https://raw.githubusercontent.com/AnthonyDiGirolamo/airline-themes/master/screenshots/customize-group.png)
+[![customize-group.png](/screenshots/customize-group.png)](/screenshots/customize-group.png)
