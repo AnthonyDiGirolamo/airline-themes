@@ -8,7 +8,7 @@
 
 ;;; Commentary:
 ;;
-;; vim-airline themes https://github.com/vim-airline/vim-airline for emacs powerline https://github.com/milkypostman/powerline
+;; vim-airline themes https://github.com/vim-airline/vim-airline-themes for emacs powerline https://github.com/milkypostman/powerline
 ;;
 
 ;;; Code:
@@ -193,38 +193,46 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
 
 (defun airline-themes-set-eshell-prompt ()
   "Set the eshell prompt"
-
   (setq eshell-highlight-prompt t
         eshell-prompt-regexp "^ [^#$]* [#$] "
         eshell-prompt-function
         (lambda ()
           (concat
-           ;; (concat " " (eshell/whoami) " ")
-           (propertize " " 'face
-                       `(:foreground ,(face-foreground 'airline-insert-outer) :background ,(face-background 'airline-insert-outer)))
+           (propertize
+            " "
+            'face `(:foreground ,(face-foreground 'airline-insert-outer)
+                    :background ,(face-background 'airline-insert-outer)))
 
-           (propertize (concat (char-to-string airline-utf-glyph-separator-left) " ") 'face
-                       `(:foreground ,(face-background 'airline-insert-outer) :background ,(face-background 'airline-insert-inner)))
-
+           (propertize
+            (concat (char-to-string airline-utf-glyph-separator-left) " ")
+            'face `(:foreground ,(face-background 'airline-insert-outer)
+                    :background ,(face-background 'airline-insert-inner)))
 
            (if (eq airline-display-directory 'airline-directory-shortened)
-             (propertize (concat (airline-shorten-directory (eshell/pwd) airline-shortened-directory-length) " ") 'face
-                         `(:foreground ,(face-foreground 'airline-insert-inner) :background ,(face-background 'airline-insert-inner)))
-             (propertize (concat (abbreviate-file-name (eshell/pwd)) " ") 'face
-                         `(:foreground ,(face-foreground 'airline-insert-inner) :background ,(face-background 'airline-insert-inner)))
-           )
+               (propertize
+                (concat (airline-shorten-directory (eshell/pwd) airline-shortened-directory-length) " ")
+                'face `(:foreground ,(face-foreground 'airline-insert-inner)
+                        :background ,(face-background 'airline-insert-inner)))
+             (propertize
+              (concat (abbreviate-file-name (eshell/pwd)) " ")
+              'face `(:foreground ,(face-foreground 'airline-insert-inner)
+                      :background ,(face-background 'airline-insert-inner))))
 
-           (propertize (concat (char-to-string airline-utf-glyph-separator-left) " ") 'face
-                       `(:foreground ,(face-background 'airline-insert-inner) :background ,(face-background 'airline-insert-center)))
+           (propertize
+            (concat (char-to-string airline-utf-glyph-separator-left) " ")
+            'face `(:foreground ,(face-background 'airline-insert-inner)
+                    :background ,(face-background 'airline-insert-center)))
 
-           (propertize (concat (airline-curr-dir-git-branch-string (eshell/pwd)) " ") 'face
-                       `(:foreground ,(face-foreground 'airline-insert-center) :background ,(face-background 'airline-insert-center)))
+           (propertize
+            (concat (airline-curr-dir-git-branch-string (eshell/pwd)) " ")
+            'face `(:foreground ,(face-foreground 'airline-insert-center)
+                    :background ,(face-background 'airline-insert-center)))
 
-           (propertize (concat (char-to-string airline-utf-glyph-separator-left)) 'face
-                       `(:foreground ,(face-background 'airline-insert-center)))
+           (propertize
+            (concat (char-to-string airline-utf-glyph-separator-left))
+            'face `(:foreground ,(face-background 'airline-insert-center)))
 
-           (propertize " $ " 'face `())
-           ))))
+           (propertize " $ " 'face `())))))
 
 (defun airline-themes-mode-line-format ()
   '(let* ((current-window-width (window-width))
@@ -417,7 +425,6 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                      ;;   (powerline-hud inner-face outer-face))
                      )
                ))
-
      ;; Combine Left and Right Hand Sides
      (concat (powerline-render lhs)
              (powerline-fill center-face (powerline-width rhs))
@@ -435,8 +442,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
   (kill-local-variable 'mode-line-format))
 
 (defun airline-themes-set-deftheme (theme-name)
-  "Set appropriate face attributes"
-
+  "Set appropriate face attributes for THEME-NAME."
   (when airline-eshell-colors
     (airline-themes-set-eshell-prompt))
 
@@ -451,31 +457,30 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
 
   (custom-theme-set-faces
    theme-name
-   `(which-func            ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))
-
-   `(airline-normal-outer  ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background))))
-   `(airline-normal-inner  ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background))))
-   `(airline-normal-center ((t ( :foreground ,normal-center-foreground :background ,normal-center-background))))
-   `(airline-insert-outer  ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background))))
-   `(airline-insert-inner  ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background))))
-   `(airline-insert-center ((t ( :foreground ,insert-center-foreground :background ,insert-center-background))))
-   `(airline-visual-outer  ((t ( :foreground ,visual-outer-foreground  :background ,visual-outer-background))))
-   `(airline-visual-inner  ((t ( :foreground ,visual-inner-foreground  :background ,visual-inner-background))))
-   `(airline-visual-center ((t ( :foreground ,visual-center-foreground :background ,visual-center-background))))
-   `(airline-replace-outer ((t ( :foreground ,replace-outer-foreground :background ,replace-outer-background))))
+   `(which-func             ((t ( :foreground ,normal-center-foreground  :background ,normal-center-background :bold t))))
+   `(airline-normal-outer   ((t ( :foreground ,normal-outer-foreground   :background ,normal-outer-background))))
+   `(airline-normal-inner   ((t ( :foreground ,normal-inner-foreground   :background ,normal-inner-background))))
+   `(airline-normal-center  ((t ( :foreground ,normal-center-foreground  :background ,normal-center-background))))
+   `(airline-insert-outer   ((t ( :foreground ,insert-outer-foreground   :background ,insert-outer-background))))
+   `(airline-insert-inner   ((t ( :foreground ,insert-inner-foreground   :background ,insert-inner-background))))
+   `(airline-insert-center  ((t ( :foreground ,insert-center-foreground  :background ,insert-center-background))))
+   `(airline-visual-outer   ((t ( :foreground ,visual-outer-foreground   :background ,visual-outer-background))))
+   `(airline-visual-inner   ((t ( :foreground ,visual-inner-foreground   :background ,visual-inner-background))))
+   `(airline-visual-center  ((t ( :foreground ,visual-center-foreground  :background ,visual-center-background))))
+   `(airline-replace-outer  ((t ( :foreground ,replace-outer-foreground  :background ,replace-outer-background))))
    `(airline-replace-inner  ((t ( :foreground ,replace-inner-foreground  :background ,replace-inner-background))))
    `(airline-replace-center ((t ( :foreground ,replace-center-foreground :background ,replace-center-background))))
-   `(airline-emacs-outer   ((t ( :foreground ,emacs-outer-foreground   :background ,emacs-outer-background))))
-   `(airline-emacs-inner  ((t ( :foreground ,emacs-inner-foreground  :background ,emacs-inner-background))))
-   `(airline-emacs-center ((t ( :foreground ,emacs-center-foreground :background ,emacs-center-background))))
-   `(powerline-inactive1   ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background))))
-   `(powerline-inactive2   ((t ( :foreground ,inactive2-foreground     :background ,inactive2-background))))
-   `(airline-inactive3   ((t ( :foreground ,inactive3-foreground     :background ,inactive3-background))))
-   `(mode-line             ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :box nil :underline nil :overline nil))))
-   `(mode-line-inactive    ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background     :box nil :underline nil :overline nil))))
-   `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil :underline nil :overline nil))))
-   `(minibuffer-prompt     ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil))))
-  ))
+   `(airline-emacs-outer    ((t ( :foreground ,emacs-outer-foreground    :background ,emacs-outer-background))))
+   `(airline-emacs-inner    ((t ( :foreground ,emacs-inner-foreground    :background ,emacs-inner-background))))
+   `(airline-emacs-center   ((t ( :foreground ,emacs-center-foreground   :background ,emacs-center-background))))
+   `(powerline-inactive1    ((t ( :foreground ,inactive1-foreground      :background ,inactive1-background))))
+   `(powerline-inactive2    ((t ( :foreground ,inactive2-foreground      :background ,inactive2-background))))
+   `(airline-inactive3      ((t ( :foreground ,inactive3-foreground      :background ,inactive3-background))))
+   `(mode-line              ((t ( :foreground ,normal-center-foreground  :background ,normal-center-background :box  nil :underline nil :overline nil))))
+   `(mode-line-inactive     ((t ( :foreground ,inactive1-foreground      :background ,inactive1-background     :box  nil :underline nil :overline nil))))
+   `(mode-line-buffer-id    ((t ( :foreground ,normal-outer-foreground   :background ,normal-outer-background  :box  nil :underline nil :overline nil))))
+   `(minibuffer-prompt      ((t ( :foreground ,normal-outer-foreground   :background ,normal-outer-background  :box  nil))))
+   ))
 
 (defun airline--git-branch-from-head-file (filename)
   "Return the current branch name or sha from a .git/HEAD FILENAME."
@@ -551,7 +556,6 @@ Returns an empty string if PWD is not a git repo."
 
 Replacing elements with single characters starting from the left to try and get
 the path down to `MAX-LENGTH'"
-
   (let* ((components (split-string (abbreviate-file-name dir) "/"))
          (len (+ (1- (length components))
                  (cl-reduce '+ components :key 'length)))
@@ -568,8 +572,12 @@ the path down to `MAX-LENGTH'"
 )
 
 (defun airline-generate-theme-file (theme-name json)
-  "Create a theme file based on a vim-airline 'airline#themes#$theme-name#palette' variable encoded in json format."
-  (interactive)
+  "Create a theme.el file.
+
+Arguments:
+  THEME-NAME: a theme name as a string.
+  JSON: a hash-table derived from the vim 'airline#themes#$theme-name#palette'
+        variable encoded in json format."
   (when (and theme-name json)
     (with-temp-file (format "airline-%s-theme.el" theme-name)
       (let* ((normal-outer (gethash "airline_a" (gethash "normal" json)))
@@ -662,17 +670,19 @@ the path down to `MAX-LENGTH'"
 "))))))
 
 (defun airline-generate-themes ()
+  "Generate all *theme.el files based on definitions encoded in vim-airline-theme-palettes.json."
   (interactive)
   (require 's)
-  (when (fboundp 's-lex-format)
+  (require 'json)
+  (when (and (fboundp 'json-read-file) (fboundp 's-lex-format))
     (let* ((default-directory (file-name-directory (locate-library "airline-themes" )))
            (json-object-type 'hash-table)
            (json-array-type 'list)
            (json-key-type 'string)
            (json (json-read-file "vim-airline-theme-palettes.json")))
       (maphash
-       (lambda (k v)
-         (airline-generate-theme-file k v))
+       (lambda (theme-name theme-json)
+         (airline-generate-theme-file theme-name theme-json))
        json))))
 
 ;; (defun airline-preview-themes ()
