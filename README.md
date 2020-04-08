@@ -107,19 +107,6 @@ good.
 
 ## Screenshots
 
-### Eshell Colors
-
-Here is a shot of eshell in use with the prompt set to match the current airline theme (`airline-base16-shell-dark`):
-
-[![airline-eshell-screen1.png](/screenshots/airline-eshell-screen1.png)](/screenshots/eshell-screen1.png)
-
-### Helm Colors
-
-Here is a shot of `helm-mini` with the `airline-base16-shell-dark` and
-`airline-papercolor` themes.
-
-[![airline-helm-demo.gif](/screenshots/airline-helm-demo.gif)](/screenshots/airline-helm-demo.gif)
-
 ### All Themes
 
 ![/screenshots/themes/theme-001.png](/screenshots/themes/theme-001.png)

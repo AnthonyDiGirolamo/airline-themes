@@ -10,7 +10,8 @@ for f in (ls 2*.png | sort)
 
     if test 0 -eq (math "$index % 4") 1>/dev/null
         convert -gravity South -crop x89+0+0 $f $outfile
-        montage $filegroup -mode concatenate -tile 1x4 theme-(printf "%03d" (math $index/4)).png
+        set concatedfilenumber (printf "%03d" (math $index/4))
+        montage $filegroup -mode concatenate -tile 1x4 theme-$concatedfilenumber.png
         set -e filegroup
         echo
     else
