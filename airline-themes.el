@@ -545,7 +545,7 @@ Returns an empty string if PWD is not a git repo."
   (interactive)
   (format "%s%s"
           (char-to-string airline-utf-glyph-branch)
-          (if nil ;; (featurep 'magit)
+          (if (featurep 'magit)
               ;; prepend a space
               (format " %s" (magit-get-current-branch))
             ;; vc-mode prepends a space
@@ -596,9 +596,9 @@ Arguments:
              (replace-inner (gethash "airline_b" (gethash "replace" json) normal-inner))
              (replace-center (gethash "airline_c" (gethash "replace" json) normal-center))
 
-             (inactive1 (gethash "airline_a" (gethash "inactive" json)))
-             (inactive2 (gethash "airline_b" (gethash "inactive" json)))
-             (inactive3 (gethash "airline_c" (gethash "inactive" json)))
+             (inactive1 (gethash "airline_a" (gethash "inactive" json) normal-outer))
+             (inactive2 (gethash "airline_b" (gethash "inactive" json) normal-inner))
+             (inactive3 (gethash "airline_c" (gethash "inactive" json) normal-center))
 
              (normal-outer-foreground   (nth 0 normal-outer))   (normal-outer-background   (nth 1 normal-outer))
              (normal-inner-foreground   (nth 0 normal-inner))   (normal-inner-background   (nth 1 normal-inner))
@@ -612,6 +612,10 @@ Arguments:
              (visual-inner-foreground   (nth 0 visual-inner))   (visual-inner-background   (nth 1 visual-inner))
              (visual-center-foreground  (nth 0 visual-center))  (visual-center-background  (nth 1 visual-center))
 
+             (visual-outer-foreground  (if (string-empty-p visual-outer-foreground)  normal-outer-foreground  visual-outer-foreground))
+             (visual-center-foreground (if (string-empty-p visual-center-foreground) normal-center-foreground visual-center-foreground))
+             (visual-inner-foreground  (if (string-empty-p visual-inner-foreground)  normal-inner-foreground  visual-inner-foreground))
+
              (replace-outer-foreground  (nth 0 replace-outer))  (replace-outer-background  (nth 1 replace-outer))
              (replace-inner-foreground  (nth 0 replace-inner))  (replace-inner-background  (nth 1 replace-inner))
              (replace-center-foreground (nth 0 replace-center)) (replace-center-background (nth 1 replace-center))
@@ -622,7 +626,11 @@ Arguments:
 
              (inactive1-foreground      (nth 0 inactive1))      (inactive1-background      (nth 1 inactive1))
              (inactive2-foreground      (nth 0 inactive2))      (inactive2-background      (nth 1 inactive2))
-             (inactive3-foreground      (nth 0 inactive3))      (inactive3-background      (nth 1 inactive3)))
+             (inactive3-foreground      (nth 0 inactive3))      (inactive3-background      (nth 1 inactive3))
+
+             (inactive1-foreground (if (string-empty-p inactive1-foreground) normal-outer-foreground  inactive1-foreground))
+             (inactive2-foreground (if (string-empty-p inactive2-foreground) normal-center-foreground inactive2-foreground))
+             (inactive3-foreground (if (string-empty-p inactive3-foreground) normal-inner-foreground  inactive3-foreground)))
         (insert (s-lex-format "
 ;;; Code:
 

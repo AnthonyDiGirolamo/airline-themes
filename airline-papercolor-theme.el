@@ -13,7 +13,7 @@
       (insert-center-foreground  "#eeeeee") (insert-center-background  "#005f87")
 
       (visual-outer-foreground   "#005f87") (visual-outer-background   "#e4e4e4")
-      (visual-inner-foreground   "") (visual-inner-background   "#0087af")
+      (visual-inner-foreground   "#e4e4e4") (visual-inner-background   "#0087af")
       (visual-center-foreground  "#e4e4e4") (visual-center-background  "#005f87")
 
       (replace-outer-foreground  "#d7005f") (replace-outer-background  "#e4e4e4")

@@ -24,9 +24,9 @@
       (emacs-inner-foreground    "#57c7ff") (emacs-inner-background    "#282a36")
       (emacs-center-foreground   "#57c7ff") (emacs-center-background   "#282a36")
 
-      (inactive1-foreground      "") (inactive1-background      "#282a36")
-      (inactive2-foreground      "") (inactive2-background      "#282a36")
-      (inactive3-foreground      "") (inactive3-background      "#282a36"))
+      (inactive1-foreground      "#282a36") (inactive1-background      "#282a36")
+      (inactive2-foreground      "#57c7ff") (inactive2-background      "#282a36")
+      (inactive3-foreground      "#57c7ff") (inactive3-background      "#282a36"))
 
   (airline-themes-set-deftheme 'airline-base16_snazzy)
 
