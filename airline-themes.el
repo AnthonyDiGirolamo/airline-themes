@@ -106,7 +106,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
                  (const :tag "Shortened" airline-directory-shortened)
                  (const :tag "Disabled" nil)))
 
-(defcustom airline-utf-glyph-separator-left #x2b80
+(defcustom airline-utf-glyph-separator-left  #xe0b0
   "The unicode character number used for the left side separator."
   :group 'airline-themes
   :type '(choice
@@ -121,7 +121,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
           (const :tag "powerline:  #xe0b0" #xe0b0)
           (const :tag "vim-powerline: ⮀ #x2b80" #x2b80)))
 
-(defcustom airline-utf-glyph-separator-right #x2b82
+(defcustom airline-utf-glyph-separator-right #xe0b2
   "The unicode character number used for the right side separator."
   :group 'airline-themes
   :type '(choice
@@ -136,7 +136,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
           (const :tag "powerline:  #xe0b2" #xe0b2)
           (const :tag "vim-powerline: ⮂ #x2b82" #x2b82)))
 
-(defcustom airline-utf-glyph-subseparator-left #x2b81
+(defcustom airline-utf-glyph-subseparator-left #xe0b1
   "The unicode character number used for the left side subseparator."
   :group 'airline-themes
   :type '(choice
@@ -151,7 +151,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
           (const :tag "powerline:  #xe0b1" #xe0b1)
           (const :tag "vim-powerline ⮁ #x2b81" #x2b81)))
 
-(defcustom airline-utf-glyph-subseparator-right #x2b83
+(defcustom airline-utf-glyph-subseparator-right #xe0b3
   "The unicode character number used for the right side subseparator."
   :group 'airline-themes
   :type '(choice
@@ -166,7 +166,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
           (const :tag "powerline:  #xe0b3" #xe0b3)
           (const :tag "vim-powerline: ⮃ #x2b83" #x2b83)))
 
-(defcustom airline-utf-glyph-branch #x2b60
+(defcustom airline-utf-glyph-branch #xe0a0
   "The unicode character number used for the branch symbol."
   :group 'airline-themes
   :type '(choice
@@ -175,7 +175,7 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
           (const :tag "powerline:  #xe0a0" #xe0a0)
           (const :tag "vim-powerline: ⭠ #x2b60" #x2b60)))
 
-(defcustom airline-utf-glyph-readonly #x2b64
+(defcustom airline-utf-glyph-readonly #xe0a2
   "The unicode character number used for the readonly symbol."
   :group 'airline-themes
   :type '(choice
