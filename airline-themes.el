@@ -458,6 +458,9 @@ Valid Values: airline-directory-full, airline-directory-shortened, nil (disabled
   (custom-theme-set-faces
    theme-name
    `(which-func             ((t ( :foreground ,normal-center-foreground  :background ,normal-center-background :bold t))))
+   `(tab-bar                ((t ( :foreground ,normal-center-foreground  :background ,normal-center-background))))
+   `(tab-bar-tab            ((t ( :foreground ,normal-inner-foreground   :background ,normal-inner-background))))
+   `(tab-bar-tab-inactive   ((t ( :foreground ,inactive1-foreground      :background ,inactive1-background))))
    `(airline-normal-outer   ((t ( :foreground ,normal-outer-foreground   :background ,normal-outer-background))))
    `(airline-normal-inner   ((t ( :foreground ,normal-inner-foreground   :background ,normal-inner-background))))
    `(airline-normal-center  ((t ( :foreground ,normal-center-foreground  :background ,normal-center-background))))
