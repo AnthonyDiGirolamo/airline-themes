@@ -26,7 +26,7 @@
 
       (inactive1-foreground      "#585858") (inactive1-background      "#e4e4e4")
       (inactive2-foreground      "#585858") (inactive2-background      "#e4e4e4")
-      (inactive3-foreground      "#585858") (inactive3-background      "#e4e4e4"))
+      (inactive3-foreground      "#e4e4e4") (inactive3-background      "#0087af"))
 
   (airline-themes-set-deftheme 'airline-papercolor)
 

@@ -4,29 +4,29 @@
 (deftheme airline-lucius
   "source: https://github.com/vim-airline/vim-airline-themes")
 
-(let ((normal-outer-foreground   "#A6B5C5") (normal-outer-background   "#1A2128")
-      (normal-inner-foreground   "#13AFAF") (normal-inner-background   "#1A2128")
-      (normal-center-foreground  "#A6B5C5") (normal-center-background  "#1A2128")
+(let ((normal-outer-foreground   "#abb2bf") (normal-outer-background   "#2c323c")
+      (normal-inner-foreground   "#abb2bf") (normal-inner-background   "#282c34")
+      (normal-center-foreground  "#abb2bf") (normal-center-background  "#2c323c")
 
-      (insert-outer-foreground   "#A6B5C5") (insert-outer-background   "#122202")
-      (insert-inner-foreground   "#13AFAF") (insert-inner-background   "#1A2128")
-      (insert-center-foreground  "#A6B5C5") (insert-center-background  "#1A2128")
+      (insert-outer-foreground   "#98c379") (insert-outer-background   "#3e4452")
+      (insert-inner-foreground   "#abb2bf") (insert-inner-background   "#282c34")
+      (insert-center-foreground  "#abb2bf") (insert-center-background  "#2c323c")
 
-      (visual-outer-foreground   "#141A1F") (visual-outer-background   "#A6B5C5")
-      (visual-inner-foreground   "#13AFAF") (visual-inner-background   "#1A2128")
-      (visual-center-foreground  "#A6B5C5") (visual-center-background  "#1A2128")
+      (visual-outer-foreground   "bg") (visual-outer-background   "#528bff")
+      (visual-inner-foreground   "#abb2bf") (visual-inner-background   "#282c34")
+      (visual-center-foreground  "#abb2bf") (visual-center-background  "#2c323c")
 
-      (replace-outer-foreground  "#A6B5C5") (replace-outer-background  "#031F3A")
-      (replace-inner-foreground  "#13AFAF") (replace-inner-background  "#1A2128")
-      (replace-center-foreground "#A6B5C5") (replace-center-background "#1A2128")
+      (replace-outer-foreground  "#d19a66") (replace-outer-background  "#3e4452")
+      (replace-inner-foreground  "#abb2bf") (replace-inner-background  "#282c34")
+      (replace-center-foreground "#abb2bf") (replace-center-background "#2c323c")
 
-      (emacs-outer-foreground    "#A6B5C5") (emacs-outer-background    "#1A2128")
-      (emacs-inner-foreground    "#13AFAF") (emacs-inner-background    "#1A2128")
-      (emacs-center-foreground   "#A6B5C5") (emacs-center-background   "#1A2128")
+      (emacs-outer-foreground    "#abb2bf") (emacs-outer-background    "#2c323c")
+      (emacs-inner-foreground    "#abb2bf") (emacs-inner-background    "#282c34")
+      (emacs-center-foreground   "#abb2bf") (emacs-center-background   "#2c323c")
 
-      (inactive1-foreground      "#A6B5C5") (inactive1-background      "#1A2128")
-      (inactive2-foreground      "#A6B5C5") (inactive2-background      "#1A2128")
-      (inactive3-foreground      "#A6B5C5") (inactive3-background      "#1A2128"))
+      (inactive1-foreground      "#282c34") (inactive1-background      "#5c6370")
+      (inactive2-foreground      "#282c34") (inactive2-background      "#5c6370")
+      (inactive3-foreground      "#282c34") (inactive3-background      "#5c6370"))
 
   (airline-themes-set-deftheme 'airline-lucius)
 

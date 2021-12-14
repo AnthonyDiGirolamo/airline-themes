@@ -6,11 +6,11 @@
 
 (let ((normal-outer-foreground   "#005f00") (normal-outer-background   "#afd700")
       (normal-inner-foreground   "#afd700") (normal-inner-background   "#005f00")
-      (normal-center-foreground  "#A6B5C5") (normal-center-background  "#1A2128")
+      (normal-center-foreground  "#abb2bf") (normal-center-background  "#2c323c")
 
       (insert-outer-foreground   "#ffffff") (insert-outer-background   "#e80000")
       (insert-inner-foreground   "#ff0000") (insert-inner-background   "#5f0000")
-      (insert-center-foreground  "#A6B5C5") (insert-center-background  "#1A2128")
+      (insert-center-foreground  "#abb2bf") (insert-center-background  "#2c323c")
 
       (visual-outer-foreground   "#0087ff") (visual-outer-background   "#ffffff")
       (visual-inner-foreground   "#005faf") (visual-inner-background   "#5fafff")
@@ -22,11 +22,11 @@
 
       (emacs-outer-foreground    "#005f00") (emacs-outer-background    "#afd700")
       (emacs-inner-foreground    "#afd700") (emacs-inner-background    "#005f00")
-      (emacs-center-foreground   "#A6B5C5") (emacs-center-background   "#1A2128")
+      (emacs-center-foreground   "#abb2bf") (emacs-center-background   "#2c323c")
 
-      (inactive1-foreground      "#A6B5C5") (inactive1-background      "#1A2128")
-      (inactive2-foreground      "#A6B5C5") (inactive2-background      "#1A2128")
-      (inactive3-foreground      "#A6B5C5") (inactive3-background      "#1A2128"))
+      (inactive1-foreground      "#282c34") (inactive1-background      "#5c6370")
+      (inactive2-foreground      "#282c34") (inactive2-background      "#5c6370")
+      (inactive3-foreground      "#282c34") (inactive3-background      "#5c6370"))
 
   (airline-themes-set-deftheme 'airline-kalisi)
 

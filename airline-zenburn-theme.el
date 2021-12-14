@@ -4,29 +4,29 @@
 (deftheme airline-zenburn
   "source: https://github.com/vim-airline/vim-airline-themes")
 
-(let ((normal-outer-foreground   "#141A1F") (normal-outer-background   "#13AFAF")
-      (normal-inner-foreground   "#13AFAF") (normal-inner-background   "#1A2128")
-      (normal-center-foreground  "#6B859E") (normal-center-background  "#141A1F")
+(let ((normal-outer-foreground   "#282c34") (normal-outer-background   "#abb2bf")
+      (normal-inner-foreground   "#abb2bf") (normal-inner-background   "#282c34")
+      (normal-center-foreground  "#5c6370") (normal-center-background  "#282c34")
 
-      (insert-outer-foreground   "#141A1F") (insert-outer-background   "#6ECFCF")
-      (insert-inner-foreground   "#6ECFCF") (insert-inner-background   "#1A2128")
-      (insert-center-foreground  "#6B859E") (insert-center-background  "#141A1F")
+      (insert-outer-foreground   "#282c34") (insert-outer-background   "#98c379")
+      (insert-inner-foreground   "#98c379") (insert-inner-background   "#282c34")
+      (insert-center-foreground  "#5c6370") (insert-center-background  "#282c34")
 
-      (visual-outer-foreground   "#141A1F") (visual-outer-background   "#EDA55D")
-      (visual-inner-foreground   "#EDA55D") (visual-inner-background   "#1A2128")
-      (visual-center-foreground  "#6B859E") (visual-center-background  "#141A1F")
+      (visual-outer-foreground   "#282c34") (visual-outer-background   "#e06c75")
+      (visual-inner-foreground   "#e06c75") (visual-inner-background   "#282c34")
+      (visual-center-foreground  "#5c6370") (visual-center-background  "#282c34")
 
-      (replace-outer-foreground  "#141A1F") (replace-outer-background  "#6B859E")
-      (replace-inner-foreground  "#6B859E") (replace-inner-background  "#1A2128")
-      (replace-center-foreground "#6B859E") (replace-center-background "#141A1F")
+      (replace-outer-foreground  "#282c34") (replace-outer-background  "#5c6370")
+      (replace-inner-foreground  "#5c6370") (replace-inner-background  "#282c34")
+      (replace-center-foreground "#5c6370") (replace-center-background "#282c34")
 
-      (emacs-outer-foreground    "#141A1F") (emacs-outer-background    "#13AFAF")
-      (emacs-inner-foreground    "#13AFAF") (emacs-inner-background    "#1A2128")
-      (emacs-center-foreground   "#6B859E") (emacs-center-background   "#141A1F")
+      (emacs-outer-foreground    "#282c34") (emacs-outer-background    "#abb2bf")
+      (emacs-inner-foreground    "#abb2bf") (emacs-inner-background    "#282c34")
+      (emacs-center-foreground   "#5c6370") (emacs-center-background   "#282c34")
 
-      (inactive1-foreground      "#6B859E") (inactive1-background      "#141A1F")
-      (inactive2-foreground      "#6B859E") (inactive2-background      "#141A1F")
-      (inactive3-foreground      "#6B859E") (inactive3-background      "#141A1F"))
+      (inactive1-foreground      "#5c6370") (inactive1-background      "#282c34")
+      (inactive2-foreground      "#5c6370") (inactive2-background      "#282c34")
+      (inactive3-foreground      "#5c6370") (inactive3-background      "#282c34"))
 
   (airline-themes-set-deftheme 'airline-zenburn)
 

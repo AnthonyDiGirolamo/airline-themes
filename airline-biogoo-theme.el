@@ -4,29 +4,29 @@
 (deftheme airline-biogoo
   "source: https://github.com/vim-airline/vim-airline-themes")
 
-(let ((normal-outer-foreground   "#141A1F") (normal-outer-background   "#13AFAF")
-      (normal-inner-foreground   "#13AFAF") (normal-inner-background   "#1A2128")
-      (normal-center-foreground  "#13AFAF") (normal-center-background  "#141A1F")
+(let ((normal-outer-foreground   "#2c323c") (normal-outer-background   "#61afef")
+      (normal-inner-foreground   "#61afef") (normal-inner-background   "#282c34")
+      (normal-center-foreground  "#61afef") (normal-center-background  "#2c323c")
 
-      (insert-outer-foreground   "#141A1F") (insert-outer-background   "#141A1F")
-      (insert-inner-foreground   "#13AFAF") (insert-inner-background   "#1A2128")
-      (insert-center-foreground  "#13AFAF") (insert-center-background  "#141A1F")
+      (insert-outer-foreground   "#2c323c") (insert-outer-background   "#2c323c")
+      (insert-inner-foreground   "#61afef") (insert-inner-background   "#282c34")
+      (insert-center-foreground  "#61afef") (insert-center-background  "#2c323c")
 
-      (visual-outer-foreground   "#141A1F") (visual-outer-background   "#EC5252")
-      (visual-inner-foreground   "#13AFAF") (visual-inner-background   "#1A2128")
-      (visual-center-foreground  "#13AFAF") (visual-center-background  "#141A1F")
+      (visual-outer-foreground   "#2c323c") (visual-outer-background   "#d19a66")
+      (visual-inner-foreground   "#61afef") (visual-inner-background   "#282c34")
+      (visual-center-foreground  "#61afef") (visual-center-background  "#2c323c")
 
-      (replace-outer-foreground  "#141A1F") (replace-outer-background  "#6ECFCF")
-      (replace-inner-foreground  "#13AFAF") (replace-inner-background  "#1A2128")
-      (replace-center-foreground "#13AFAF") (replace-center-background "#141A1F")
+      (replace-outer-foreground  "#2c323c") (replace-outer-background  "#98c379")
+      (replace-inner-foreground  "#61afef") (replace-inner-background  "#282c34")
+      (replace-center-foreground "#61afef") (replace-center-background "#2c323c")
 
-      (emacs-outer-foreground    "#141A1F") (emacs-outer-background    "#13AFAF")
-      (emacs-inner-foreground    "#13AFAF") (emacs-inner-background    "#1A2128")
-      (emacs-center-foreground   "#13AFAF") (emacs-center-background   "#141A1F")
+      (emacs-outer-foreground    "#2c323c") (emacs-outer-background    "#61afef")
+      (emacs-inner-foreground    "#61afef") (emacs-inner-background    "#282c34")
+      (emacs-center-foreground   "#61afef") (emacs-center-background   "#2c323c")
 
-      (inactive1-foreground      "#13AFAF") (inactive1-background      "#141A1F")
-      (inactive2-foreground      "#13AFAF") (inactive2-background      "#141A1F")
-      (inactive3-foreground      "#13AFAF") (inactive3-background      "#141A1F"))
+      (inactive1-foreground      "#2c323c") (inactive1-background      "#2c323c")
+      (inactive2-foreground      "#2c323c") (inactive2-background      "#2c323c")
+      (inactive3-foreground      "#2c323c") (inactive3-background      "#2c323c"))
 
   (airline-themes-set-deftheme 'airline-biogoo)
 
