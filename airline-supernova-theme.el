@@ -4,29 +4,29 @@
 (deftheme airline-supernova
   "source: https://github.com/vim-airline/vim-airline-themes")
 
-(let ((normal-outer-foreground   "#585858") (normal-outer-background   "#e4e4e4")
-      (normal-inner-foreground   "#e4e4e4") (normal-inner-background   "#242e33")
-      (normal-center-foreground  "#eeeeee") (normal-center-background  "#1D2529")
+(let ((normal-outer-foreground   "#262626") (normal-outer-background   "#5FAFAF")
+      (normal-inner-foreground   "#D0D0D0") (normal-inner-background   "#585858")
+      (normal-center-foreground  "#A8A8A8") (normal-center-background  "#262626")
 
-      (insert-outer-foreground   "#585858") (insert-outer-background   "#e4e4e4")
-      (insert-inner-foreground   "#e4e4e4") (insert-inner-background   "#242e33")
-      (insert-center-foreground  "#eeeeee") (insert-center-background  "#1D2529")
+      (insert-outer-foreground   "#E4E4E4") (insert-outer-background   "#5F0087")
+      (insert-inner-foreground   "#D0D0D0") (insert-inner-background   "#585858")
+      (insert-center-foreground  "#A8A8A8") (insert-center-background  "#262626")
 
-      (visual-outer-foreground   "#1D2529") (visual-outer-background   "#e4e4e4")
-      (visual-inner-foreground   "#e4e4e4") (visual-inner-background   "#242e33")
-      (visual-center-foreground  "#e4e4e4") (visual-center-background  "#1D2529")
+      (visual-outer-foreground   "#262626") (visual-outer-background   "#0087D7")
+      (visual-inner-foreground   "#D0D0D0") (visual-inner-background   "#585858")
+      (visual-center-foreground  "#A8A8A8") (visual-center-background  "#262626")
 
-      (replace-outer-foreground  "#d7005f") (replace-outer-background  "#e4e4e4")
-      (replace-inner-foreground  "#e4e4e4") (replace-inner-background  "#242e33")
-      (replace-center-foreground "#eeeeee") (replace-center-background "#1D2529")
+      (replace-outer-foreground  "#E4E4E4") (replace-outer-background  "#87005F")
+      (replace-inner-foreground  "#D0D0D0") (replace-inner-background  "#585858")
+      (replace-center-foreground "#A8A8A8") (replace-center-background "#262626")
 
-      (emacs-outer-foreground    "#585858") (emacs-outer-background    "#e4e4e4")
-      (emacs-inner-foreground    "#e4e4e4") (emacs-inner-background    "#242e33")
-      (emacs-center-foreground   "#eeeeee") (emacs-center-background   "#1D2529")
+      (emacs-outer-foreground    "#262626") (emacs-outer-background    "#5FAFAF")
+      (emacs-inner-foreground    "#D0D0D0") (emacs-inner-background    "#585858")
+      (emacs-center-foreground   "#A8A8A8") (emacs-center-background   "#262626")
 
-      (inactive1-foreground      "#585858") (inactive1-background      "#e4e4e4")
-      (inactive2-foreground      "#585858") (inactive2-background      "#e4e4e4")
-      (inactive3-foreground      "#e4e4e4") (inactive3-background      "#242e33"))
+      (inactive1-foreground      "#D0D0D0") (inactive1-background      "#444444")
+      (inactive2-foreground      "#D0D0D0") (inactive2-background      "#444444")
+      (inactive3-foreground      "#D0D0D0") (inactive3-background      "#585858"))
 
   (airline-themes-set-deftheme 'airline-supernova)
 

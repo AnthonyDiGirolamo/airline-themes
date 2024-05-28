@@ -10,15 +10,15 @@
 
       (insert-outer-foreground   "#ffffff") (insert-outer-background   "#437019")
       (insert-inner-foreground   "#ffffff") (insert-inner-background   "#262626")
-      (insert-center-foreground  "#ffffff") (insert-center-background  "#262626")
+      (insert-center-foreground  "#ffffff") (insert-center-background  "#151515")
 
       (visual-outer-foreground   "#ffffff") (visual-outer-background   "#870000")
       (visual-inner-foreground   "#ffffff") (visual-inner-background   "#262626")
-      (visual-center-foreground  "#ffffff") (visual-center-background  "#262626")
+      (visual-center-foreground  "#ffffff") (visual-center-background  "#151515")
 
-      (replace-outer-foreground  "#870000") (replace-outer-background  "#262626")
+      (replace-outer-foreground  "#870000") (replace-outer-background  "#151515")
       (replace-inner-foreground  "#ffffff") (replace-inner-background  "#262626")
-      (replace-center-foreground "#ffffff") (replace-center-background "#262626")
+      (replace-center-foreground "#ffffff") (replace-center-background "#151515")
 
       (emacs-outer-foreground    "#d8dee9") (emacs-outer-background    "#0d61ac")
       (emacs-inner-foreground    "#ffffff") (emacs-inner-background    "#262626")

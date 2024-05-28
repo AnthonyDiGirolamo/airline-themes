@@ -12,7 +12,7 @@
       (insert-inner-foreground   "#abb2bf") (insert-inner-background   "#282c34")
       (insert-center-foreground  "#abb2bf") (insert-center-background  "#2c323c")
 
-      (visual-outer-foreground   "bg") (visual-outer-background   "#528bff")
+      (visual-outer-foreground   "#abb2bf") (visual-outer-background   "#528bff")
       (visual-inner-foreground   "#abb2bf") (visual-inner-background   "#282c34")
       (visual-center-foreground  "#abb2bf") (visual-center-background  "#2c323c")
 
